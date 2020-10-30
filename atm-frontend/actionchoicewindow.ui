@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ActionChoiceWindow</class>
+ <widget class="QWidget" name="ActionChoiceWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="pushButtonBalance">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>260</y>
+     <width>130</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>SALDO</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonTransactions">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>330</y>
+     <width>130</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TILITAPAHTUMAT</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonWithdrawal">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>50</y>
+     <width>130</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>NOSTO</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonDeposit">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>120</y>
+     <width>130</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TALLETUS</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonTransfer">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>190</y>
+     <width>130</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>TILISIIRTO</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

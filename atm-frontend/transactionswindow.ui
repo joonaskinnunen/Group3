@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>TransactionsWindow</class>
+ <widget class="QWidget" name="TransactionsWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="labelTransactionsTitle">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>39</y>
+     <width>251</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>19</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>Tilitapahtumat</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonExit">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>390</y>
+     <width>101</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>LOPETA</string>
+   </property>
+  </widget>
+  <widget class="QTableView" name="tableViewTransactions">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>110</y>
+     <width>600</width>
+     <height>251</height>
+    </rect>
+   </property>
+   <attribute name="horizontalHeaderDefaultSectionSize">
+    <number>180</number>
+   </attribute>
+  </widget>
+  <widget class="QLabel" name="labelCardId">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>90</y>
+     <width>261</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Kortti ID:</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,0 +1,13 @@
+debug/accountchoicewindow.o
+debug/actionchoicewindow.o
+debug/balancewindow.o
+debug/exitwindow.o
+debug/main.o
+debug/mainwindow.o
+debug/transactionswindow.o
+debug/moc_accountchoicewindow.o
+debug/moc_actionchoicewindow.o
+debug/moc_balancewindow.o
+debug/moc_exitwindow.o
+debug/moc_mainwindow.o
+debug/moc_transactionswindow.o

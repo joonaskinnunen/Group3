@@ -41,7 +41,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         lineEditId = new QLineEdit(centralwidget);
         lineEditId->setObjectName(QString::fromUtf8("lineEditId"));
-        lineEditId->setGeometry(QRect(300, 230, 181, 31));
+        lineEditId->setGeometry(QRect(290, 230, 191, 31));
         QFont font;
         font.setPointSize(13);
         lineEditId->setFont(font);

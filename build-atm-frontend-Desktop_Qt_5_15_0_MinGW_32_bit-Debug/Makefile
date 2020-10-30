@@ -222,6 +222,7 @@ Makefile: ../atm-frontend/atm-frontend.pro ../../../../Qt/5.15.0/mingw81_32/mksp
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/win32-g++/qmake.conf \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/toolchain.prf \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/default_pre.prf \
@@ -250,7 +251,6 @@ Makefile: ../atm-frontend/atm-frontend.pro ../../../../Qt/5.15.0/mingw81_32/mksp
 		../../../../Qt/5.15.0/mingw81_32/lib/Qt5Gui.prl \
 		../../../../Qt/5.15.0/mingw81_32/lib/Qt5Core.prl \
 		../../../../Qt/5.15.0/mingw81_32/lib/qtmain.prl \
-		.qmake.stash \
 		../../../../Qt/5.15.0/mingw81_32/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile ..\atm-frontend\atm-frontend.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/spec_pre.prf:
@@ -405,6 +405,7 @@ Makefile: ../atm-frontend/atm-frontend.pro ../../../../Qt/5.15.0/mingw81_32/mksp
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/win32-g++/qmake.conf:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/toolchain.prf:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/default_pre.prf:
@@ -433,7 +434,6 @@ Makefile: ../atm-frontend/atm-frontend.pro ../../../../Qt/5.15.0/mingw81_32/mksp
 ../../../../Qt/5.15.0/mingw81_32/lib/Qt5Gui.prl:
 ../../../../Qt/5.15.0/mingw81_32/lib/Qt5Core.prl:
 ../../../../Qt/5.15.0/mingw81_32/lib/qtmain.prl:
-.qmake.stash:
 ../../../../Qt/5.15.0/mingw81_32/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile ..\atm-frontend\atm-frontend.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

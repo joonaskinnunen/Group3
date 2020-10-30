@@ -1,0 +1,13 @@
+release/accountchoicewindow.o
+release/actionchoicewindow.o
+release/balancewindow.o
+release/exitwindow.o
+release/main.o
+release/mainwindow.o
+release/transactionswindow.o
+release/moc_accountchoicewindow.o
+release/moc_actionchoicewindow.o
+release/moc_balancewindow.o
+release/moc_exitwindow.o
+release/moc_mainwindow.o
+release/moc_transactionswindow.o
