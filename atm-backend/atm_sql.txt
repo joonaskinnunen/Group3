@@ -1,0 +1,45 @@
+CREATE DATABASE atm;
+USE atm;
+
+CREATE TABLE c_account(
+    ca_id INT PRIMARY KEY,
+    balance DOUBLE(12,2),
+    c_limit INT NOT NULL
+);
+
+CREATE TABLE d_account(
+    da_id INT PRIMARY KEY,
+    balance DOUBLE(12,2)
+);
+
+CREATE TABLE transaction(
+    tr_id INT PRIMARY KEY,
+    acc_id INT,
+    amount DOUBLE(12,2),
+    time TIMESTAMP 
+);
+
+CREATE TABLE card(
+    card_id INT PRIMARY KEY,
+    pin INT NOT NULL,
+    owner VARCHAR(25) NOT NULL,
+    da_id INT NOT NULL,
+    ca_id INT,
+    FOREIGN KEY(ca_id) REFERENCES c_account (ca_id),
+    FOREIGN KEY(da_id) REFERENCES d_account (da_id)
+);
+
+INSERT INTO c_account (ca_id,balance,c_limit) VALUES (67890,-245.56,5000);
+INSERT INTO c_account (ca_id,balance,c_limit) VALUES (32109,0,3000);
+INSERT INTO c_account (ca_id,balance,c_limit) VALUES (34567,-1903.25,2000);
+
+INSERT INTO d_account (da_id,balance) VALUES (87654,100945.66);
+INSERT INTO d_account (da_id,balance) VALUES (76543,666);
+INSERT INTO d_account (da_id,balance) VALUES (12345,10945.76);
+INSERT INTO d_account (da_id,balance) VALUES (79865,44.06);
+
+INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (11000,0000,'Erkki Esimerkki',12345,67890);
+INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (12000,4321,'Maija Mehu',87654,32109);
+INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (13000,8765,'Kauno Kuukap',76543,34567);
+INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (14000,1234,'Sirkka Esimerkki',12345,67890);
+INSERT INTO card (card_id,pin,owner,da_id) VALUES (15000,8766,'Timo Silakka',79865);
