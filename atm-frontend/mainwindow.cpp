@@ -1,3 +1,4 @@
+#include "accountchoicewindow.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
@@ -13,3 +14,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_pushButtonLogin_clicked()
+{
+    hide();
+    AccountChoiceWindow *acw = new AccountChoiceWindow();
+    acw->show();
+}

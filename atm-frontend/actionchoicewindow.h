@@ -15,6 +15,9 @@ public:
     explicit ActionChoiceWindow(QWidget *parent = nullptr);
     ~ActionChoiceWindow();
 
+private slots:
+    void on_pushButtonWithdrawal_clicked();
+
 private:
     Ui::ActionChoiceWindow *ui;
 };
