@@ -15,6 +15,11 @@ public:
     explicit AccountChoiceWindow(QWidget *parent = nullptr);
     ~AccountChoiceWindow();
 
+private slots:
+    void on_pushButtonDebit_clicked();
+
+    void on_pushButtonCredit_clicked();
+
 private:
     Ui::AccountChoiceWindow *ui;
 };

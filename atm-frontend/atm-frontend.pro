@@ -16,7 +16,8 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    transactionswindow.cpp
+    transactionswindow.cpp \
+    withdrawalwindow.cpp
 
 HEADERS += \
     accountchoicewindow.h \
@@ -25,7 +26,8 @@ HEADERS += \
     exitwindow.h \
     login.h \
     mainwindow.h \
-    transactionswindow.h
+    transactionswindow.h \
+    withdrawalwindow.h
 
 FORMS += \
     accountchoicewindow.ui \
@@ -34,7 +36,8 @@ FORMS += \
     exitwindow.ui \
     login.ui \
     mainwindow.ui \
-    transactionswindow.ui
+    transactionswindow.ui \
+    withdrawalwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

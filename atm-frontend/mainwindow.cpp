@@ -1,3 +1,4 @@
+#include "accountchoicewindow.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "httplibrary.h"
@@ -36,5 +37,4 @@ void MainWindow::on_pushButtonLogin_clicked()
         this->close();
     }
     this->ui->labelErrorMessage->setText("Tiliä ei löydy!");
-
 }
