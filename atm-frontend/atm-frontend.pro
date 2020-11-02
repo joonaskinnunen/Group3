@@ -13,6 +13,7 @@ SOURCES += \
     actionchoicewindow.cpp \
     balancewindow.cpp \
     exitwindow.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     transactionswindow.cpp
@@ -22,6 +23,7 @@ HEADERS += \
     actionchoicewindow.h \
     balancewindow.h \
     exitwindow.h \
+    login.h \
     mainwindow.h \
     transactionswindow.h
 
@@ -30,6 +32,7 @@ FORMS += \
     actionchoicewindow.ui \
     balancewindow.ui \
     exitwindow.ui \
+    login.ui \
     mainwindow.ui \
     transactionswindow.ui
 
@@ -37,3 +40,13 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+macx: LIBS += -L$$PWD/./Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/ -lhttpLibrary.1.0.0
+
+INCLUDEPATH += $$PWD/./Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug
+DEPENDPATH += $$PWD/./Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug
+
+win32: LIBS += -L$$PWD/./Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/ -lhttpLibrary.1.0.0
+
+INCLUDEPATH += $$PWD/./Libraries/httpLibrary
+DEPENDPATH += $$PWD/./Libraries/httpLibrary
