@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const creditAccountSchema = new mongoose.Schema({
   balance: {
     type: Number,
+    creditLimit: Number,
     required: true
 }})
 

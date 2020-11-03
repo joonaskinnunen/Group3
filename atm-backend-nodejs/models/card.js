@@ -1,10 +1,12 @@
 const mongoose = require('mongoose')
+const uniqueValidator = require('mongoose-unique-validator')
 
 const cardSchema = new mongoose.Schema({
   cardId: {
-    type: String,
+    type: Number,
     minlength: 4,
-    required: true
+    required: true,
+    unique: true
   },
   owner: {
     type: String,
@@ -30,6 +32,7 @@ cardSchema.set('toJSON', {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id
     delete returnedObject.__v
+    delete returnedObject.passwordHash
   }
 })
 
