@@ -21,15 +21,10 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonLogin_clicked()
 {
-    QString cardFound;
+    QString cardFound = "false";
 
     QString cardId = this->ui->lineEditId->text();
     HttpLibrary *hl = new HttpLibrary;
-    if(hl->checkCard(cardId)){
-        cardFound = "true";
-    }
-      cardFound = "false";
-    qDebug()<<"cardId found from db: "+ cardFound;
 
     if(hl->checkCard(cardId)) {
         Login *login = new Login(cardId);
