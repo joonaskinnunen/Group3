@@ -1,0 +1,12 @@
+#ifndef HTTPLIBRARY_GLOBAL_H
+#define HTTPLIBRARY_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(HTTPLIBRARY_LIBRARY)
+#  define HTTPLIBRARY_EXPORT Q_DECL_EXPORT
+#else
+#  define HTTPLIBRARY_EXPORT Q_DECL_IMPORT
+#endif
+
+#endif // HTTPLIBRARY_GLOBAL_H
