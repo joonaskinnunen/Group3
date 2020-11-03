@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://192.168.64.2/ci_restapi/';
+$config['base_url'] = 'https://www.students.oamk.fi/~t9tees00/ohjelmistoprojekti/Group3/atm-backend/';
 
 /*
 |--------------------------------------------------------------------------
