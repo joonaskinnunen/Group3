@@ -8,6 +8,7 @@ bool HttpLibrary::checkPin(QString loginCardId, QString loginPin)
 {
     QNetworkRequest request(QUrl(url + "login/check_login/?card_id="+loginCardId+"&pin="+loginPin));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        qDebug()<<"request URL: "+ url + "login/check_login/?card_id="+loginCardId+"&pin="+loginPin;
         //Authenticate
         QString username="ci_user";
         QString password="ci_pass";
@@ -24,7 +25,7 @@ bool HttpLibrary::checkPin(QString loginCardId, QString loginPin)
         }
         QByteArray response_data = reply->readAll();
 
-        qDebug()<<"DATA:"+response_data;
+        qDebug()<<"DATATA:"+response_data;
 
         reply->deleteLater();
 
