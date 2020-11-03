@@ -3,19 +3,27 @@
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <qjsondocument.h>
+#include <QDebug>
+
+QString HttpLibrary::authenticate()
+{
+    //Authenticate
+    QString headerData;
+    QString username="ci_user";
+    QString password="ci_pass";
+    QString concatenatedCredentials = username + ":" + password;
+       QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
+       return headerData = "Basic " + data;
+}
 
 bool HttpLibrary::checkPin(QString loginCardId, QString loginPin)
 {
     QNetworkRequest request(QUrl(url + "login/check_login/?card_id="+loginCardId+"&pin="+loginPin));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+
+        //Debuggausta
         qDebug()<<"request URL: "+ url + "login/check_login/?card_id="+loginCardId+"&pin="+loginPin;
-        //Authenticate
-        QString username="ci_user";
-        QString password="ci_pass";
-        QString concatenatedCredentials = username + ":" + password;
-           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
-           QString headerData = "Basic " + data;
-           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
 
         QNetworkAccessManager nam;
         QNetworkReply *reply = nam.get(request);
@@ -25,6 +33,7 @@ bool HttpLibrary::checkPin(QString loginCardId, QString loginPin)
         }
         QByteArray response_data = reply->readAll();
 
+        //Debuggausta
         qDebug()<<"DATATA:"+response_data;
 
         reply->deleteLater();
@@ -41,13 +50,7 @@ bool HttpLibrary::checkCard(QString loginCardId)
 {
     QNetworkRequest request(QUrl(url + "card/card"));
         request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-        //Authenticate
-        QString username="ci_user";
-        QString password="ci_pass";
-        QString concatenatedCredentials = username + ":" + password;
-           QByteArray data = concatenatedCredentials.toLocal8Bit().toBase64();
-           QString headerData = "Basic " + data;
-           request.setRawHeader( "Authorization", headerData.toLocal8Bit() );
+        request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
 
         QNetworkAccessManager nam;
         QNetworkReply *reply = nam.get(request);
