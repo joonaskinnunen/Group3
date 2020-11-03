@@ -97,7 +97,7 @@
 
         <ol>
             <li><a href="<?php echo site_url('api/debit/debit'); ?>">Debit Account</a> - defaulting to JSON</li>
-            <li><a href="<?php echo site_url('api/book/book'); ?>">book</a> - defaulting to JSON</li>
+            <li><a href="<?php echo site_url('api/book'); ?>">book</a> - defaulting to JSON</li>
             <li><a href="<?php echo site_url('api/book/book/format/csv'); ?>">book</a> - get it in CSV</li>
             <li><a href="<?php echo site_url('api/book/book/id/1'); ?>">Book #1</a> - defaulting to JSON  (book/id/1)</li>
             <li><a href="<?php echo site_url('api/book/book/1'); ?>">Book #1</a> - defaulting to JSON  (book/1)</li>

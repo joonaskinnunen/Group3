@@ -21,7 +21,7 @@ CREATE TABLE transaction(
 
 CREATE TABLE card(
     card_id INT PRIMARY KEY,
-    pin INT NOT NULL,
+    pin VARCHAR(255) NOT NULL,
     owner VARCHAR(25) NOT NULL,
     da_id INT NOT NULL,
     ca_id INT,
