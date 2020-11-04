@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -20,5 +22,6 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 #endif // MAINWINDOW_H

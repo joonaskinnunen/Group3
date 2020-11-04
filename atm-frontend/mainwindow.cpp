@@ -25,8 +25,8 @@ void MainWindow::on_pushButtonLogin_clicked()
 
     QString cardId = this->ui->lineEditId->text();
     HttpLibrary *hl = new HttpLibrary;
-
-    if(hl->checkCard(cardId)) {
+    qDebug()<< hl->checkCard(cardId);
+    if(!hl->checkCard(cardId).isEmpty()) {
         Login *login = new Login(cardId);
         login->show();
         this->close();

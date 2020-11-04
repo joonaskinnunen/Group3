@@ -12,6 +12,7 @@ SOURCES += \
     accountchoicewindow.cpp \
     actionchoicewindow.cpp \
     balancewindow.cpp \
+    cardsingleton.cpp \
     exitwindow.cpp \
     login.cpp \
     main.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     accountchoicewindow.h \
     actionchoicewindow.h \
     balancewindow.h \
+    cardsingleton.h \
     exitwindow.h \
     login.h \
     mainwindow.h \
