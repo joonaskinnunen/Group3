@@ -7,7 +7,7 @@ const creditAccountSchema = new mongoose.Schema({
     required: true
 }})
 
-debitAccountSchema.set('toJSON', {
+creditAccountSchema.set('toJSON', {
   transform: (document, returnedObject) => {
     returnedObject.id = returnedObject._id.toString()
     delete returnedObject._id

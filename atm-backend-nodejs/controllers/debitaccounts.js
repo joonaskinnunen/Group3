@@ -10,7 +10,8 @@ debitAccountsRouter.post('/', async (request, response) => {
   const body = request.body
 
   const account = new DebitAccount({
-    balance: body.balance,
+    accountId: body.accountId,
+    balance: body.balance
   })
 
   const savedAccount = await account.save()

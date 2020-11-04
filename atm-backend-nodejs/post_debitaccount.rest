@@ -1,0 +1,5 @@
+POST http://localhost:3001/api/debitaccounts
+{
+    "accountId": 2002,
+    "balance": 8000
+}
