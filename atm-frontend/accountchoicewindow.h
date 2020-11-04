@@ -1,6 +1,8 @@
 #ifndef ACCOUNTCHOICEWINDOW_H
 #define ACCOUNTCHOICEWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -22,6 +24,7 @@ private slots:
 
 private:
     Ui::AccountChoiceWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // ACCOUNTCHOICEWINDOW_H

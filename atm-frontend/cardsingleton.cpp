@@ -1,5 +1,7 @@
 #include "cardsingleton.h"
 
+#include <QString>
+
 CardSingleton* CardSingleton::instance = nullptr;
 
 int CardSingleton::getDaId() const
@@ -22,12 +24,12 @@ void CardSingleton::setCaId(int value)
     caId = value;
 }
 
-int CardSingleton::getCardId() const
+QString CardSingleton::getCardId() const
 {
     return cardId;
 }
 
-void CardSingleton::setCardId(int value)
+void CardSingleton::setCardId(QString value)
 {
     cardId = value;
 }
@@ -70,6 +72,34 @@ QString CardSingleton::getOwner() const
 void CardSingleton::setOwner(const QString &value)
 {
     owner = value;
+}
+
+bool CardSingleton::getIsCreditSelected() const
+{
+    return isCreditSelected;
+}
+
+void CardSingleton::setIsCreditSelected(bool value)
+{
+    isCreditSelected = value;
+}
+
+QString CardSingleton::makeWithdrawal(int amount)
+{
+    if(this->isCreditSelected) {
+        if(this->getCaBalance() > amount) {
+            this->setCaBalance(this->caBalance - amount);
+            return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance) + "€";
+        } else {
+            return "Nosto epäonnistui! Tilin luottoraja ei riitä noston tekemiseen. Luottoa käytettävissä: " + QString::number(this->getCaBalance()) + "€";
+        }
+    }
+    if(this->getDaBalance() > amount) {
+        this->setDaBalance(this->daBalance - amount);
+        return "Nosto onnistui! Tilin saldo: " + QString::number(this->getCaBalance()) + "€";
+    } else {
+        return "Nosto epäonnistui! Tilin saldo ei riitä noston tekemiseen. Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance) + "€";
+    }
 }
 
 CardSingleton* CardSingleton::getInstance()

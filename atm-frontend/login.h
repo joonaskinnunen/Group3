@@ -2,6 +2,7 @@
 #define LOGIN_H
 
 #include <QWidget>
+#include "cardsingleton.h"
 #include "httplibrary.h"
 
 namespace Ui {
@@ -13,7 +14,7 @@ class Login : public QWidget
     Q_OBJECT
 
 public:
-    explicit Login(QString cardId, QWidget *parent = nullptr);
+    explicit Login(QWidget *parent = nullptr);
     ~Login();
 
 private slots:
@@ -21,6 +22,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // LOGIN_H
