@@ -13,6 +13,8 @@ private:
 public:
     bool checkPin(QString loginCardId, QString loginPin);
     bool checkCard(QString loginCardId);
+    bool debitTransaction(QString amount, QString da_id);
+    bool creditTransaction(QString amount, QString ca_id);
     HttpLibrary();
 };
 
