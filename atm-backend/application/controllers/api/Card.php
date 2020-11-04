@@ -8,7 +8,7 @@ require APPPATH . 'libraries/REST_Controller.php';
 
 /**
  * This is an example of a RestApi based on PHP and CodeIgniter 3.
- * 
+ *
  *
  * @package         CodeIgniter
  * @subpackage      Rest Server
@@ -32,15 +32,15 @@ class Card extends REST_Controller {
 
     public function card_get()
     {
-        // book from a data store e.g. database  
+        // card from a data store e.g. database
 
         $id = $this->get('id');
 
-        // If the id parameter doesn't exist return all books
+        // If the id parameter doesn't exist return all users
         if ($id === NULL)
         {
             $card=$this->Card_model->get_card(NULL);
-            // Check if the db contains card (in case the database result returns NULL)
+            // Check if the card data store contains card (in case the database result returns NULL)
             if ($card)
             {
                 // Set the response and exit
@@ -51,7 +51,7 @@ class Card extends REST_Controller {
                 // Set the response and exit
                 $this->response([
                     'status' => FALSE,
-                    'message' => 'No card was found'
+                    'message' => 'No card were found'
                 ], REST_Controller::HTTP_NOT_FOUND); // NOT_FOUND (404) being the HTTP response code
             }
         }
@@ -85,17 +85,24 @@ class Card extends REST_Controller {
     public function card_post()
     {
         // Add a new card
+        $clear_pin=$this->post('pin');
+        $encrypted_pin = password_hash($clear_pin,PASSWORD_DEFAULT);
         $add_data=array(
           'card_id'=>$this->post('card_id'),
-          'balance'=>$this->post('balance')
+          'pin'=>$encrypted_pin,
+          'owner'=>$this->post('owner'),
+          'da_id'=>$this->post('da_id'),
+          'ca_id'=>$this->post('ca_id')
         );
-        $insert_id=$this->Card_model->add_debit($add_data);
+        $insert_id=$this->Card_model->add_card($add_data);
         if($insert_id)
         {
             $message = [
-              //  'id_book' => $insert_id,
-                'card_id'=>$this->post('card_id'),
-                'balance'=>$this->post('balance'),
+                'card_id' => $this->post('card_id'),
+                'pin' => $this->post('pin'),
+                'owner' => $this->post('owner'),
+                'da_id'=>$this->post('da_id'),
+                'ca_id'=>$this->post('ca_id'),
                 'message' => 'Added a resource'
             ];
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
@@ -114,31 +121,40 @@ class Card extends REST_Controller {
     {
         // Update the card
         $id=$this->get('id');
+        $clear_pin=$this->put('pin');
+        $encrypted_pin = password_hash($clear_pin,PASSWORD_DEFAULT);
         $update_data=array(
-            // 'card_id'=>$this->put('card_id'),
-            'balance'=>$this->put('balance')
+            'pin'=>$encrypted_pin,
+            'owner'=>$this->put('owner'),
+            'da_id'=>$this->put('da_id'),
+            'ca_id'=>$this->put('ca_id')
         );
         $result=$this->Card_model->update_card($id, $update_data);
 
         if($result)
         {
-            $message = [
-              //  'id_book' => $id,
-                'card_id'=>$id,
-                'balance'=>$this->put('balance'),
-                'message' => 'Updated a resource'
-            ];
+          $message = [
+            'card_id' => $id,
+            'owner'=>$this->put('owner'),
+            'pin'=>$encrypted_pin,
+            'da_id'=>$this->put('da_id'),
+            'ca_id'=>$this->put('ca_id'),
+            'message' => 'Updated a resource'
+          ];
 
             $this->set_response($message, REST_Controller::HTTP_CREATED); // CREATED (201) being the HTTP response code
         }
-        else 
+        else
         {
             // Set the response and exit
             $this->response([
+                'card_id' => $id,
+                'owner'=>$this->put('owner'),
+                'pin'=>$encrypted_pin,
+                'da_id'=>$this->put('da_id'),
+                'ca_id'=>$this->put('ca_id'),
                 'status' => FALSE,
-                'message' => 'Can not update data',
-                'id' => $id,
-                'balance' => $this->put('balance')
+                'message' => 'Can not update data'
             ], REST_Controller::HTTP_CONFLICT); // CAN NOT CREATE (409) being the HTTP response code
         }
     }
