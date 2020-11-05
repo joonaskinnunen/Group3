@@ -12,8 +12,11 @@ class ExitWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit ExitWindow(QWidget *parent = nullptr);
+    explicit ExitWindow(QString message, QWidget *parent = nullptr);
     ~ExitWindow();
+
+private slots:
+    void on_pushButtonExit_clicked();
 
 private:
     Ui::ExitWindow *ui;

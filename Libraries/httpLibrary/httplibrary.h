@@ -3,6 +3,7 @@
 
 #include "httpLibrary_global.h"
 
+#include <QJsonObject>
 #include <QString>
 
 class HTTPLIBRARY_EXPORT HttpLibrary
@@ -12,7 +13,7 @@ private:
     QString authenticate();
 public:
     bool checkPin(QString loginCardId, QString loginPin);
-    bool checkCard(QString loginCardId);
+    QJsonObject checkCard(QString loginCardId);
     bool debitTransaction(QString amount, QString da_id);
     bool creditTransaction(QString amount, QString ca_id);
     HttpLibrary();

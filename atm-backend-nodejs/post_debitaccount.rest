@@ -1,4 +1,6 @@
-POST http://localhost:3001/api/debitaccounts
+post http://localhost:3001/api/debitaccounts/
+Content-Type: application/json
+
 {
     "accountId": 2002,
     "balance": 8000

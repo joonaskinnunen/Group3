@@ -21,15 +21,24 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButtonLogin_clicked()
 {
-    QString cardFound = "false";
-
     QString cardId = this->ui->lineEditId->text();
     HttpLibrary *hl = new HttpLibrary;
-
-    if(hl->checkCard(cardId)) {
-        Login *login = new Login(cardId);
+  //  qDebug()<< hl->checkCard(cardId);
+    QJsonObject cardObj = hl->checkCard(cardId);
+ //   qDebug()<< "\n" << cardObj["card_id"].toString().toInt() << "\n";
+    if(!cardObj.isEmpty()) {
+        cs->setCardId(cardObj["card_id"].toString().toInt());
+        cs->setCaId(cardObj["ca_id"].toString().toInt());
+        cs->setDaId(cardObj["da_id"].toString().toInt());
+        cs->setCaBalance(cardObj["c_balance"].toString().toDouble());
+        cs->setDaBalance(cardObj["d_balance"].toString().toDouble());
+        cs->setOwner(cardObj["owner"].toString());
+        cs->setCaLimit(cardObj["c_limit"].toString().toInt());
+        qDebug()<< "\nkortti id:" << cs->getCardId();
+        Login *login = new Login();
         login->show();
         this->close();
     }
-    this->ui->labelErrorMessage->setText("Tiliä ei löydy!");
+    ui->labelErrorMessage->setStyleSheet("QLabel { color : red; }");
+    ui->labelErrorMessage->setText("Tiliä ei löydy!");
 }

@@ -23,6 +23,7 @@ void AccountChoiceWindow::on_pushButtonDebit_clicked()
 
 void AccountChoiceWindow::on_pushButtonCredit_clicked()
 {
+    cs->setIsCreditSelected(true);
     hide();
     ActionChoiceWindow *acwf = new ActionChoiceWindow();
     acwf->show();

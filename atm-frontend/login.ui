@@ -50,7 +50,7 @@
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="labelTest">
+  <widget class="QLabel" name="labelTitle">
    <property name="geometry">
     <rect>
      <x>100</x>
@@ -84,7 +84,7 @@
     <string>CONTINUE</string>
    </property>
   </widget>
-  <widget class="QLabel" name="labelTest_2">
+  <widget class="QLabel" name="labelTitle2">
    <property name="geometry">
     <rect>
      <x>100</x>
