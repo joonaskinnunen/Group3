@@ -13,6 +13,7 @@ SOURCES += \
     actionchoicewindow.cpp \
     balancewindow.cpp \
     cardsingleton.cpp \
+    depositwindow.cpp \
     exitwindow.cpp \
     login.cpp \
     main.cpp \
@@ -25,6 +26,7 @@ HEADERS += \
     actionchoicewindow.h \
     balancewindow.h \
     cardsingleton.h \
+    depositwindow.h \
     exitwindow.h \
     login.h \
     mainwindow.h \
@@ -35,6 +37,7 @@ FORMS += \
     accountchoicewindow.ui \
     actionchoicewindow.ui \
     balancewindow.ui \
+    depositwindow.ui \
     exitwindow.ui \
     login.ui \
     mainwindow.ui \

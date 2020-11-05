@@ -15,6 +15,9 @@ public:
     explicit TransactionsWindow(QWidget *parent = nullptr);
     ~TransactionsWindow();
 
+private slots:
+    void on_pushButtonExit_clicked();
+
 private:
     Ui::TransactionsWindow *ui;
 };
