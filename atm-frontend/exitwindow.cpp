@@ -8,6 +8,8 @@ ExitWindow::ExitWindow(QString message, QWidget *parent) :
 {
     ui->setupUi(this);
     ui->labelMessage->setStyleSheet("QLabel {color: green; }");
+    QString msgColor = message.contains("epäonnistui") ? "red" : "green";
+    ui->labelMessage->setStyleSheet("QLabel {color: " + msgColor + "; }");
     ui->labelMessage->setText(message);
 }
 

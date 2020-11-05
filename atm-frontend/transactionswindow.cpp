@@ -12,3 +12,8 @@ TransactionsWindow::~TransactionsWindow()
 {
     delete ui;
 }
+
+void TransactionsWindow::on_pushButtonExit_clicked()
+{
+    this->close();
+}
