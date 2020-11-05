@@ -20,6 +20,14 @@ public:
 private slots:
     void on_pushButtonTwenty_clicked();
 
+    void on_pushButtonFourty_clicked();
+
+    void on_pushButtonFifty_clicked();
+
+    void on_pushButtonHundred_clicked();
+
+    void on_pushButtonWdCustomAmount_clicked();
+
 private:
     Ui::WithdrawalWindow *ui;
     CardSingleton *cs = CardSingleton::getInstance();

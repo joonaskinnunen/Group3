@@ -7,9 +7,9 @@ class CardSingleton
 {
 private:
     static CardSingleton* instance;
-    int daId, caId, caLimit;
-    float caBalance, daBalance;
-    QString owner, cardId;
+    int daId, caId, caLimit, cardId;
+    double caBalance, daBalance;
+    QString owner;
     bool isCreditSelected = false;
 
 
@@ -19,14 +19,14 @@ public:
     void setDaId(int value);
     int getCaId() const;
     void setCaId(int value);
-    QString getCardId() const;
-    void setCardId(QString value);
+    int getCardId() const;
+    void setCardId(int value);
     int getCaLimit() const;
     void setCaLimit(int value);
-    float getCaBalance() const;
-    void setCaBalance(float value);
-    float getDaBalance() const;
-    void setDaBalance(float value);
+    double getCaBalance() const;
+    void setCaBalance(double value);
+    double getDaBalance() const;
+    void setDaBalance(double value);
     QString getOwner() const;
     void setOwner(const QString &value);
     bool getIsCreditSelected() const;

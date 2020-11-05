@@ -9,7 +9,7 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-    ui->labelCardId->setText(cs->getCardId());
+    ui->labelCardId->setText(QString::number(cs->getCardId()));
 }
 
 Login::~Login()
@@ -21,7 +21,7 @@ void Login::on_pushButtonCheckPin_clicked()
 {
     HttpLibrary *hl = new HttpLibrary;    
     qDebug()<<"data for lib function from login: \n Card id:"+ this->ui->labelCardId->text() + "\nPin code:" + this->ui->lineEditPin->text();
-    if(hl->checkPin(cs->getCardId(), this->ui->lineEditPin->text())) {
+    if(hl->checkPin(QString::number(cs->getCardId()), this->ui->lineEditPin->text())) {
         hide();
         AccountChoiceWindow *acw = new AccountChoiceWindow();
         acw->show();
