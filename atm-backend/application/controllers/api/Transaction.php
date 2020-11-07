@@ -143,7 +143,7 @@ class Transaction extends REST_Controller {
         }
     }
 
-    public function card_delete()
+    public function transaction_delete()
     {
         $id = $this->get('id');
 
@@ -153,7 +153,7 @@ class Transaction extends REST_Controller {
             // Set the response and exit
             $this->response(NULL, REST_Controller::HTTP_BAD_REQUEST); // BAD_REQUEST (400) being the HTTP response code
         }
-        $result=$this->Transaction_model->delete_card($id);
+        $result=$this->Transaction_model->delete_transaction($id);
         if ($result)
         {
           $message = [
