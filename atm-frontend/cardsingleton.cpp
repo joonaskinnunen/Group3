@@ -90,7 +90,6 @@ QString CardSingleton::makeWithdrawal(int amount)
     if(this->isCreditSelected) {
         if(this->getCaBalance() + this->getCaLimit() > amount) {
             this->setCaBalance(this->caBalance - amount);
-            hl->postTransaction(this->caId, amount);
             hl->creditUpdate(this->caId, this->getCaBalance(), this->getCaLimit());
             return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance) + "€";
         } else {
@@ -99,7 +98,6 @@ QString CardSingleton::makeWithdrawal(int amount)
     }
     if(this->getDaBalance() > amount) {
         this->setDaBalance(this->daBalance - amount);
-        hl->postTransaction(this->daId, amount);
         hl->debitUpdate(this->daId, this->getDaBalance());
         return "Nosto onnistui! Tilin saldo: " + QString::number(this->getDaBalance()) + "€";
     } else {
