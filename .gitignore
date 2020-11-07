@@ -2,4 +2,9 @@
 # ----------------------------------------------------------------------------
 
 build-atm-frontend-Desktop_Qt_5_15_0_MinGW_32_bit-Debug/
-build-atm-frontend-Desktop_Qt_5_15_0_clang_64bit-Debug
+build-atm-frontend-Desktop_Qt_5_15_0_clang_64bit-Debug/
+Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/
+amt-backend-nodejs/node_modules
+tmp/
+httpLibrary.pro.user
+.DS_Store
