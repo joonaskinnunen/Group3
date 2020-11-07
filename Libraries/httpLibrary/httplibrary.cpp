@@ -170,6 +170,105 @@ bool HttpLibrary::creditTransaction(QString amount, QString ca_id)
     return true;
 }
 
+bool HttpLibrary::postTransaction(int acc_id, int amount)
+{
+    QNetworkRequest request(QUrl(url + "transaction/transaction/"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
+
+    QJsonObject json;
+    json.insert("acc_id",acc_id);
+    json.insert("amount",amount);
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.post(request, QJsonDocument(json).toJson());
+    while (!reply->isFinished()) { qApp->processEvents(); }
+
+    QByteArray response_data = reply->readAll();
+
+    // Debuggausta
+    qDebug()<<response_data;
+
+    return true;
+}
+
+bool HttpLibrary::creditUpdate(int acc_id, int balance, int limit)
+{
+    QNetworkRequest request(QUrl(url + "credit/credit/id/" + QString::number(acc_id)));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished()) { qApp->processEvents(); }
+
+    QByteArray response_data = reply->readAll();
+
+    QJsonObject json;
+    json.insert("c_balance",balance);
+    json.insert("c_limit", limit);
+
+    reply = nam.put(request, QJsonDocument(json).toJson());
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    response_data = reply->readAll();
+
+    // Debuggausta
+    qDebug()<<response_data;
+
+    reply->deleteLater();
+
+    return true;
+}
+
+bool HttpLibrary::debitUpdate(int acc_id, int balance)
+{
+    // Debuggausta
+    qDebug()<<"\n"<<"Debit account id:  " + QString::number(acc_id);
+
+    QNetworkRequest request(QUrl(url + "debit/debit/id/"+ QString::number(acc_id)));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished()) { qApp->processEvents(); }
+
+    QByteArray response_data = reply->readAll();
+
+    QJsonObject json;
+    json.insert("d_balance",balance);
+
+    reply = nam.put(request, QJsonDocument(json).toJson());
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    response_data = reply->readAll();
+
+    // Debuggausta
+    qDebug()<<response_data;
+
+    reply->deleteLater();
+
+    return true;
+}
+
+bool HttpLibrary::updateCard(QJsonObject card)
+{
+    QNetworkRequest request(QUrl(url + "card/card/id/" + card["card_id"].toInt()));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.put(request, QJsonDocument(card).toJson());
+    while (!reply->isFinished()) { qApp->processEvents(); }
+
+    return true;
+}
+
 HttpLibrary::HttpLibrary()
 {
 }

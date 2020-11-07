@@ -2,6 +2,7 @@
 #define CARDSINGLETON_H
 
 #include <qstring.h>
+#include "httplibrary.h"
 
 class CardSingleton
 {
@@ -11,6 +12,7 @@ private:
     double caBalance, daBalance;
     QString owner;
     bool isCreditSelected = false;
+    HttpLibrary *hl = new HttpLibrary;
 
 
 public:

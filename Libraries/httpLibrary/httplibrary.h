@@ -16,7 +16,11 @@ public:
     QJsonObject checkCard(QString loginCardId);
     bool debitTransaction(QString amount, QString da_id);
     bool creditTransaction(QString amount, QString ca_id);
+    bool postTransaction(int acc_id, int balance);
+    bool updateCard(QJsonObject card);
     HttpLibrary();
+    bool creditUpdate(int acc_id, int balance, int limit);
+    bool debitUpdate(int acc_id, int balance);
 };
 
 #endif // HTTPLIBRARY_H
