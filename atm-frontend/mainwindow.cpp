@@ -34,7 +34,7 @@ void MainWindow::on_pushButtonLogin_clicked()
         cs->setDaBalance(cardObj["d_balance"].toString().toDouble());
         cs->setOwner(cardObj["owner"].toString());
         cs->setCaLimit(cardObj["c_limit"].toString().toInt());
-        qDebug()<< "\nkortti id:" << cs->getCardId();
+        qDebug()<< "\nkortti id:" << cs->getCardId() << "\n";
         Login *login = new Login();
         login->show();
         this->close();

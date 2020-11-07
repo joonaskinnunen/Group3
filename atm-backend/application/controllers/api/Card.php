@@ -23,7 +23,7 @@ class Card extends REST_Controller {
     {
         //enable cors
         header('Access-Control-Allow-Origin: *');
-        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+        header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, PATCH, DELETE");
         // Construct the parent class
         parent::__construct();
 
