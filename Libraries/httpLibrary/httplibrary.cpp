@@ -213,7 +213,7 @@ bool HttpLibrary::creditUpdate(int acc_id, double balance, int limit)
     {
         qApp->processEvents();
     }
-    response_data = reply->readAll();
+    qDebug()<< "\n creditUpdate response data: " + response_data;
 
     // Debuggausta
     qDebug()<<response_data;
@@ -249,11 +249,44 @@ bool HttpLibrary::debitUpdate(int acc_id, double balance)
     response_data = reply->readAll();
 
     // Debuggausta
-    qDebug()<<response_data;
+    qDebug()<< "\n debitUpdate response data: " + response_data;
 
     reply->deleteLater();
 
     return true;
+}
+
+QJsonObject HttpLibrary::getTransactions(QString acc_id)
+{
+    QNetworkRequest request(QUrl(url + "transaction/transaction/id/"+ acc_id));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    QByteArray response_data = reply->readAll();
+
+    // Debuggausta
+    qDebug()<< "\n getTransactions response data: " + response_data + "\n";
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray jsarr = json_doc.array();
+    QJsonArray filteredJsarr;
+
+    QJsonObject jsob;
+    foreach (const QJsonValue &value, jsarr) {
+        QJsonObject jsob = value.toObject();
+        if(jsob["acc_id"].toString() == acc_id){
+            filteredJsarr.append(jsob);
+        }
+    }
+    return jsob;
+
+    reply->deleteLater();
 }
 
 bool HttpLibrary::updateCard(QJsonObject card)
