@@ -90,6 +90,7 @@ QString CardSingleton::makeWithdrawal(int amount)
         if(this->getCaBalance() + this->getCaLimit() > amount) {
             this->setCaBalance(this->caBalance - amount);
             return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance) + "€";
+            hl->postTransaction(this->caId, this->caBalance);
         } else {
             return "Nosto epäonnistui! Tilin luottoraja ei riitä noston tekemiseen. Luottoa käytettävissä: " + QString::number(this->getCaBalance()) + "€";
         }

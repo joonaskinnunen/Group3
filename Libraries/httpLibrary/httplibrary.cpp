@@ -170,6 +170,28 @@ bool HttpLibrary::creditTransaction(QString amount, QString ca_id)
     return true;
 }
 
+bool HttpLibrary::postTransaction(int acc_id, int amount)
+{
+    QNetworkRequest request(QUrl(url + "transaction/transaction/"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
+
+    QJsonObject json;
+    json.insert("acc_id",acc_id);
+    json.insert("amount",amount);
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.post(request, QJsonDocument(json).toJson());
+    while (!reply->isFinished()) { qApp->processEvents(); }
+
+    QByteArray response_data = reply->readAll();
+
+    // Debuggausta
+    qDebug()<<response_data;
+
+    return true;
+}
+
 HttpLibrary::HttpLibrary()
 {
 }
