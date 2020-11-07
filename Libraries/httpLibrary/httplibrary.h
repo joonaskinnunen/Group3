@@ -19,8 +19,8 @@ public:
     bool postTransaction(int acc_id, int balance);
     bool updateCard(QJsonObject card);
     HttpLibrary();
-    bool creditUpdate(int acc_id, int balance, int limit);
-    bool debitUpdate(int acc_id, int balance);
+    bool creditUpdate(int acc_id, double balance, int limit);
+    bool debitUpdate(int acc_id, double balance);
 };
 
 #endif // HTTPLIBRARY_H

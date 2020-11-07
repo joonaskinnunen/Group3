@@ -192,7 +192,7 @@ bool HttpLibrary::postTransaction(int acc_id, int amount)
     return true;
 }
 
-bool HttpLibrary::creditUpdate(int acc_id, int balance, int limit)
+bool HttpLibrary::creditUpdate(int acc_id, double balance, int limit)
 {
     QNetworkRequest request(QUrl(url + "credit/credit/id/" + QString::number(acc_id)));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -223,7 +223,7 @@ bool HttpLibrary::creditUpdate(int acc_id, int balance, int limit)
     return true;
 }
 
-bool HttpLibrary::debitUpdate(int acc_id, int balance)
+bool HttpLibrary::debitUpdate(int acc_id, double balance)
 {
     // Debuggausta
     qDebug()<<"\n"<<"Debit account id:  " + QString::number(acc_id);
