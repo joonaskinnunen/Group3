@@ -92,18 +92,19 @@ QString CardSingleton::makeWithdrawal(int amount)
             this->setCaBalance(this->caBalance - amount);
             hl->postTransaction(this->caId, amount);
             hl->creditUpdate(this->caId, this->getCaBalance(), this->getCaLimit());
-            return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance) + "€";
+            return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€";
         } else {
-            return "Nosto epäonnistui! Tilin luottoraja ei riitä noston tekemiseen. Luottoa käytettävissä: " + QString::number(this->getCaBalance()) + "€";
+            return "Nosto epäonnistui! Tilin luottoraja ei riitä noston tekemiseen.\nLuottoa käytettävissä: " + QString::number(this->getCaBalance() + this->getCaLimit(), 'f', 2) + "€";
         }
     }
     if(this->getDaBalance() > amount) {
         this->setDaBalance(this->daBalance - amount);
         hl->postTransaction(this->daId, amount);
         hl->debitUpdate(this->daId, this->getDaBalance());
-        return "Nosto onnistui! Tilin saldo: " + QString::number(this->getDaBalance()) + "€";
+        qDebug() << "CardSingleton::makeWithdrawal this->getDaBalance(): " << QString::number(this->getDaBalance(), 'f', 2);
+        return "Nosto onnistui! Tilin saldo: " + QString::number(this->getDaBalance(), 'f', 2) + "€";
     } else {
-        return "Nosto epäonnistui! Tilin saldo ei riitä noston tekemiseen. Tilillä käytettävissä: " + QString::number(this->daBalance) + "€";
+        return "Nosto epäonnistui! Tilin saldo ei riitä noston tekemiseen.\nTilillä käytettävissä: " + QString::number(this->daBalance, 'f', 2) + "€";
     }
 }
 

@@ -239,7 +239,7 @@ bool HttpLibrary::debitUpdate(int acc_id, int balance)
     QByteArray response_data = reply->readAll();
 
     QJsonObject json;
-    json.insert("d_balance",balance);
+    json.insert("d_balance", balance);
 
     reply = nam.put(request, QJsonDocument(json).toJson());
     while (!reply->isFinished())
