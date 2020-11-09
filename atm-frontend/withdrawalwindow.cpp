@@ -7,6 +7,14 @@ WithdrawalWindow::WithdrawalWindow(QWidget *parent) :
     ui(new Ui::WithdrawalWindow)
 {
     ui->setupUi(this);
+
+    ui->lineEditWithDrawalAmount->setPlaceholderText("Syötä haluamasi summa");
+
+    QPixmap pmbg(":/atm-frontend/bg.png");
+    pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, pmbg);
+    this->setPalette(palette);
 }
 
 WithdrawalWindow::~WithdrawalWindow()

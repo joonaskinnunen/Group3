@@ -64,7 +64,7 @@
    </property>
    <property name="font">
     <font>
-     <pointsize>22</pointsize>
+     <pointsize>20</pointsize>
     </font>
    </property>
    <property name="styleSheet">
@@ -80,8 +80,8 @@
   <widget class="QPushButton" name="pushButtonCheckPin">
    <property name="geometry">
     <rect>
-     <x>619</x>
-     <y>295</y>
+     <x>128</x>
+     <y>347</y>
      <width>51</width>
      <height>41</height>
     </rect>
@@ -106,6 +106,8 @@
    <property name="font">
     <font>
      <pointsize>22</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -145,8 +147,8 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>310</y>
+     <x>211</x>
+     <y>355</y>
      <width>111</width>
      <height>21</height>
     </rect>
@@ -154,8 +156,8 @@
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="styleSheet">
@@ -163,6 +165,46 @@
    </property>
    <property name="text">
     <string>KIRJAUDU</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonExit">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>450</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>460</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: white;</string>
+   </property>
+   <property name="text">
+    <string>LOPETA</string>
    </property>
   </widget>
  </widget>

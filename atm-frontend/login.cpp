@@ -38,3 +38,8 @@ void Login::on_pushButtonCheckPin_clicked()
     ui->labelErrorMessage->setText("Virheellinen pin-koodi!");
 
 }
+
+void Login::on_pushButtonExit_clicked()
+{
+    this->close();
+}

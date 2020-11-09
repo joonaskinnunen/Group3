@@ -6,25 +6,29 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#TransactionsWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+QWidget { color: white;}</string>
+  </property>
   <widget class="QLabel" name="labelTransactionsTitle">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>39</y>
+     <x>270</x>
+     <y>169</y>
      <width>251</width>
      <height>41</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>19</pointsize>
+     <pointsize>22</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -39,24 +43,31 @@
   <widget class="QPushButton" name="pushButtonExit">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>390</y>
-     <width>101</width>
-     <height>41</height>
+     <x>620</x>
+     <y>450</y>
+     <width>50</width>
+     <height>40</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;</string>
+   </property>
    <property name="text">
-    <string>LOPETA</string>
+    <string/>
    </property>
   </widget>
   <widget class="QTableView" name="tableViewTransactions">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>110</y>
-     <width>600</width>
-     <height>251</height>
+     <x>199</x>
+     <y>240</y>
+     <width>401</width>
+     <height>211</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+background: transparent;</string>
    </property>
    <attribute name="horizontalHeaderDefaultSectionSize">
     <number>180</number>
@@ -65,17 +76,42 @@
   <widget class="QLabel" name="labelCardId">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>90</y>
+     <x>270</x>
+     <y>220</y>
      <width>261</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
    </property>
    <property name="text">
     <string>Kortti ID:</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>520</x>
+     <y>460</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>LOPETA</string>
    </property>
   </widget>
  </widget>

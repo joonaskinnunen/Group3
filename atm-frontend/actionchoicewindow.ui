@@ -134,8 +134,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -154,8 +154,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -174,8 +174,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -194,8 +194,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -214,8 +214,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
@@ -234,8 +234,8 @@ QWidget { color: white;}</string>
    <property name="font">
     <font>
      <pointsize>20</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
