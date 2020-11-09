@@ -6,25 +6,31 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#BalanceWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+QWidget { color: white;}</string>
+  </property>
   <widget class="QLabel" name="labelBalance">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>601</width>
+     <x>190</x>
+     <y>140</y>
+     <width>421</width>
      <height>151</height>
     </rect>
    </property>
    <property name="font">
     <font>
      <pointsize>23</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
    <property name="text">
@@ -37,11 +43,34 @@
   <widget class="QPushButton" name="pushButtonExit">
    <property name="geometry">
     <rect>
-     <x>230</x>
-     <y>360</y>
-     <width>121</width>
-     <height>41</height>
+     <x>620</x>
+     <y>450</y>
+     <width>60</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border:none;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>457</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
+    </font>
    </property>
    <property name="text">
     <string>LOPETA</string>

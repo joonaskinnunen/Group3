@@ -7,11 +7,18 @@ AccountChoiceWindow::AccountChoiceWindow(QWidget *parent) :
     ui(new Ui::AccountChoiceWindow)
 {
     ui->setupUi(this);
+
+    QPixmap pmbg(":/atm-frontend/bg.png");
+    pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, pmbg);
+    this->setPalette(palette);
 }
 
 AccountChoiceWindow::~AccountChoiceWindow()
 {
     delete ui;
+    ui=nullptr;
 }
 
 void AccountChoiceWindow::on_pushButtonDebit_clicked()

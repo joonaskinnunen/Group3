@@ -11,6 +11,12 @@ ExitWindow::ExitWindow(QString message, QWidget *parent) :
     QString msgColor = message.contains("epäonnistui") ? "red" : "green";
     ui->labelMessage->setStyleSheet("QLabel {color: " + msgColor + "; }");
     ui->labelMessage->setText(message);
+
+    QPixmap pmbg(":/atm-frontend/bg.png");
+    pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, pmbg);
+    this->setPalette(palette);
 }
 
 ExitWindow::~ExitWindow()

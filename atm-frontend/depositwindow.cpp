@@ -11,4 +11,5 @@ DepositWindow::DepositWindow(QWidget *parent) :
 DepositWindow::~DepositWindow()
 {
     delete ui;
+    ui=nullptr;
 }
