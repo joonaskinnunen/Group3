@@ -17,6 +17,7 @@ BalanceWindow::BalanceWindow(QWidget *parent) :
 BalanceWindow::~BalanceWindow()
 {
     delete ui;
+    ui=nullptr;
 }
 
 void BalanceWindow::on_pushButtonExit_clicked()

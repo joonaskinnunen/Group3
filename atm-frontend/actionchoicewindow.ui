@@ -6,76 +6,257 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>500</height>
+    <width>800</width>
+    <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">#ActionChoiceWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+QWidget { color: white;}</string>
+  </property>
   <widget class="QPushButton" name="pushButtonBalance">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>260</y>
-     <width>130</width>
-     <height>50</height>
+     <x>128</x>
+     <y>398</y>
+     <width>51</width>
+     <height>45</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
    <property name="text">
-    <string>SALDO</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonTransactions">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>330</y>
-     <width>130</width>
-     <height>50</height>
+     <x>620</x>
+     <y>343</y>
+     <width>51</width>
+     <height>45</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
    <property name="text">
-    <string>TILITAPAHTUMAT</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonWithdrawal">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>50</y>
-     <width>130</width>
-     <height>50</height>
+     <x>128</x>
+     <y>292</y>
+     <width>51</width>
+     <height>45</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
    <property name="text">
-    <string>NOSTO</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonDeposit">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>120</y>
-     <width>130</width>
-     <height>50</height>
+     <x>128</x>
+     <y>344</y>
+     <width>51</width>
+     <height>45</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
    <property name="text">
-    <string>TALLETUS</string>
+    <string/>
    </property>
   </widget>
   <widget class="QPushButton" name="pushButtonTransfer">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>190</y>
-     <width>130</width>
-     <height>50</height>
+     <x>620</x>
+     <y>292</y>
+     <width>51</width>
+     <height>45</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>210</y>
+     <width>201</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>VALITSE TOIMINTO</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>303</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>NOSTO</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>355</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>TALLETUS</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>405</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>SALDO</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>490</x>
+     <y>303</y>
+     <width>101</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
    </property>
    <property name="text">
     <string>TILISIIRTO</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>460</x>
+     <y>355</y>
+     <width>141</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>TAPAHTUMAT</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>514</x>
+     <y>455</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>20</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string>LOPETA</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonExit">
+   <property name="geometry">
+    <rect>
+     <x>620</x>
+     <y>450</y>
+     <width>51</width>
+     <height>45</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: none;
+</string>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>

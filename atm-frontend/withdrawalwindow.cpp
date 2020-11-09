@@ -12,6 +12,7 @@ WithdrawalWindow::WithdrawalWindow(QWidget *parent) :
 WithdrawalWindow::~WithdrawalWindow()
 {
     delete ui;
+    ui=nullptr;
 }
 
 void WithdrawalWindow::on_pushButtonTwenty_clicked()

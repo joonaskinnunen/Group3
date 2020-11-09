@@ -20,6 +20,8 @@ private slots:
     void on_pushButtonBalance_clicked();
     void on_pushButtonTransactions_clicked();
 
+    void on_pushButtonExit_clicked();
+
 private:
     Ui::ActionChoiceWindow *ui;
 };

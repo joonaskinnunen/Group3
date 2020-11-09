@@ -63,3 +63,6 @@ macx: LIBS += -L$$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64b
 
 INCLUDEPATH += $$PWD/../Libraries/httpLibrary
 DEPENDPATH += $$PWD/../Libraries/httpLibrary
+
+RESOURCES += \
+    resources.qrc \

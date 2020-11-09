@@ -11,6 +11,7 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
 TransactionsWindow::~TransactionsWindow()
 {
     delete ui;
+    ui=nullptr;
 }
 
 void TransactionsWindow::on_pushButtonExit_clicked()
