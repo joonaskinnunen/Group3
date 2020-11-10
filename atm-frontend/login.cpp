@@ -28,11 +28,7 @@ Login::~Login()
 void Login::on_pushButtonCheckPin_clicked()
 {
     HttpLibrary *hl = new HttpLibrary;    
-<<<<<<< HEAD
     qDebug()<<"data for lib function from login: \n Card id:"+ QString::number(cs->getCardId()) << "\nPin code:" + this->ui->lineEditPin->text();
-=======
-    qDebug()<<"data for lib function from login: \n Card id:" << cs->getCardId() << "\nPin code:" << this->ui->lineEditPin->text();
->>>>>>> main
     if(hl->checkPin(QString::number(cs->getCardId()), this->ui->lineEditPin->text())) {
         hide();
         AccountChoiceWindow *acw = new AccountChoiceWindow();
