@@ -21,7 +21,7 @@ public:
     HttpLibrary();
     bool creditUpdate(int acc_id, double balance, int limit);
     bool debitUpdate(int acc_id, double balance);
-    QJsonObject getTransactions(QString acc_id);
+    QJsonArray getTransactions(QString acc_id);
 };
 
 #endif // HTTPLIBRARY_H
