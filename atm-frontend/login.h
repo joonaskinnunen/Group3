@@ -20,6 +20,8 @@ public:
 private slots:
     void on_pushButtonCheckPin_clicked();
 
+    void on_pushButtonExit_clicked();
+
 private:
     Ui::Login *ui;
     CardSingleton *cs = CardSingleton::getInstance();
