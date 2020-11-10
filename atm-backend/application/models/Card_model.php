@@ -8,7 +8,7 @@ class Card_model extends CI_model
     $this->db->select('card_id, pin, owner, card.da_id, card.ca_id, d_account.*, c_account.*');
     $this->db->from('card');
     $this->db->join('d_account', 'd_account.da_id = card.da_id');
-    $this->db->join('c_account', 'c_account.ca_id = card.ca_id');
+    $this->db->leftjoin('c_account', 'c_account.ca_id = card.ca_id');
     // $this->db->on('card.card_id=d_account.da_id');
     if($id !== NULL) {
       $this->db->where('card_id',$id);
