@@ -32,7 +32,7 @@ class Card extends REST_Controller {
 
     public function card_get()
     {
-        // card from a data store e.g. database
+        // Card from a data store e.g. database
 
         $id = $this->get('id');
 
@@ -148,11 +148,6 @@ class Card extends REST_Controller {
         {
             // Set the response and exit
             $this->response([
-                'card_id' => $id,
-                'owner'=>$this->put('owner'),
-                'pin'=>$encrypted_pin,
-                'da_id'=>$this->put('da_id'),
-                'ca_id'=>$this->put('ca_id'),
                 'status' => FALSE,
                 'message' => 'Can not update data'
             ], REST_Controller::HTTP_CONFLICT); // CAN NOT CREATE (409) being the HTTP response code
