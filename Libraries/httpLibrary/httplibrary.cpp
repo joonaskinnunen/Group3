@@ -256,7 +256,7 @@ bool HttpLibrary::debitUpdate(int acc_id, double balance)
     return true;
 }
 
-QJsonObject HttpLibrary::getTransactions(QString acc_id)
+QJsonArray HttpLibrary::getTransactions(QString acc_id)
 {
     QNetworkRequest request(QUrl(url + "transaction/transaction/id/"+ acc_id));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -284,7 +284,7 @@ QJsonObject HttpLibrary::getTransactions(QString acc_id)
             filteredJsarr.append(jsob);
         }
     }
-    return jsob;
+    return filteredJsarr;
 
     reply->deleteLater();
 }
