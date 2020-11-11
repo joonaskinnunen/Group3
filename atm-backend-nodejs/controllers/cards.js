@@ -58,7 +58,7 @@ cardsRouter.put('/debitwithdrawal/:id', async (request, response) => {
   if (isAuthorized(request)) {
 
     const filter = { cardId: request.params.id };
-    const update = { $inc: { "debitBalance": -body.amount } };
+    const update = { $inc: { "debitBalance": -body.amount }, $push: {debitTransactions: {time: new Date().toUTCString(), amount: "-" + body.amount}} };
 
     await Card.findOneAndUpdate(filter, update, {
       new: true
@@ -77,7 +77,7 @@ cardsRouter.put('/creditwithdrawal/:id', async (request, response) => {
 
   if (isAuthorized(request)) {
     const filter = { cardId: request.params.id };
-    const update = { $inc: { "creditBalance": -body.amount } };
+    const update = { $inc: { "creditBalance": -body.amount }, $push: {debitTransactions: {time: new Date().toUTCString(), amount: "-" + body.amount}} };
 
     await Card.findOneAndUpdate(filter, update, {
       new: true
@@ -95,7 +95,7 @@ cardsRouter.put('/debitdeposit/:id', async (request, response) => {
 
   if (isAuthorized(request)) {
     const filter = { cardId: request.params.id };
-    const update = { $inc: { "debitBalance": body.amount } };
+    const update = { $inc: { "debitBalance": body.amount }, $push: {debitTransactions: {time: new Date().toUTCString(), amount: "+" + body.amount}} };
 
     let card = await Card.findOneAndUpdate(filter, update, {
       new: true
@@ -113,7 +113,7 @@ cardsRouter.put('/creditdeposit/:id', async (request, response) => {
 
   if (isAuthorized(request)) {
     const filter = { cardId: request.params.id };
-    const update = { $inc: { "creditBalance": body.amount } };
+    const update = { $inc: { "creditBalance": body.amount }, $push: {creditTransactions: {time: new Date().toUTCString(), amount: "+" + body.amount}} };
 
     await Card.findOneAndUpdate(filter, update, {
       new: true
