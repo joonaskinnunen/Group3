@@ -28,6 +28,8 @@ private slots:
 
     void on_pushButtonWdCustomAmount_clicked();
 
+    void on_pushButtonExit_clicked();
+
 private:
     Ui::WithdrawalWindow *ui;
     CardSingleton *cs = CardSingleton::getInstance();

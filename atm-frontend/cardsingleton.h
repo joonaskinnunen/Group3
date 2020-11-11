@@ -1,6 +1,7 @@
 #ifndef CARDSINGLETON_H
 #define CARDSINGLETON_H
 
+#include <QJsonArray>
 #include <qstring.h>
 #include "httplibrary.h"
 
@@ -12,6 +13,7 @@ private:
     double caBalance, daBalance;
     QString owner;
     bool isCreditSelected = false;
+    QJsonArray transactions;
     HttpLibrary *hl = new HttpLibrary;
 
 
@@ -34,6 +36,8 @@ public:
     bool getIsCreditSelected() const;
     void setIsCreditSelected(bool value);
     QString makeWithdrawal(int amount);
+    QJsonArray getTransactions() const;
+    void setTransactions(const QJsonArray &value);
 };
 
 #endif // CARDSINGLETON_H

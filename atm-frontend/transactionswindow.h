@@ -1,6 +1,8 @@
 #ifndef TRANSACTIONSWINDOW_H
 #define TRANSACTIONSWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -20,6 +22,7 @@ private slots:
 
 private:
     Ui::TransactionsWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // TRANSACTIONSWINDOW_H
