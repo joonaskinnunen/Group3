@@ -1,25 +1,23 @@
 const cardsRouter = require('express').Router()
 const Card = require('../models/card')
-const CreditAccount = require('../models/creditaccount')
-const DebitAccount = require('../models/debitaccount')
 
 cardsRouter.get('/', async (request, response) => {
-  const cards = await Card.find({}).populate('creditAccountId').populate('debitAccountId')
+  const cards = await Card.find({})
   response.json(cards.map(card => card.toJSON()))
 })
 
 cardsRouter.post('/', async (request, response) => {
   const body = request.body
 
-  const creditAccount = await CreditAccount.findById(body.creditAccountId)
-  const debitAccount = await DebitAccount.findById(body.debitAccountId)
-
   const card = new Card({
     cardId: body.cardId,
     owner: body.owner,
     pin: body.pin,
-    debitAccountId: creditAccount._id,
-    creditAccountId: debitAccount._id
+    debitBalance: body.debitBalance,
+    creditBalance: 0,
+    creditLimit: body.creditLimit,
+    debitTransactions: [],
+    creditTransactions: []
   })
 
   const savedCard = await card.save()

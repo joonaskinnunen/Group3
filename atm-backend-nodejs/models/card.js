@@ -16,14 +16,25 @@ const cardSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  debitAccountId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'DebitAccount',
+  debitBalance: {
+    type: Number,
     required: true
   },
-  creditAccountId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'CreditAccount'
+  creditBalance: {
+    type: Number,
+    required: true
+  },
+  creditLimit: {
+    type: Number,
+    required: true
+  },
+  debitTransactions: {
+    type: Array,
+    required: true
+  },
+  creditTransactions: {
+    type: Array,
+    required: true
   }
 })
 
