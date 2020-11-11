@@ -63,6 +63,36 @@ cardsRouter.put('/creditwithdrawal/:id', async (request, response, next) => {
   .catch(error => next(error))
 })
 
+cardsRouter.put('/debitdeposit/:id', async (request, response, next) => {
+  const body = request.body
+
+  const filter = { cardId: request.params.id };
+  const update = {$inc: { "debitBalance" : body.amount }};
+
+  let card = await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+  .then(updatedCard => {
+    response.json(updatedCard.toJSON())
+  })
+  .catch(error => next(error))
+})
+
+cardsRouter.put('/creditdeposit/:id', async (request, response, next) => {
+  const body = request.body
+
+  const filter = { cardId: request.params.id };
+  const update = {$inc: { "creditBalance" : body.amount }};
+
+  let card = await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+  .then(updatedCard => {
+    response.json(updatedCard.toJSON())
+  })
+  .catch(error => next(error))
+})
+
 cardsRouter.get('/:id', async (request, response) => {
   const card = await Card.findById(request.params.id)
   if (card) {
