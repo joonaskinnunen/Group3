@@ -1,0 +1,6 @@
+put http://localhost:3001/api/cards/debitwithdrawal/17000
+Content-Type: application/json
+
+{
+    "amount": 500
+}
