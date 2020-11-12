@@ -2,6 +2,7 @@
 #define TRANSACTIONSWINDOW_H
 
 #include <QWidget>
+#include "cardsingleton.h"
 
 namespace Ui {
 class TransactionsWindow;
@@ -12,7 +13,7 @@ class TransactionsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit TransactionsWindow(QWidget *parent = nullptr);
+    explicit TransactionsWindow(QJsonArray arr, QWidget *parent = nullptr);
     ~TransactionsWindow();
 
 private slots:
@@ -20,6 +21,7 @@ private slots:
 
 private:
     Ui::TransactionsWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // TRANSACTIONSWINDOW_H

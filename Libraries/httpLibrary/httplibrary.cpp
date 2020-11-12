@@ -61,18 +61,20 @@ QJsonObject HttpLibrary::checkCard(QString loginCardId)
     QByteArray response_data = reply->readAll();
 
     // Debuggausta
-    qDebug()<<response_data;
+    qDebug() << "\n getCards response data: \n "  << response_data;
 
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray jsarr = json_doc.array();
 
     QJsonObject jsob;
     foreach (const QJsonValue &value, jsarr) {
-        QJsonObject jsob = value.toObject();
+        jsob = value.toObject();
         if(jsob["card_id"].toString() == loginCardId){
-            return jsob;
+            break;
         }
     }
+    QJsonDocument doc(jsob);
+    qDebug() << "\n Login cardId: \n" << loginCardId << "\n JSobject card: \n" << QString (doc.toJson(QJsonDocument::Compact)) << "\n";
     return jsob;
 
     reply->deleteLater();
@@ -256,9 +258,9 @@ bool HttpLibrary::debitUpdate(int acc_id, double balance)
     return true;
 }
 
-QJsonObject HttpLibrary::getTransactions(QString acc_id)
+QJsonArray HttpLibrary::getTransactions(int acc_id)
 {
-    QNetworkRequest request(QUrl(url + "transaction/transaction/id/"+ acc_id));
+    QNetworkRequest request(QUrl(url + "transaction/transaction"));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
     request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
 
@@ -271,7 +273,8 @@ QJsonObject HttpLibrary::getTransactions(QString acc_id)
     QByteArray response_data = reply->readAll();
 
     // Debuggausta
-    qDebug()<< "\n getTransactions response data: " + response_data + "\n";
+    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
+    qDebug() << "\n account id: " << acc_id;
 
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray jsarr = json_doc.array();
@@ -279,12 +282,16 @@ QJsonObject HttpLibrary::getTransactions(QString acc_id)
 
     QJsonObject jsob;
     foreach (const QJsonValue &value, jsarr) {
-        QJsonObject jsob = value.toObject();
-        if(jsob["acc_id"].toString() == acc_id){
+        jsob = value.toObject();
+        if(jsob["acc_id"].toString() == QString::number(acc_id)){
             filteredJsarr.append(jsob);
         }
     }
-    return jsob;
+    QJsonDocument doc;
+    doc.setArray(filteredJsarr);
+
+    qDebug() << QString (doc.toJson(QJsonDocument::Compact));
+    return filteredJsarr;
 
     reply->deleteLater();
 }

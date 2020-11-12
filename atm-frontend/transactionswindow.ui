@@ -65,12 +65,24 @@ QWidget { color: white;}</string>
      <height>211</height>
     </rect>
    </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Expanding">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
    <property name="styleSheet">
     <string notr="true">border: none;
 background: transparent;</string>
    </property>
+   <property name="alternatingRowColors">
+    <bool>true</bool>
+   </property>
    <attribute name="horizontalHeaderDefaultSectionSize">
-    <number>180</number>
+    <number>70</number>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
    </attribute>
   </widget>
   <widget class="QLabel" name="labelCardId">
