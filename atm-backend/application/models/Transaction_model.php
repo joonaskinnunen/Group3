@@ -15,7 +15,7 @@ class Transaction_model extends CI_model
 
   // TIMESTAMP as UNIX epoch time
   function get_tr($id){
-    $this->db->select('tr_id, acc_id, amount, unix_timestamp(time) as time');
+    $this->db->select('tr_id, acc_id, amount, unix_timestamp(time) as time, action');
     $this->db->from('transaction');
     if($id !== NULL) {
       $this->db->where('tr_id',$id);

@@ -259,6 +259,7 @@ bool HttpLibrary::debitUpdate(int acc_id, double balance)
 }
 
 QJsonArray HttpLibrary::getTransactions(int acc_id)
+
 {
     QNetworkRequest request(QUrl(url + "transaction/transaction"));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -287,10 +288,11 @@ QJsonArray HttpLibrary::getTransactions(int acc_id)
             filteredJsarr.append(jsob);
         }
     }
+
     QJsonDocument doc;
     doc.setArray(filteredJsarr);
-
     qDebug() << QString (doc.toJson(QJsonDocument::Compact));
+
     return filteredJsarr;
 
     reply->deleteLater();

@@ -38,7 +38,7 @@ INSERT INTO d_account (da_id,balance) VALUES (76543,666);
 INSERT INTO d_account (da_id,balance) VALUES (12345,10945.76);
 INSERT INTO d_account (da_id,balance) VALUES (79865,44.06);
 
-INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (11000,0000,'Erkki Esimerkki',12345,67890);
+INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (11000,1111,'Erkki Esimerkki',12345,67890);
 INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (12000,4321,'Maija Mehu',87654,32109);
 INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (13000,8765,'Kauno Kuukap',76543,34567);
 INSERT INTO card (card_id,pin,owner,da_id,ca_id) VALUES (14000,1234,'Sirkka Esimerkki',12345,67890);
