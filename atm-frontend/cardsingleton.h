@@ -15,8 +15,6 @@ private:
     bool isCreditSelected = false;
     QJsonArray transactions;
     HttpLibrary *hl = new HttpLibrary;
-    QJsonArray transactions;
-
 
 public:
     static CardSingleton* getInstance();

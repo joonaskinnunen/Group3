@@ -16,6 +16,7 @@
   <property name="styleSheet">
    <string notr="true">#WithdrawalWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}
+QPushButton { border: none;}
 </string>
   </property>
   <widget class="QPushButton" name="pushButtonTwenty">
