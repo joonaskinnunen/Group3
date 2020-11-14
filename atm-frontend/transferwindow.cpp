@@ -15,12 +15,13 @@ TransferWindow::TransferWindow(QWidget *parent) :
     ui->labelAccountId->setText("Tilinumero: " + QString::number(cs->getIsCreditSelected() ? cs->getCaId() : cs->getDaId()));
     ui->labelBalance->setText("Käytettävissä: " + QString::number(cs->getIsCreditSelected() ? cs->getCaBalance() + cs->getCaLimit() : cs->getDaBalance()) + "€");
 
+    ui->labelErrorMessage->setStyleSheet("QLabel {color: red; }");
+
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
     this->setPalette(palette);
-    ui->labelErrorMessage->setStyleSheet("QLabel {color: red; }");
 }
 
 TransferWindow::~TransferWindow()

@@ -34,10 +34,11 @@ void MainWindow::on_pushButtonLogin_clicked()
 {
     QString cardId = this->ui->lineEditId->text();
     HttpLibrary *hl = new HttpLibrary;
-  //  qDebug()<< hl->checkCard(cardId);
+    qDebug()<< hl->checkCard(cardId);
     QJsonObject cardObj = hl->checkCard(cardId);
- //   qDebug()<< "\n" << cardObj["card_id"].toString().toInt() << "\n";
-    if(!cardObj.isEmpty()) {
+    qDebug()<< "\n cardObj: " << cardObj << "\n";
+    qDebug() << "cardObj[card_id]: " << cardObj["card_id"];
+    if(!cardObj["card_id"].isNull()) {
         qDebug() << "cardObj[d_balance].toString().toDouble(): " << QString::number(cardObj["d_balance"].toString().toDouble(), 'f', 2);
         cs->setCardId(cardObj["card_id"].toString().toInt());
         cs->setCaId(cardObj["ca_id"].toString().toInt());
