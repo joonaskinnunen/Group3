@@ -2,11 +2,15 @@
 #include "ui_withdrawalwindow.h"
 #include "exitwindow.h"
 
+#include <QRegExpValidator>
+
 WithdrawalWindow::WithdrawalWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WithdrawalWindow)
 {
     ui->setupUi(this);
+
+    ui->lineEditWithDrawalAmount->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditWithDrawalAmount));
 
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);

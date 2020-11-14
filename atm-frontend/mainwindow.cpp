@@ -6,12 +6,16 @@
 
 #include <QDebug>
 #include <QPixmap>
+#include <QRegExpValidator>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->lineEditId->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditId));
+
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;

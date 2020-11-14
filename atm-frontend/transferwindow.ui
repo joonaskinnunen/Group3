@@ -40,7 +40,7 @@ QWidget { color: white;}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCardId">
+  <widget class="QLabel" name="labelAccountId">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -61,7 +61,7 @@ QWidget { color: white;}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCardId_2">
+  <widget class="QLabel" name="labelBalance">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -82,7 +82,7 @@ QWidget { color: white;}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCardId_3">
+  <widget class="QLabel" name="labelReceiverId">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -103,7 +103,7 @@ QWidget { color: white;}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditWithDrawalAmount">
+  <widget class="QLineEdit" name="lineEditReceiverId">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -122,7 +122,7 @@ QWidget { color: white;}</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="labelCardId_4">
+  <widget class="QLabel" name="labelAmount">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -143,7 +143,7 @@ QWidget { color: white;}</string>
     <set>Qt::AlignCenter</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEditWithDrawalAmount_2">
+  <widget class="QLineEdit" name="lineEditAmount">
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -232,6 +232,27 @@ QWidget { color: white;}</string>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelErrorMessage">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>290</y>
+     <width>261</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>14</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
  </widget>
