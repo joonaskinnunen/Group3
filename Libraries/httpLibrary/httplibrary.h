@@ -14,15 +14,17 @@ private:
 public:
     bool checkPin(QString loginCardId, QString loginPin);
     QJsonObject checkCard(QString loginCardId);
-    bool debitTransaction(QString amount, QString da_id);
-    bool creditTransaction(QString amount, QString ca_id);
     bool postTransaction(int acc_id, int balance);
     bool updateCard(QJsonObject card);
     HttpLibrary();
     bool creditUpdate(int acc_id, double balance, int limit);
     bool debitUpdate(int acc_id, double balance);
     QJsonArray getTransactions(int acc_id);
-    bool makeBankTransfer(int acc_1, int acc_2);
+    QJsonArray getCreditAccounts();
+    QJsonArray getDebitAccounts();
+    bool makeBankTransfer(int acc_1, int acc_2, double balance_1, double balance_2);
+    bool checkAccount(int acc_id);
+
 };
 
 #endif // HTTPLIBRARY_H

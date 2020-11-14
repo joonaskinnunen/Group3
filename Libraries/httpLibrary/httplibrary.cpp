@@ -80,98 +80,6 @@ QJsonObject HttpLibrary::checkCard(QString loginCardId)
     reply->deleteLater();
 }
 
-bool HttpLibrary::debitTransaction(QString amount, QString da_id)
-{
-    int newBalance, balance;
-
-    QNetworkRequest request(QUrl(url + "debit/debit/id/"+da_id));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
-
-    QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.get(request);
-    while (!reply->isFinished()) { qApp->processEvents(); }
-
-    QByteArray response_data = reply->readAll();
-
-    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-    QJsonObject jsobj = json_doc.object();
-    QJsonArray jsarr = json_doc.array();
-
-    foreach (const QJsonValue &value, jsarr) {
-        jsobj = value.toObject();
-    }
-    balance = jsobj["d_balance"].toInt();
-
-    if(amount.toInt() > balance) { return false; }
-
-    newBalance = balance - amount.toInt();
-
-    QJsonObject json;
-    json.insert("d_balance",newBalance);
-
-    reply = nam.put(request, QJsonDocument(json).toJson());
-    while (!reply->isFinished())
-    {
-        qApp->processEvents();
-    }
-    response_data = reply->readAll();
-
-    // Debuggausta
-    qDebug()<<response_data;
-
-    reply->deleteLater();
-
-    return true;
-
-}
-
-bool HttpLibrary::creditTransaction(QString amount, QString ca_id)
-{
-    int newBalance, balance, limit;
-
-    QNetworkRequest request(QUrl(url + "credit/credit/id/"+ca_id));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    request.setRawHeader( "Authorization", this->authenticate().toLocal8Bit() );
-
-    QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.get(request);
-    while (!reply->isFinished()) { qApp->processEvents(); }
-
-    QByteArray response_data = reply->readAll();
-
-    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-    QJsonObject jsobj = json_doc.object();
-    QJsonArray jsarr = json_doc.array();
-
-    foreach (const QJsonValue &value, jsarr) {
-        jsobj = value.toObject();
-    }
-    balance = jsobj["c_balance"].toInt();
-    limit = jsobj["c_limit"].toInt();
-
-    if(balance - amount.toInt() < 0 - limit) { return false; }
-
-    newBalance = balance - amount.toInt();
-
-    QJsonObject json;
-    json.insert("c_balance",newBalance);
-
-    reply = nam.put(request, QJsonDocument(json).toJson());
-    while (!reply->isFinished())
-    {
-        qApp->processEvents();
-    }
-    response_data = reply->readAll();
-
-    // Debuggausta
-    qDebug()<<response_data;
-
-    reply->deleteLater();
-
-    return true;
-}
-
 bool HttpLibrary::postTransaction(int acc_id, int amount)
 {
     QNetworkRequest request(QUrl(url + "transaction/transaction/"));
@@ -296,6 +204,121 @@ QJsonArray HttpLibrary::getTransactions(int acc_id)
     return filteredJsarr;
 
     reply->deleteLater();
+}
+
+QJsonArray HttpLibrary::getCreditAccounts()
+{
+    QNetworkRequest request(QUrl(url + "credit/credit"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    QByteArray response_data = reply->readAll();
+
+    // Debuggausta
+    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray jsarr = json_doc.array();
+    QJsonArray filteredJsarr;
+    QJsonDocument doc;
+
+    qDebug() << "\n credit accounts doc: " << QString (json_doc.toJson(QJsonDocument::Compact)) << "\n";
+
+    return jsarr;
+
+    reply->deleteLater();
+
+}
+
+QJsonArray HttpLibrary::getDebitAccounts()
+{
+    QNetworkRequest request(QUrl(url + "debit/debit"));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    QByteArray response_data = reply->readAll();
+
+    // Debuggausta
+    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray jsarr = json_doc.array();
+    QJsonArray filteredJsarr;
+    QJsonDocument doc;
+
+    qDebug() << "\n debit accounts doc: " << QString (json_doc.toJson(QJsonDocument::Compact)) << "\n";
+
+    return jsarr;
+
+    reply->deleteLater();
+
+}
+
+bool HttpLibrary::makeBankTransfer(int acc_1, int acc_2, double balance_1, double balance_2)
+{
+    // acc_1 is the sender and acc_2 receiver
+    // update accounts
+        this->debitUpdate(acc_1, balance_1);
+        this->debitUpdate(acc_2, balance_2);
+        return true;
+
+}
+
+
+
+bool HttpLibrary::checkAccount(int acc_id)
+{
+    QString qurl = "credit/credit/id/";
+    QString id = "ca_id";
+    bool account_found = false;
+
+//    if (isCredit){
+//        qurl = "credit/credit/id/";
+//        id = "ca_id";
+//    } else {
+//        qurl = "debit/debit/id/";
+//        id = "da_id";
+//    }
+    while (!account_found) {
+    QNetworkRequest request(QUrl(url + qurl));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+    request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+
+    QNetworkAccessManager nam;
+    QNetworkReply *reply = nam.get(request);
+    while (!reply->isFinished())
+    {
+        qApp->processEvents();
+    }
+    QByteArray response_data = reply->readAll();
+
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray jsarr = json_doc.array();
+    QJsonObject jsob;
+    foreach (const QJsonValue &value, jsarr) {
+        jsob = value.toObject();
+        if(jsob[id].toString() == QString::number(acc_id)){
+            account_found = true;
+            return true;
+        }
+    }
+    if(id == "da_id"){return false;}
+    qurl = "debit/debit/id/";
+    id = "da_id";
+}
+    return false;
 }
 
 bool HttpLibrary::updateCard(QJsonObject card)
