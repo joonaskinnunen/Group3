@@ -35,8 +35,10 @@ public:
     bool getIsCreditSelected() const;
     void setIsCreditSelected(bool value);
     QString makeWithdrawal(int amount);
+    QString makeTransfer(int receiverId, double amount);
     QJsonArray getTransactions() const;
     void setTransactions(const QJsonArray &value);
 };
 
 #endif // CARDSINGLETON_H
+

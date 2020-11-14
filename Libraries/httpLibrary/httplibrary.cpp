@@ -67,15 +67,15 @@ QJsonObject HttpLibrary::checkCard(QString loginCardId)
     QJsonArray jsarr = json_doc.array();
 
     QJsonObject jsob;
-        foreach (const QJsonValue &value, jsarr) {
-            QJsonObject jsob = value.toObject();
-            if(jsob["card_id"].toString() == loginCardId){
-                return jsob;
-            }
+    foreach (const QJsonValue &value, jsarr) {
+        QJsonObject jsob = value.toObject();
+        if(jsob["card_id"].toString() == loginCardId){
+            return jsob;
         }
-        QJsonDocument doc(jsob);
-        qDebug() << "\n Login cardId: \n" << loginCardId << "\n JSobject card: \n" << QString (doc.toJson(QJsonDocument::Compact)) << "\n";
-        return jsob;
+    }
+    QJsonDocument doc(jsob);
+    qDebug() << "\n Login cardId: \n" << loginCardId << "\n JSobject card: \n" << QString (doc.toJson(QJsonDocument::Compact)) << "\n";
+    return jsob;
 
     reply->deleteLater();
 }
@@ -266,14 +266,34 @@ QJsonArray HttpLibrary::getDebitAccounts()
 
 }
 
-bool HttpLibrary::makeBankTransfer(int acc_1, int acc_2, double balance_1, double balance_2)
+bool HttpLibrary::makeBankTransfer(int acc_1, int acc_2, double amount)
 {
     // acc_1 is the sender and acc_2 receiver
     // update accounts
-        this->debitUpdate(acc_1, balance_1);
-        this->debitUpdate(acc_2, balance_2);
-        return true;
+    QJsonArray debitAccounts = this->getDebitAccounts();
+    QJsonArray creditAccounts = this->getCreditAccounts();
+    QJsonObject jsob;
 
+    qDebug() << "debitAccounts before transfer: " << debitAccounts;
+    qDebug() << "creditAccounts before transfer: " << creditAccounts;
+
+    foreach (const QJsonValue &value, debitAccounts) {
+        jsob = value.toObject();
+        qDebug() << "\njsob: " << jsob["d_balance"].toString().toDouble() - amount << "\n";
+        qDebug() << "\njsobdbalance: " << jsob["d_balance"].toString().toDouble();
+        qDebug() << "jsob[da_id].toString()" << jsob["da_id"].toString();
+        if(jsob["da_id"].toString() == QString::number(acc_1)) debitUpdate(acc_1, jsob["d_balance"].toString().toDouble() - amount);
+        if(jsob["da_id"].toString() == QString::number(acc_2)) debitUpdate(acc_2, jsob["d_balance"].toString().toDouble() + amount);
+    }
+
+    foreach (const QJsonValue &value, creditAccounts) {
+        jsob = value.toObject();
+        if(jsob["ca_id"].toString() == QString::number(acc_1)) creditUpdate(acc_1, jsob["c_balance"].toString().toDouble() - amount, jsob["c_limit"].toString().toInt());
+        if(jsob["ca_id"].toString() == QString::number(acc_2)) creditUpdate(acc_2, jsob["c_balance"].toString().toDouble() + amount, jsob["c_limit"].toString().toInt());
+    }
+    qDebug() << "debitAccounts after transfer: " << debitAccounts;
+    qDebug() << "creditAccounts after transfer: " << creditAccounts;
+    return true;
 }
 
 
@@ -284,40 +304,40 @@ bool HttpLibrary::checkAccount(int acc_id)
     QString id = "ca_id";
     bool account_found = false;
 
-//    if (isCredit){
-//        qurl = "credit/credit/id/";
-//        id = "ca_id";
-//    } else {
-//        qurl = "debit/debit/id/";
-//        id = "da_id";
-//    }
+    //    if (isCredit){
+    //        qurl = "credit/credit/id/";
+    //        id = "ca_id";
+    //    } else {
+    //        qurl = "debit/debit/id/";
+    //        id = "da_id";
+    //    }
     while (!account_found) {
-    QNetworkRequest request(QUrl(url + qurl));
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
-    request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
+        QNetworkRequest request(QUrl(url + qurl));
+        request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+        request.setRawHeader( "Authorization", authenticate().toLocal8Bit() );
 
-    QNetworkAccessManager nam;
-    QNetworkReply *reply = nam.get(request);
-    while (!reply->isFinished())
-    {
-        qApp->processEvents();
-    }
-    QByteArray response_data = reply->readAll();
-
-    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-    QJsonArray jsarr = json_doc.array();
-    QJsonObject jsob;
-    foreach (const QJsonValue &value, jsarr) {
-        jsob = value.toObject();
-        if(jsob[id].toString() == QString::number(acc_id)){
-            account_found = true;
-            return true;
+        QNetworkAccessManager nam;
+        QNetworkReply *reply = nam.get(request);
+        while (!reply->isFinished())
+        {
+            qApp->processEvents();
         }
+        QByteArray response_data = reply->readAll();
+
+        QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+        QJsonArray jsarr = json_doc.array();
+        QJsonObject jsob;
+        foreach (const QJsonValue &value, jsarr) {
+            jsob = value.toObject();
+            if(jsob[id].toString() == QString::number(acc_id)){
+                account_found = true;
+                return true;
+            }
+        }
+        if(id == "da_id"){return false;}
+        qurl = "debit/debit/id/";
+        id = "da_id";
     }
-    if(id == "da_id"){return false;}
-    qurl = "debit/debit/id/";
-    id = "da_id";
-}
     return false;
 }
 

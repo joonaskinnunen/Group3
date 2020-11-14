@@ -22,7 +22,7 @@ public:
     QJsonArray getTransactions(int acc_id);
     QJsonArray getCreditAccounts();
     QJsonArray getDebitAccounts();
-    bool makeBankTransfer(int acc_1, int acc_2, double balance_1, double balance_2);
+    bool makeBankTransfer(int acc_1, int acc_2, double amount);
     bool checkAccount(int acc_id);
 
 };

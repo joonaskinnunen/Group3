@@ -106,6 +106,28 @@ QString CardSingleton::makeWithdrawal(int amount)
     }
 }
 
+QString CardSingleton::makeTransfer(int receiverId, double amount)
+{
+    if(hl->checkAccount(receiverId)) {
+        if(this->isCreditSelected) {
+            if(this->getCaBalance() + this->getCaLimit() > amount) {
+                this->setCaBalance(this->caBalance - amount);
+                hl->makeBankTransfer(this->caId, receiverId, amount);
+                return "Tilisiirto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€";
+            } else {
+                return "Tilisiirto epäonnistui! Tilin luottoraja ei riitä siirron tekemiseen.\nLuottoa käytettävissä: " + QString::number(this->getCaBalance() + this->getCaLimit(), 'f', 2) + "€";
+            }
+        }
+        if(this->getDaBalance() > amount) {
+            this->setDaBalance(this->daBalance - amount);
+            hl->makeBankTransfer(this->daId, receiverId, amount);
+            return "Tilisiirto onnistui! Tilin saldo: " + QString::number(this->getDaBalance(), 'f', 2) + "€";
+        } else {
+            return "Tilisiirto epäonnistui! Tilin saldo ei riitä siirron tekemiseen.\nTilillä käytettävissä: " + QString::number(this->daBalance, 'f', 2) + "€";
+        }
+    }
+}
+
 QJsonArray CardSingleton::getTransactions() const
 {
     return transactions;
@@ -125,3 +147,4 @@ CardSingleton* CardSingleton::getInstance()
 
     return instance;
 }
+
