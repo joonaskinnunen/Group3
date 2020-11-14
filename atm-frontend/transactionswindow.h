@@ -13,7 +13,7 @@ class TransactionsWindow : public QWidget
     Q_OBJECT
 
 public:
-    explicit TransactionsWindow(QJsonArray arr, QWidget *parent = nullptr);
+    explicit TransactionsWindow(QWidget *parent = nullptr);
     ~TransactionsWindow();
 
 private slots:

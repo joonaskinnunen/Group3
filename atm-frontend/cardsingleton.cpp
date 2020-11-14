@@ -106,6 +106,16 @@ QString CardSingleton::makeWithdrawal(int amount)
     }
 }
 
+QJsonArray CardSingleton::getTransactions() const
+{
+    return transactions;
+}
+
+void CardSingleton::setTransactions(const QJsonArray &value)
+{
+    transactions = value;
+}
+
 CardSingleton* CardSingleton::getInstance()
 {
     if (instance == nullptr)

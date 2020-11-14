@@ -48,8 +48,9 @@ void ActionChoiceWindow::on_pushButtonTransactions_clicked()
     qDebug() << "\n cardsingleton ca id: " << cs->getCaId();
     HttpLibrary *hl = new HttpLibrary;
     QJsonArray jsarr = hl->getTransactions(acc);
+    cs->setTransactions(jsarr);
     hide();
-    TransactionsWindow *tw = new TransactionsWindow(jsarr);
+    TransactionsWindow *tw = new TransactionsWindow();
     tw->show();
 }
 
