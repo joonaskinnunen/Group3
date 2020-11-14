@@ -2,13 +2,15 @@
 #include "ui_withdrawalwindow.h"
 #include "exitwindow.h"
 
+#include <QRegExpValidator>
+
 WithdrawalWindow::WithdrawalWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::WithdrawalWindow)
 {
     ui->setupUi(this);
 
-    ui->lineEditWithDrawalAmount->setPlaceholderText("Syötä haluamasi summa");
+    ui->lineEditWithDrawalAmount->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditWithDrawalAmount));
 
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -62,4 +64,9 @@ void WithdrawalWindow::on_pushButtonWdCustomAmount_clicked()
     hide();
     ExitWindow *ewf = new ExitWindow(message);
     ewf->show();
+}
+
+void WithdrawalWindow::on_pushButtonExit_clicked()
+{
+    this->close();
 }

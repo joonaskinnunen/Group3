@@ -67,15 +67,15 @@ QJsonObject HttpLibrary::checkCard(QString loginCardId)
     QJsonArray jsarr = json_doc.array();
 
     QJsonObject jsob;
-    foreach (const QJsonValue &value, jsarr) {
-        jsob = value.toObject();
-        if(jsob["card_id"].toString() == loginCardId){
-            break;
+        foreach (const QJsonValue &value, jsarr) {
+            QJsonObject jsob = value.toObject();
+            if(jsob["card_id"].toString() == loginCardId){
+                return jsob;
+            }
         }
-    }
-    QJsonDocument doc(jsob);
-    qDebug() << "\n Login cardId: \n" << loginCardId << "\n JSobject card: \n" << QString (doc.toJson(QJsonDocument::Compact)) << "\n";
-    return jsob;
+        QJsonDocument doc(jsob);
+        qDebug() << "\n Login cardId: \n" << loginCardId << "\n JSobject card: \n" << QString (doc.toJson(QJsonDocument::Compact)) << "\n";
+        return jsob;
 
     reply->deleteLater();
 }

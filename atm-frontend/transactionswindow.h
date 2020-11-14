@@ -1,6 +1,8 @@
 #ifndef TRANSACTIONSWINDOW_H
 #define TRANSACTIONSWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QWidget>
 #include "cardsingleton.h"
 

@@ -19,6 +19,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     transactionswindow.cpp \
+    transferwindow.cpp \
     withdrawalwindow.cpp
 
 HEADERS += \
@@ -31,6 +32,7 @@ HEADERS += \
     login.h \
     mainwindow.h \
     transactionswindow.h \
+    transferwindow.h \
     withdrawalwindow.h
 
 FORMS += \
@@ -42,6 +44,7 @@ FORMS += \
     login.ui \
     mainwindow.ui \
     transactionswindow.ui \
+    transferwindow.ui \
     withdrawalwindow.ui
 
 # Default rules for deployment.

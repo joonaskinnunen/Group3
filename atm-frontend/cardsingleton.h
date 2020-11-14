@@ -13,9 +13,8 @@ private:
     double caBalance, daBalance;
     QString owner;
     bool isCreditSelected = false;
-    HttpLibrary *hl = new HttpLibrary;
     QJsonArray transactions;
-
+    HttpLibrary *hl = new HttpLibrary;
 
 public:
     static CardSingleton* getInstance();

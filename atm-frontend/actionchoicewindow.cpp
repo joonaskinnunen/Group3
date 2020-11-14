@@ -1,6 +1,7 @@
 #include "actionchoicewindow.h"
 #include "balancewindow.h"
 #include "transactionswindow.h"
+#include "transferwindow.h"
 #include "ui_actionchoicewindow.h"
 #include "withdrawalwindow.h"
 
@@ -57,4 +58,11 @@ void ActionChoiceWindow::on_pushButtonTransactions_clicked()
 void ActionChoiceWindow::on_pushButtonExit_clicked()
 {
     this->close();
+}
+
+void ActionChoiceWindow::on_pushButtonTransfer_clicked()
+{
+    hide();
+    TransferWindow *tw = new TransferWindow();
+    tw->show();
 }

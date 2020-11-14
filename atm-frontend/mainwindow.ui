@@ -14,7 +14,10 @@
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#centralwidget {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}</string>
+   <string notr="true">#centralwidget {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+QPushButton {
+border: none;
+}</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="lineEditId">
@@ -90,8 +93,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: none;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>
@@ -101,7 +103,7 @@
     <property name="geometry">
      <rect>
       <x>524</x>
-      <y>290</y>
+      <y>305</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -153,8 +155,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border: none;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string/>

@@ -6,12 +6,16 @@
 
 #include <QDebug>
 #include <QPixmap>
+#include <QRegExpValidator>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->lineEditId->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditId));
+
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
@@ -30,11 +34,11 @@ void MainWindow::on_pushButtonLogin_clicked()
 {
     QString cardId = this->ui->lineEditId->text();
     HttpLibrary *hl = new HttpLibrary;
-  //  qDebug()<< hl->checkCard(cardId);
+    qDebug()<< hl->checkCard(cardId);
     QJsonObject cardObj = hl->checkCard(cardId);
- //   qDebug()<< "\n" << cardObj["card_id"].toString().toInt() << "\n";
-    if(!cardObj.isEmpty()) {
-        qDebug() << "cardObj[d_balance].toString(): " << cardObj["d_balance"].toString();
+    qDebug()<< "\n cardObj: " << cardObj << "\n";
+    qDebug() << "cardObj[card_id]: " << cardObj["card_id"];
+    if(!cardObj["card_id"].isNull()) {
         qDebug() << "cardObj[d_balance].toString().toDouble(): " << QString::number(cardObj["d_balance"].toString().toDouble(), 'f', 2);
         cs->setCardId(cardObj["card_id"].toString().toInt());
         cs->setCaId(cardObj["ca_id"].toString().toInt());
@@ -50,7 +54,7 @@ void MainWindow::on_pushButtonLogin_clicked()
         qDebug() << QString::number(cs->getDaBalance(), 'f', 2);
     }
     ui->labelErrorMessage->setStyleSheet("QLabel { color : red; }");
-    ui->labelErrorMessage->setText("TiliÃ¤ ei lÃ¶ydy!");
+    ui->labelErrorMessage->setText("Tiliä ei löydy!");
 }
 
 void MainWindow::on_pushButtonExit_clicked()
