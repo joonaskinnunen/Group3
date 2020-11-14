@@ -86,10 +86,17 @@ border: none;
    <widget class="QPushButton" name="pushButtonLogin">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>622</x>
       <y>295</y>
       <width>50</width>
       <height>45</height>
+=======
+      <x>625</x>
+      <y>280</y>
+      <width>40</width>
+      <height>40</height>
+>>>>>>> main
      </rect>
     </property>
     <property name="styleSheet">
@@ -126,7 +133,11 @@ border: none;
     <property name="geometry">
      <rect>
       <x>510</x>
+<<<<<<< HEAD
       <y>453</y>
+=======
+      <y>440</y>
+>>>>>>> main
       <width>81</width>
       <height>21</height>
      </rect>
@@ -148,10 +159,17 @@ border: none;
    <widget class="QPushButton" name="pushButtonExit">
     <property name="geometry">
      <rect>
+<<<<<<< HEAD
       <x>622</x>
       <y>450</y>
       <width>50</width>
       <height>45</height>
+=======
+      <x>625</x>
+      <y>430</y>
+      <width>40</width>
+      <height>40</height>
+>>>>>>> main
      </rect>
     </property>
     <property name="styleSheet">

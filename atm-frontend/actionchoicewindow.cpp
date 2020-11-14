@@ -4,6 +4,8 @@
 #include "ui_actionchoicewindow.h"
 #include "withdrawalwindow.h"
 
+#include <QJsonArray>
+
 ActionChoiceWindow::ActionChoiceWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ActionChoiceWindow)
@@ -38,6 +40,15 @@ void ActionChoiceWindow::on_pushButtonBalance_clicked()
 
 void ActionChoiceWindow::on_pushButtonTransactions_clicked()
 {
+    int acc;
+    if(cs->getIsCreditSelected()){
+        acc = cs->getCaId();
+    }
+    acc = cs->getDaId();
+    qDebug() << "\n cardsingleton ca id: " << cs->getCaId();
+    HttpLibrary *hl = new HttpLibrary;
+    QJsonArray jsarr = hl->getTransactions(acc);
+    cs->setTransactions(jsarr);
     hide();
     TransactionsWindow *tw = new TransactionsWindow();
     tw->show();

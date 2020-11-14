@@ -4,6 +4,7 @@
 #include "cardsingleton.h"
 
 #include <QWidget>
+#include "cardsingleton.h"
 
 namespace Ui {
 class TransactionsWindow;

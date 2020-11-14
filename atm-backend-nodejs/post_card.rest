@@ -1,0 +1,10 @@
+post http://localhost:3001/api/cards/
+Content-Type: application/json
+
+{
+    "cardId": 17000,
+    "owner": "Matti Meikäläinen",
+    "pin": 1111,
+    "debitBalance": 5000,
+    "creditLimit": 10000
+}
