@@ -24,6 +24,7 @@ public:
     QJsonArray getDebitAccounts();
     bool makeBankTransfer(int acc_1, int acc_2, double balance_1, double balance_2);
     bool checkAccount(int acc_id);
+    bool updateAccount(int acc_id, double balance);
 
 };
 

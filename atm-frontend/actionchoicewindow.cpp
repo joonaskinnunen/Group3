@@ -41,15 +41,10 @@ void ActionChoiceWindow::on_pushButtonBalance_clicked()
 
 void ActionChoiceWindow::on_pushButtonTransactions_clicked()
 {
-    int acc;
-    if(cs->getIsCreditSelected()){
-        acc = cs->getCaId();
-    }
-    acc = cs->getDaId();
+    int acc = cs->getIsCreditSelected() ? cs->getCaId() : cs->getDaId();
     qDebug() << "\n cardsingleton ca id: " << cs->getCaId();
     HttpLibrary *hl = new HttpLibrary;
-    QJsonArray jsarr = hl->getTransactions(acc);
-    cs->setTransactions(jsarr);
+    cs->setTransactions(hl->getTransactions(acc));
     hide();
     TransactionsWindow *tw = new TransactionsWindow();
     tw->show();

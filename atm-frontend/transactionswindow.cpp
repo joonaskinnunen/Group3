@@ -12,13 +12,15 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
     ui->setupUi(this);
 
     QJsonArray arr = cs->getTransactions();
-    QStandardItemModel *table_model = new QStandardItemModel(arr.size(),3);
+    QStandardItemModel *table_model = new QStandardItemModel(arr.size(),4);
     table_model->setHeaderData(0, Qt::Horizontal, QObject::tr("Summa"));
     table_model->setHeaderData(1, Qt::Horizontal, QObject::tr("Aika"));
     table_model->setHeaderData(2, Qt::Horizontal, QObject::tr("Tyyppi"));
+    table_model->setHeaderData(3, Qt::Horizontal, QObject::tr("Saldo"));
 
     QJsonObject jsob;
-    int row = arr.size() - 1;
+    double bal = cs->getIsCreditSelected() ? cs->getCaBalance() : cs->getDaBalance();
+    int row = 0;
     foreach(const QJsonValue &value, arr) {
         jsob = value.toObject();
         QStandardItem *amount = new QStandardItem(jsob["amount"].toString());
@@ -32,7 +34,11 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
         QStandardItem *type = new QStandardItem(jsob["action"].toString());
         table_model->setItem(row, 2, type);
         type->setTextAlignment(Qt::AlignCenter);
-        row -= 1;
+        QStandardItem *balance = new QStandardItem(QString::number(bal));
+        table_model->setItem(row, 3, balance);
+        type->setTextAlignment(Qt::AlignCenter);
+        row += 1;
+        bal += jsob["amount"].toString().toDouble();
     }
 
     if(cs->getIsCreditSelected()){
@@ -42,9 +48,10 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
     }
 
     ui->tableViewTransactions->setModel(table_model);
-    ui->tableViewTransactions->setColumnWidth(0, 100);
-    ui->tableViewTransactions->setColumnWidth(1, 160);
-    ui->tableViewTransactions->setColumnWidth(2, 100);
+    ui->tableViewTransactions->setColumnWidth(0, 80);
+    ui->tableViewTransactions->setColumnWidth(1, 150);
+    ui->tableViewTransactions->setColumnWidth(2, 80);
+    ui->tableViewTransactions->setColumnWidth(3, 80);
 
     QPixmap pmbg(":/atm-frontend/bg.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);

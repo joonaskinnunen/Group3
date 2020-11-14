@@ -193,7 +193,7 @@ QJsonArray HttpLibrary::getTransactions(int acc_id)
     foreach (const QJsonValue &value, jsarr) {
         jsob = value.toObject();
         if(jsob["acc_id"].toString() == QString::number(acc_id)){
-            filteredJsarr.append(jsob);
+            filteredJsarr.prepend(jsob);
         }
     }
 
@@ -319,6 +319,19 @@ bool HttpLibrary::checkAccount(int acc_id)
     id = "da_id";
 }
     return false;
+}
+
+bool HttpLibrary::updateAccount(int acc_id, double balance)
+{
+    QJsonArray arr = this->getCreditAccounts();
+    QJsonObject jsob;
+    foreach (const QJsonValue &value, arr) {
+        jsob = value.toObject();
+        if(jsob["ca_id"].toString() == QString::number(acc_id)){
+            return this->creditUpdate(acc_id, balance, jsob["c_limit"].toInt());
+        }
+    }
+    return this->debitUpdate(acc_id, balance);
 }
 
 bool HttpLibrary::updateCard(QJsonObject card)
