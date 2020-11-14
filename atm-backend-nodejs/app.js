@@ -3,8 +3,6 @@ const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 const cardsRouter = require('./controllers/cards')
-const debitAccountsRouter = require('./controllers/debitaccounts')
-const creditAccountsRouter = require('./controllers/creditaccounts')
 require('dotenv').config()
 
 console.log('connecting to', process.env.MONGODB_URI)
@@ -21,7 +19,5 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/api/cards', cardsRouter)
-app.use('/api/debitaccounts', debitAccountsRouter)
-app.use('/api/creditaccounts', creditAccountsRouter)
 
 module.exports = app
