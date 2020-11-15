@@ -36,9 +36,9 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
         type->setTextAlignment(Qt::AlignCenter);
         QStandardItem *balance = new QStandardItem(QString::number(bal));
         table_model->setItem(row, 3, balance);
-        type->setTextAlignment(Qt::AlignCenter);
+        balance->setTextAlignment(Qt::AlignCenter);
         row += 1;
-        bal += jsob["amount"].toString().toDouble();
+        bal -= jsob["amount"].toString().toDouble();
     }
 
     if(cs->getIsCreditSelected()){
@@ -49,7 +49,7 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
 
     ui->tableViewTransactions->setModel(table_model);
     ui->tableViewTransactions->setColumnWidth(0, 80);
-    ui->tableViewTransactions->setColumnWidth(1, 150);
+    ui->tableViewTransactions->setColumnWidth(1, 140);
     ui->tableViewTransactions->setColumnWidth(2, 80);
     ui->tableViewTransactions->setColumnWidth(3, 80);
 
