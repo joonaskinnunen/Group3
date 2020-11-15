@@ -38,19 +38,16 @@ void TransferWindow::on_pushButtonExit_clicked()
 void TransferWindow::on_pushButtonOk_clicked()
 {
     int receiverAccountId = ui->lineEditReceiverId->text().toInt();
-    qDebug() << "Receiver account ID: " << receiverAccountId;
-    qDebug() << hl->checkAccount(receiverAccountId);
-    if(hl->checkAccount(receiverAccountId)) {
-        QString message = cs->makeWithdrawal(ui->lineEditAmount->text().toInt());
-        if(message.contains("epäonnistui")) {
-            ui->labelErrorMessage->setText("Tilin saldo ei riitä siirron tekemiseen!");
-        } else {
-            hide();
-            ExitWindow *ewf = new ExitWindow("Tilisiirto onnistui!");
-            ewf->show();
-        }
-    } else {
-        ui->labelErrorMessage->setText("Vastaanottajan tilinumero virheellinen!");
-    }
+    int amount = ui->lineEditAmount->text().toInt();
+    qDebug() << "Receiver account ID: " << QString::number(receiverAccountId);
+    qDebug() << ui->lineEditReceiverId->text();
 
+    if(hl->checkAccount(receiverAccountId)) {
+        QString message = cs->makeTransfer(receiverAccountId, amount);
+        hide();
+        ExitWindow *ewf = new ExitWindow(message);
+        ewf->show();
+    } else {
+        ui->labelErrorMessage->setText("Tilinumerolla " + QString::number(receiverAccountId) + " ei löytynyt tiliä!");
+    }
 }
