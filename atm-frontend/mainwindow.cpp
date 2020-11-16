@@ -37,12 +37,7 @@ void MainWindow::on_pushButtonLogin_clicked()
     qDebug()<< hl->checkCard(cardId);
     QJsonObject cardObj = hl->checkCard(cardId);
     qDebug()<< "\n cardObj: " << cardObj << "\n";
-    qDebug() << "cardObj[card_id]: " << cardObj["card_id"];
-    qDebug() << "\n 12345: " << hl->checkAccount(12345);
-    qDebug() << "\n 12345666: " << hl->checkAccount(12345666);
-    qDebug() << "\n 32109: " << hl->checkAccount(32109) << "\n";
     if(!cardObj["card_id"].isNull()) {
-        qDebug() << "cardObj[d_balance].toString().toDouble(): " << QString::number(cardObj["d_balance"].toString().toDouble(), 'f', 2);
         cs->setCardId(cardObj["card_id"].toString().toInt());
         cs->setCaId(cardObj["ca_id"].toString().toInt());
         cs->setDaId(cardObj["da_id"].toString().toInt());
@@ -54,7 +49,6 @@ void MainWindow::on_pushButtonLogin_clicked()
         Login *login = new Login();
         login->show();
         this->close();
-        qDebug() << QString::number(cs->getDaBalance(), 'f', 2);
     }
     ui->labelErrorMessage->setStyleSheet("QLabel { color : red; }");
     ui->labelErrorMessage->setText("Tiliä ei löydy!");

@@ -182,7 +182,6 @@ QJsonArray HttpLibrary::getTransactions(int acc_id)
     QByteArray response_data = reply->readAll();
 
     // Debuggausta
-    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
     qDebug() << "\n account id: " << acc_id;
 
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
@@ -214,15 +213,13 @@ QJsonArray HttpLibrary::getCreditAccounts()
 
     QNetworkAccessManager nam;
     QNetworkReply *reply = nam.get(request);
+
     while (!reply->isFinished())
     {
         qApp->processEvents();
     }
+
     QByteArray response_data = reply->readAll();
-
-    // Debuggausta
-    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
-
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray jsarr = json_doc.array();
     QJsonArray filteredJsarr;
@@ -244,15 +241,13 @@ QJsonArray HttpLibrary::getDebitAccounts()
 
     QNetworkAccessManager nam;
     QNetworkReply *reply = nam.get(request);
+
     while (!reply->isFinished())
     {
         qApp->processEvents();
     }
+
     QByteArray response_data = reply->readAll();
-
-    // Debuggausta
-    //qDebug()<< "\n getTransactions response data: " + response_data + "\n";
-
     QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
     QJsonArray jsarr = json_doc.array();
     QJsonArray filteredJsarr;
@@ -274,9 +269,6 @@ bool HttpLibrary::makeBankTransfer(int acc_1, int acc_2, double amount)
     QJsonArray creditAccounts = this->getCreditAccounts();
     QJsonObject jsob;
 
-    qDebug() << "debitAccounts before transfer: " << debitAccounts;
-    qDebug() << "creditAccounts before transfer: " << creditAccounts;
-
     foreach (const QJsonValue &value, debitAccounts) {
         jsob = value.toObject();
         if(jsob["da_id"].toString() == QString::number(acc_1)) updateAccount(acc_1, jsob["d_balance"].toString().toDouble() - amount);
@@ -288,8 +280,7 @@ bool HttpLibrary::makeBankTransfer(int acc_1, int acc_2, double amount)
         if(jsob["ca_id"].toString() == QString::number(acc_1)) updateAccount(acc_1, jsob["c_balance"].toString().toDouble() - amount);
         if(jsob["ca_id"].toString() == QString::number(acc_2)) updateAccount(acc_2, jsob["c_balance"].toString().toDouble() + amount);
     }
-    qDebug() << "debitAccounts after transfer: " << debitAccounts;
-    qDebug() << "creditAccounts after transfer: " << creditAccounts;
+
     return true;
 }
 
