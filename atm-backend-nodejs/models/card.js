@@ -12,8 +12,8 @@ const cardSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  pin: {
-    type: Number,
+  pinHash: {
+    type: String,
     required: true
   },
   debitBalance: {

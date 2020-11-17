@@ -1,127 +1,150 @@
 const cardsRouter = require('express').Router()
 const Card = require('../models/card')
+const bcrypt = require('bcrypt')
 require('dotenv').config()
-
-const isAuthorized = (req) => {
-  const password = req.get('Password')
-  const username = req.get('Username')
-
-  if (process.env.PASSWORD == password && process.env.USERNAME == username) return true
-  return false
-}
 
 cardsRouter.get('/', async (request, response) => {
   const cards = await Card.find({})
-  if (isAuthorized(request)) {
-    response.json(cards.map(card => card.toJSON()))
-  }
-  response.status(400).send('Not authorized')
-
+  response.json(cards.map(card => card.toJSON()))
 })
 
 cardsRouter.get('/:id', async (request, response) => {
   const card = await Card.findById(request.params.id)
-  if (isAuthorized(request)) {
-    if (card) {
-      response.json(card.toJSON())
-    } else {
-      response.status(404).end()
-    }
+  if (card) {
+    response.json(card.toJSON())
+  } else {
+    response.status(404).end()
   }
-  response.status(400).send('Not authorized')
 })
 
 cardsRouter.post('/', async (request, response) => {
   const body = request.body
 
-  if (isAuthorized(request)) {
-    const card = new Card({
-      cardId: body.cardId,
-      owner: body.owner,
-      pin: body.pin,
-      debitBalance: body.debitBalance,
-      creditBalance: 0,
-      creditLimit: body.creditLimit,
-      debitTransactions: [],
-      creditTransactions: []
-    })
+  const saltRounds = 10
+  const pinHash = await bcrypt.hash(body.pin, saltRounds)
 
-    const savedCard = await card.save()
-    response.json(savedCard.toJSON())
-  }
-  response.status(400).send('Not authorized')
+  const card = new Card({
+    cardId: body.cardId,
+    owner: body.owner,
+    pinHash,
+    debitBalance: body.debitBalance,
+    creditBalance: 0,
+    creditLimit: body.creditLimit,
+    debitTransactions: [],
+    creditTransactions: []
+  })
+
+  const savedCard = await card.save()
+  response.json(savedCard.toJSON())
 })
 cardsRouter.put('/debitwithdrawal/:id', async (request, response) => {
   const body = request.body
 
-  if (isAuthorized(request)) {
+  const card = await Card.findOne({ cardId: request.params.id })
+  console.log(card)
+  console.log(request.params.id)
 
-    const filter = { cardId: request.params.id };
-    const update = { $inc: { "debitBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
+  const filter = { cardId: request.params.id };
+  const update = { $inc: { "debitBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
 
-    await Card.findOneAndUpdate(filter, update, {
-      new: true
+  const passwordCorrect = card === null
+    ? false
+    : await bcrypt.compare(body.pin, card.pinHash)
+
+  if (!(card && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
     })
-      .then(updatedCard => {
-        response.json(updatedCard.toJSON())
-      })
-      .catch(error => console.log(error))
   }
-  response.status(400).send('Not authorized')
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+    .then(updatedCard => {
+      response.json(updatedCard.toJSON())
+    })
+    .catch(error => console.log(error))
 })
 
 cardsRouter.put('/creditwithdrawal/:id', async (request, response) => {
   const body = request.body
 
-  if (isAuthorized(request)) {
-    const filter = { cardId: request.params.id };
-    const update = { $inc: { "creditBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
+  const card = await Card.findOne({ cardId: request.params.id })
 
-    await Card.findOneAndUpdate(filter, update, {
-      new: true
+  const filter = { cardId: request.params.id };
+  const update = { $inc: { "creditBalance": -body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
+
+  const passwordCorrect = card === null
+    ? false
+    : await bcrypt.compare(body.pin, card.pinHash)
+
+  if (!(card && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
     })
-      .then(updatedCard => {
-        response.json(updatedCard.toJSON())
-      })
-      .catch(error => console.log(error))
   }
-  response.status(400).send('Not authorized')
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+    .then(updatedCard => {
+      response.json(updatedCard.toJSON())
+    })
+    .catch(error => console.log(error))
 })
 
 cardsRouter.put('/debitdeposit/:id', async (request, response) => {
   const body = request.body
 
-  if (isAuthorized(request)) {
-    const filter = { cardId: request.params.id };
-    const update = { $inc: { "debitBalance": body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
+  const card = await Card.findOne({ cardId: request.params.id })
 
-    let card = await Card.findOneAndUpdate(filter, update, {
-      new: true
+  const filter = { cardId: request.params.id };
+  const update = { $inc: { "debitBalance": body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
+
+  const passwordCorrect = card === null
+    ? false
+    : await bcrypt.compare(body.pin, card.pinHash)
+
+  if (!(card && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
     })
-      .then(updatedCard => {
-        response.json(updatedCard.toJSON())
-      })
-      .catch(error => console.log(error))
   }
-  response.status(400).send('Not authorized')
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+    .then(updatedCard => {
+      response.json(updatedCard.toJSON())
+    })
+    .catch(error => console.log(error))
 })
 
 cardsRouter.put('/creditdeposit/:id', async (request, response) => {
   const body = request.body
 
-  if (isAuthorized(request)) {
-    const filter = { cardId: request.params.id };
-    const update = { $inc: { "creditBalance": body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
+  const card = await Card.findOne({ cardId: request.params.id })
 
-    await Card.findOneAndUpdate(filter, update, {
-      new: true
+  const filter = { cardId: request.params.id };
+  const update = { $inc: { "creditBalance": body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
+
+  const passwordCorrect = card === null
+    ? false
+    : await bcrypt.compare(body.pin, card.pinHash)
+
+  if (!(card && passwordCorrect)) {
+    return response.status(401).json({
+      error: 'invalid username or password'
     })
-      .then(updatedCard => {
-        response.json(updatedCard.toJSON())
-      })
-      .catch(error => console.log(error))
   }
-  response.status(400).send('Not authorized')
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+    .then(updatedCard => {
+      response.json(updatedCard.toJSON())
+    })
+    .catch(error => console.log(error))
 })
 
 module.exports = cardsRouter
