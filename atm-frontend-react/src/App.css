@@ -1,3 +1,5 @@
+@import "~fontsource-roboto/400-normal.css";
+
 .App {
   text-align: center;
   background-color: #a9a9a9;
@@ -12,6 +14,33 @@
 
 #main-grid {
   border-radius: 10px;
-  border: 5px solid #2b8670;
+  border: 5px solid #3f51b5;
   background-color: #d3d3d3;
+  padding: 40px;
+}
+
+h1, h2, h3 {
+  font-family: "Roboto";
+  color: darkred;
+}
+
+.numpad-container {
+  width: 300px;
+  height: 100%;
+  margin-top: 30px;
+}
+
+.numpad {
+  width: 70px;
+  height: 70px;
+  margin: 5px;
+  background-color: grey;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+  border: none;
+  outline: none !important;
+}
+
+.MuiButton-containedPrimary {
+  margin-top: 20px !important;
 }
