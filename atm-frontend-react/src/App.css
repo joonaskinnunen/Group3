@@ -41,6 +41,14 @@ h1, h2, h3 {
   outline: none !important;
 }
 
-.MuiButton-containedPrimary {
+.MuiButton-containedPrimary, .MuiButton-contained{
   margin-top: 20px !important;
+}
+
+.MuiButton-contained {
+  margin-left: 10px !important;
+}
+
+.MuiInputBase-input {
+  color: black !important;
 }
