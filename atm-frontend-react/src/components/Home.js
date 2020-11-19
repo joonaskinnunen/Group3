@@ -8,19 +8,19 @@ const Home = (props) => {
     const onSubmitClick = () => {
         let foundedCard = null
         props.cards.map(card => {
-            if (card.cardId == props.keypadInput) foundedCard = card
+            if (card.cardId == props.keypadInput) foundedCard = card.cardId
         })
         if (foundedCard == null) {
             props.updateMessage("Virheellinen kortin numero")
         } else {
-            props.setSelectedCard(foundedCard)
+            props.setCardId(foundedCard)
         }
         props.setKeypadInput("")
     }
 
     return (
         <>
-            {props.selectedCard != null && <Redirect to="/login" />}
+            {props.cardId != null && <Redirect to="/login" />}
             <p>Syötä kortin numero:</p>
             <TextField disabled id="outlined-basic" label="Kortti ID" variant="outlined" value={props.keypadInput} />
             <Grid

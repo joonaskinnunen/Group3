@@ -17,7 +17,9 @@ function App() {
 
   const [keypadInput, setKeypadInput] = useState("")
   const [cards, setCards] = useState([])
-  const [selectedCard, setSelectedCard] = useState(null)
+  const [card, setCard] = useState(null)
+  const [cardId, setCardId] = useState(null)
+  const [pin, setPin] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [message, setMessage] = useState(null)
 
@@ -59,10 +61,10 @@ function App() {
           <Router>
             <Switch>
               <Route path="/login">
-                <Login updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} selectedCard={selectedCard} setLoggedIn={setLoggedIn} />
+                <Login updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} cardId={cardId} card={card} setCard={setCard} />
               </Route>
               <Route path="/">
-                <Home updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} setSelectedCard={setSelectedCard} selectedCard={selectedCard} />
+                <Home updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} cardId={cardId} setCardId={setCardId} />
               </Route>
             </Switch>
           </Router>
