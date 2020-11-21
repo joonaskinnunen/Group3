@@ -2,6 +2,15 @@ const cardsRouter = require('express').Router()
 const Card = require('../models/card')
 const bcrypt = require('bcrypt')
 require('dotenv').config()
+const jwt = require('jsonwebtoken')
+
+const getTokenFrom = request => {
+  const authorization = request.get('authorization')
+  if (authorization && authorization.toLowerCase().startsWith('bearer ')) {
+    return authorization.substring(7)
+  }
+  return null
+}
 
 cardsRouter.get('/', async (request, response) => {
   const cards = await Card.find({})
@@ -37,26 +46,22 @@ cardsRouter.post('/', async (request, response) => {
   const savedCard = await card.save()
   response.json(savedCard.toJSON())
 })
-cardsRouter.put('/debitwithdrawal/:id', async (request, response) => {
+cardsRouter.put('/debitwithdrawal', async (request, response) => {
   const body = request.body
 
-  const card = await Card.findOne({ cardId: request.params.id })
-  console.log(card)
-  console.log(request.params.id)
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!token || !decodedToken.cardId) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
 
-  const filter = { cardId: request.params.id };
+  const card = await Card.findOne({ cardId: decodedToken.cardId })
+  console.log(card)
+  console.log(decodedToken)
+
+  const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "debitBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
 
-  const passwordCorrect = card === null
-    ? false
-    : await bcrypt.compare(body.pin, card.pinHash)
-
-  if (!(card && passwordCorrect)) {
-    return response.status(401).json({
-      error: 'invalid username or password'
-    })
-  }
-
   await Card.findOneAndUpdate(filter, update, {
     new: true
   })
@@ -66,24 +71,20 @@ cardsRouter.put('/debitwithdrawal/:id', async (request, response) => {
     .catch(error => console.log(error))
 })
 
-cardsRouter.put('/creditwithdrawal/:id', async (request, response) => {
+cardsRouter.put('/creditwithdrawal', async (request, response) => {
   const body = request.body
 
-  const card = await Card.findOne({ cardId: request.params.id })
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!token || !decodedToken.cardId) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
 
-  const filter = { cardId: request.params.id };
+  const card = await Card.findOne({ cardId: decodedToken.cardId })
+
+  const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "creditBalance": -body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
 
-  const passwordCorrect = card === null
-    ? false
-    : await bcrypt.compare(body.pin, card.pinHash)
-
-  if (!(card && passwordCorrect)) {
-    return response.status(401).json({
-      error: 'invalid username or password'
-    })
-  }
-
   await Card.findOneAndUpdate(filter, update, {
     new: true
   })
@@ -93,24 +94,20 @@ cardsRouter.put('/creditwithdrawal/:id', async (request, response) => {
     .catch(error => console.log(error))
 })
 
-cardsRouter.put('/debitdeposit/:id', async (request, response) => {
+cardsRouter.put('/debitdeposit', async (request, response) => {
   const body = request.body
 
-  const card = await Card.findOne({ cardId: request.params.id })
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!token || !decodedToken.cardId) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
 
-  const filter = { cardId: request.params.id };
+  const card = await Card.findOne({ cardId: decodedToken.cardId })
+
+  const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "debitBalance": body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
 
-  const passwordCorrect = card === null
-    ? false
-    : await bcrypt.compare(body.pin, card.pinHash)
-
-  if (!(card && passwordCorrect)) {
-    return response.status(401).json({
-      error: 'invalid username or password'
-    })
-  }
-
   await Card.findOneAndUpdate(filter, update, {
     new: true
   })
@@ -120,23 +117,19 @@ cardsRouter.put('/debitdeposit/:id', async (request, response) => {
     .catch(error => console.log(error))
 })
 
-cardsRouter.put('/creditdeposit/:id', async (request, response) => {
+cardsRouter.put('/creditdeposit', async (request, response) => {
   const body = request.body
 
-  const card = await Card.findOne({ cardId: request.params.id })
-
-  const filter = { cardId: request.params.id };
-  const update = { $inc: { "creditBalance": body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
-
-  const passwordCorrect = card === null
-    ? false
-    : await bcrypt.compare(body.pin, card.pinHash)
-
-  if (!(card && passwordCorrect)) {
-    return response.status(401).json({
-      error: 'invalid username or password'
-    })
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!token || !decodedToken.cardId) {
+    return response.status(401).json({ error: 'token missing or invalid' })
   }
+
+  const card = await Card.findOne({ cardId: decodedToken.cardId })
+
+  const filter = { cardId: decodedToken.cardId };
+  const update = { $inc: { "creditBalance": body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } }
 
   await Card.findOneAndUpdate(filter, update, {
     new: true

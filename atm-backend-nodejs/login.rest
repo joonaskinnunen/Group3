@@ -1,0 +1,7 @@
+post http://localhost:3001/api/login/
+Content-Type: application/json
+
+{
+    "cardId": 21000,
+    "pin": "1111"
+}
