@@ -1,16 +1,20 @@
 import './App.css'
 import { useState, useEffect } from 'react'
 import Container from '@material-ui/core/Container'
+import Chip from '@material-ui/core/Chip'
 import Grid from '@material-ui/core/Grid'
+import ErrorIcon from '@material-ui/icons/Error'
 import Home from './components/Home'
 import Login from './components/Login'
+import AccountChoice from './components/AccountChoice'
+import ActionChoice from './components/ActionChoice'
+import Withdrawal from './components/Withdrawal'
 import Numpad from './components/Numpad'
-import cardService from "./services/cards"
+import cardsService from "./services/cards"
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from "react-router-dom"
 
 function App() {
@@ -22,9 +26,10 @@ function App() {
   const [pin, setPin] = useState(null)
   const [loggedIn, setLoggedIn] = useState(false)
   const [message, setMessage] = useState(null)
-
+  const [isCreditSelected, setIsCreditSelected] = useState(null)
+ 
   useEffect(() => {
-    cardService
+    cardsService
       .getAll()
       .then(initialCards => {
         setCards(initialCards)
@@ -35,6 +40,7 @@ function App() {
     setKeypadInput(keypadInput + key.key)
     console.log(keypadInput)
     console.log(key)
+    console.log(card)
     console.log(cards)
   }
 
@@ -57,11 +63,20 @@ function App() {
           alignItems="center"
           spacing={10}>
           <h1>ATM</h1>
-          {message && <p>{message}</p>}
+          {message && <Chip color="secondary" label={message} icon={<ErrorIcon />}/>}
           <Router>
             <Switch>
               <Route path="/login">
                 <Login updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} cardId={cardId} card={card} setCard={setCard} />
+              </Route>
+              <Route path="/accountchoice">
+                <AccountChoice setIsCreditSelected={setIsCreditSelected} isCreditSelected={isCreditSelected} />
+              </Route>
+              <Route path="/actionchoice">
+                <ActionChoice />
+              </Route>
+              <Route path="/withdrawal">
+                <Withdrawal updateMessage={updateMessage} card={card} setCard={setCard} isCreditSelected={isCreditSelected} />
               </Route>
               <Route path="/">
                 <Home updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} cardId={cardId} setCardId={setCardId} />
@@ -71,7 +86,6 @@ function App() {
           <Numpad numpadOnClick={numpadOnClick}></Numpad>
         </Grid>
       </Container>
-
     </div>
   )
 }
