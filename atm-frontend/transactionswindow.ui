@@ -130,6 +130,71 @@ background: transparent;
     <string>LOPETA</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_hole_cover">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>500</y>
+     <width>261</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#363940;
+border-radius:5px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_money_hole">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>500</y>
+     <width>221</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:black;
+border-radius:5px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_hole_shadow">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>221</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(0,0,0,50);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>labelTransactionsTitle</zorder>
+  <zorder>pushButtonExit</zorder>
+  <zorder>tableViewTransactions</zorder>
+  <zorder>labelCardId</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_money_hole</zorder>
+  <zorder>label_hole_cover</zorder>
+  <zorder>label_hole_shadow</zorder>
  </widget>
  <resources/>
  <connections/>

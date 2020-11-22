@@ -159,7 +159,9 @@ QPushButton { border: none;}
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: black;</string>
+    <string notr="true">color: black;
+background-color:white;
+</string>
    </property>
    <property name="text">
     <string/>
@@ -296,6 +298,81 @@ QPushButton { border: none;}
     <string>LOPETA</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_hole_cover">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>500</y>
+     <width>261</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#363940;
+border-radius:5px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_money_hole">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>500</y>
+     <width>221</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:black;
+border-radius:5px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_hole_shadow">
+   <property name="geometry">
+    <rect>
+     <x>240</x>
+     <y>520</y>
+     <width>221</width>
+     <height>10</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgba(0,0,0,50);</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <zorder>pushButtonTwenty</zorder>
+  <zorder>pushButtonHundred</zorder>
+  <zorder>pushButtonFifty</zorder>
+  <zorder>labelErrorMessage</zorder>
+  <zorder>label_2</zorder>
+  <zorder>pushButtonFourty</zorder>
+  <zorder>pushButtonWdCustomAmount</zorder>
+  <zorder>label</zorder>
+  <zorder>lineEditWithDrawalAmount</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
+  <zorder>label_5</zorder>
+  <zorder>label_6</zorder>
+  <zorder>pushButtonExit</zorder>
+  <zorder>label_7</zorder>
+  <zorder>label_money_hole</zorder>
+  <zorder>label_hole_cover</zorder>
+  <zorder>label_hole_shadow</zorder>
  </widget>
  <resources/>
  <connections/>

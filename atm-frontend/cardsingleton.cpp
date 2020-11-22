@@ -87,6 +87,7 @@ void CardSingleton::setIsCreditSelected(bool value)
 
 QString CardSingleton::makeWithdrawal(int amount)
 {
+    this->setAmount(amount);
     if(this->isCreditSelected) {
         if(this->getCaBalance() + this->getCaLimit() > amount) {
             this->setCaBalance(this->caBalance - amount);
@@ -133,6 +134,16 @@ QJsonArray CardSingleton::getTransactions() const
 void CardSingleton::setTransactions(const QJsonArray &value)
 {
     transactions = value;
+}
+
+int CardSingleton::getAmount() const
+{
+    return amount;
+}
+
+void CardSingleton::setAmount(int value)
+{
+    amount = value;
 }
 
 CardSingleton* CardSingleton::getInstance()

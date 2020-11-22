@@ -3,16 +3,49 @@
 #include "ui_mainwindow.h"
 #include "httplibrary.h"
 #include "login.h"
+#include "qmath.h"
+#include "note.h"
 
 #include <QDebug>
 #include <QPixmap>
+#include <QPropertyAnimation>
 #include <QRegExpValidator>
+#include <QSequentialAnimationGroup>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+//    group = new QSequentialAnimationGroup;
+
+//    int amount = 410;
+//    QList<int> list = getNotes(amount);
+//    Note *twohundred = new Note(ui->label_twohundred, list[0], ui->label_money_2);
+//    Note *hundred = new Note(ui->label_hundred, list[1], ui->label_money_2);
+//    Note *fifty = new Note(ui->label_fifty, list[2], ui->label_money_2);
+//    Note *twenty = new Note(ui->label_twenty, list[3], ui->label_money_2);
+//    Note *ten = new Note(ui->label_ten, list[4], ui->label_money_2);
+//    QList<Note> *notes = new QList<Note> ;
+//    notes->append(*twohundred);
+//    notes->append(*hundred);
+//    notes->append(*fifty);
+//    notes->append(*twenty);
+//    notes->append(*ten);
+
+//    for (int i = 0;i < notes->size() ;i++ ) {
+//        Note note = notes->at(i);
+//        if(note.getCount() > 0){
+//            note.setCopy(ui->label_money_2);
+//            group->addAnimation(note.getAnimation());
+//            if(note.getCount() > 1) {
+//                group->addAnimation(note.getLoopAnim());
+//            }
+//        }
+//    }
+
+//    group->start();
 
     ui->lineEditId->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditId));
 
@@ -21,6 +54,7 @@ MainWindow::MainWindow(QWidget *parent)
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
     this->setPalette(palette);
+
 }
 
 MainWindow::~MainWindow()
@@ -58,3 +92,26 @@ void MainWindow::on_pushButtonExit_clicked()
 {
     this->close();
 }
+
+//QList<int> MainWindow::getNotes(int amount)
+//{
+//    int twohundreds = qFloor(amount / 200);
+//    amount -= twohundreds*200;
+//    int hundreds = qFloor(amount / 100);
+//    amount -= hundreds*100;
+//    int fifties = qFloor(amount / 50);
+//    amount -= fifties*50;
+//    int twenties = qFloor(amount / 20);
+//    amount -= twenties*20;
+//    int tens = amount/10;
+
+//    QList<int> notes;
+//    notes.append(twohundreds);
+//    notes.append(hundreds);
+//    notes.append(fifties);
+//    notes.append(twenties);
+//    notes.append(tens);
+
+//    qDebug()<< "\n notes: " << notes;
+//    return notes;
+//}
