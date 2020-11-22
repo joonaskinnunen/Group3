@@ -15,6 +15,7 @@ private:
     bool isCreditSelected = false;
     QJsonArray transactions;
     HttpLibrary *hl = new HttpLibrary;
+    int amount;
 
 public:
     static CardSingleton* getInstance();
@@ -38,6 +39,8 @@ public:
     QString makeTransfer(int receiverId, double amount);
     QJsonArray getTransactions() const;
     void setTransactions(const QJsonArray &value);
+    int getAmount() const;
+    void setAmount(int value);
 };
 
 #endif // CARDSINGLETON_H

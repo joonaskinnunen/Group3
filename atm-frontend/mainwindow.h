@@ -2,7 +2,9 @@
 #define MAINWINDOW_H
 
 #include "cardsingleton.h"
+#include "note.h"
 
+#include <QLabel>
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -25,5 +27,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     CardSingleton *cs = CardSingleton::getInstance();
+    QSequentialAnimationGroup *group;
+    QList<int> getNotes(int amount);
 };
 #endif // MAINWINDOW_H

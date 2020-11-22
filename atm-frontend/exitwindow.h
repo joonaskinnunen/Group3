@@ -1,7 +1,12 @@
 #ifndef EXITWINDOW_H
 #define EXITWINDOW_H
 
+#include <QPropertyAnimation>
+#include <QSequentialAnimationGroup>
 #include <QWidget>
+
+#include "cardsingleton.h"
+#include "note.h"
 
 namespace Ui {
 class ExitWindow;
@@ -20,6 +25,9 @@ private slots:
 
 private:
     Ui::ExitWindow *ui;
+    QList<int> getNoteCounts(int amount);
+    QSequentialAnimationGroup *group;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // EXITWINDOW_H

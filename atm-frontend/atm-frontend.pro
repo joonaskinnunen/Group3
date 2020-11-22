@@ -18,6 +18,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
+    note.cpp \
     transactionswindow.cpp \
     transferwindow.cpp \
     withdrawalwindow.cpp
@@ -31,6 +32,7 @@ HEADERS += \
     exitwindow.h \
     login.h \
     mainwindow.h \
+    note.h \
     transactionswindow.h \
     transferwindow.h \
     withdrawalwindow.h

@@ -3,5 +3,10 @@
         <file>button.png</file>
         <file>bg.png</file>
         <file>greybtn.png</file>
+        <file>20-euro-banknote.jpg</file>
+        <file>10-euro-banknote.jpg</file>
+        <file>200-euro-banknote.jpg</file>
+        <file>100-euro-banknote.png</file>
+        <file>50-euro-banknote.png</file>
     </qresource>
 </RCC>
