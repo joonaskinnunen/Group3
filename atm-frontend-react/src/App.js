@@ -9,6 +9,8 @@ import Login from './components/Login'
 import AccountChoice from './components/AccountChoice'
 import ActionChoice from './components/ActionChoice'
 import Withdrawal from './components/Withdrawal'
+import Balance from './components/Balance'
+import Transactions from './components/Transactions'
 import Numpad from './components/Numpad'
 import cardsService from "./services/cards"
 import {
@@ -76,7 +78,13 @@ function App() {
                 <ActionChoice />
               </Route>
               <Route path="/withdrawal">
-                <Withdrawal updateMessage={updateMessage} card={card} setCard={setCard} isCreditSelected={isCreditSelected} />
+                <Withdrawal keypadInput={keypadInput} setKeypadInput={setKeypadInput} updateMessage={updateMessage} card={card} setCard={setCard} isCreditSelected={isCreditSelected} />
+              </Route>
+              <Route path="/balance">
+                <Balance card={card} isCreditSelected={isCreditSelected} />
+              </Route>
+              <Route path="/transactions">
+                <Transactions card={card} isCreditSelected={isCreditSelected} />
               </Route>
               <Route path="/">
                 <Home updateMessage={updateMessage} keypadInput={keypadInput} setKeypadInput={setKeypadInput} cards={cards} cardId={cardId} setCardId={setCardId} />
