@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import cardsService from '../services/cards'
 import TextField from '@material-ui/core/TextField'
 
-const Withdrawal = (props) => {
+const BankTransfer = (props) => {
 
     const handleWithdrawal = (amount) => {
         if (props.isCreditSelected) {
@@ -33,27 +33,18 @@ const Withdrawal = (props) => {
 
     return (
         <>
+            <TextField disabled id="outlined-basic" label="Tilinumero" variant="outlined" value={props.keypadInput} />
+            <TextField disabled id="outlined-basic" label="Summa" variant="outlined" value={props.keypadInput} />
             <Grid
                 direction="row"
                 justify="space-between"
                 alignItems="center"
             >
-                <Button variant="contained" size="large" color="primary" onClick={() => handleWithdrawal(20)}>20€</Button>
-                <Button variant="contained" size="large" color="primary" onClick={() => handleWithdrawal(40)}>40€</Button>
-                <Button variant="contained" size="large" color="primary" onClick={() => handleWithdrawal(50)}>50€</Button>
-                <Button variant="contained" size="large" color="primary" onClick={() => handleWithdrawal(100)}>100€</Button>
-            </Grid>
-            <TextField disabled id="outlined-basic" label="Muu summa" variant="outlined" value={props.keypadInput} />
-            <Grid
-                direction="row"
-                justify="space-between"
-                alignItems="center"
-            >
-                <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => handleWithdrawal(props.keypadInput)}>MUU SUMMA</Button>
+                <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => handleWithdrawal(props.keypadInput)}>TEE SIIRTO</Button>
                 <Button variant="contained" size="small" onClick={() => props.setKeypadInput("")}>TYHJENNÄ</Button>
             </Grid>
         </>
     )
 }
 
-export default Withdrawal
+export default BankTransfer

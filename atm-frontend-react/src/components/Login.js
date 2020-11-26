@@ -18,7 +18,10 @@ const Login = (props) => {
             console.log(props.card)
             console.log(card.token)
             cardsService.setToken(card.token)
+            props.setMessageColor("primary")
+            props.updateMessage(`Tervetuloa ${card.owner}!`)
         } catch (exception) {
+            props.setMessageColor("secondary")
             props.updateMessage('Väärä pin-koodi!')
         }
         props.setKeypadInput("")

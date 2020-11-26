@@ -14,12 +14,13 @@ const Transactions = (props) => {
     transactions.map((transaction, index) => {
         transaction.type = transaction.amount < 0 ? "Nosto" : "Talletus"
         transaction.id = index
-        let date = new Date(transaction.time)
-        let dateStr = date.toString().toLocaleString()
+    /*    let date = new Date(transaction.time)
+        let dateStr = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
         console.log(dateStr)
-        console.log(date)
+        console.log(date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear())
         console.log(date.toLocaleString())
-        transaction.time = dateStr
+        transaction.time = `${date.toLocaleString()}`
+        console.log(transaction.time) */
     })
 
     return (
