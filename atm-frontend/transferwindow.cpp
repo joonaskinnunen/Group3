@@ -42,7 +42,9 @@ void TransferWindow::on_pushButtonOk_clicked()
     qDebug() << "Receiver account ID: " << QString::number(receiverAccountId);
     qDebug() << ui->lineEditReceiverId->text();
 
-    if(hl->checkAccount(receiverAccountId)) {
+    if (ui->lineEditAmount->text().isEmpty()) {
+            ui->labelErrorMessage->setText("Syötä summa!");
+    } else if(hl->checkAccount(receiverAccountId)) {
         QString message = cs->makeTransfer(receiverAccountId, amount);
         hide();
         ExitWindow *ewf = new ExitWindow(message);
