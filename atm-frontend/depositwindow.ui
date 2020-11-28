@@ -115,6 +115,9 @@ border-radius:5px;</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditDepositAmount">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>210</x>
@@ -125,8 +128,7 @@ border-radius:5px;</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: black;
-background-color:white;
-</string>
+background-color:white;</string>
    </property>
    <property name="text">
     <string/>
