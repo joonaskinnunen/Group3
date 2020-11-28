@@ -24,7 +24,7 @@ void Note::setAnimation()
     anim = new QPropertyAnimation(this->lbl, "geometry");
     anim->setDuration(1500);
     anim->setStartValue(lbl->geometry());
-    anim->setEndValue(QRect(260,520,190,90)); //full height 102
+    anim->setEndValue(QRect(210,520,190,90)); //full height 102
 }
 
 QLabel *Note::getLbl() const
@@ -63,6 +63,6 @@ void Note::setLoopAnim()
     loopAnim = new QPropertyAnimation(copy, "geometry");
     loopAnim->setDuration(1500);
     loopAnim->setStartValue(copy->geometry());
-    loopAnim->setEndValue(QRect(260,520,190,90)); //full height 102
+    loopAnim->setEndValue(QRect(210,520,190,90)); //full height 102
     loopAnim->setLoopCount(count -1);
 }

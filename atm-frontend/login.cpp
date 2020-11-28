@@ -12,7 +12,7 @@ Login::Login(QWidget *parent) :
     ui->labelCardId->setText("Tili: " + QString::number(cs->getCardId()));
     ui->labelWelcomeMsg->setText("Tervetuloa " + cs->getOwner() + "!");
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);

@@ -12,7 +12,7 @@ WithdrawalWindow::WithdrawalWindow(QWidget *parent) :
 
     ui->lineEditWithDrawalAmount->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditWithDrawalAmount));
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);

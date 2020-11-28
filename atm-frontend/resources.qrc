@@ -8,5 +8,6 @@
         <file>200-euro-banknote.jpg</file>
         <file>100-euro-banknote.png</file>
         <file>50-euro-banknote.png</file>
+        <file>bgwithkeypad.png</file>
     </qresource>
 </RCC>

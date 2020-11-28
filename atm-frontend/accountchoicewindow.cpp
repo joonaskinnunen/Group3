@@ -8,7 +8,7 @@ AccountChoiceWindow::AccountChoiceWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);

@@ -10,14 +10,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#centralwidget {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+   <string notr="true">#centralwidget {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QPushButton {
 border: none;
 }</string>
@@ -47,7 +47,7 @@ border: none;
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QLabel" name="labelTest">
+   <widget class="QLabel" name="labelTitle">
     <property name="geometry">
      <rect>
       <x>190</x>
@@ -92,9 +92,9 @@ border: none;
    <widget class="QPushButton" name="pushButtonLogin">
     <property name="geometry">
      <rect>
-      <x>625</x>
-      <y>295</y>
-      <width>40</width>
+      <x>619</x>
+      <y>265</y>
+      <width>51</width>
       <height>40</height>
      </rect>
     </property>
@@ -108,8 +108,8 @@ border: none;
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>524</x>
-      <y>305</y>
+      <x>529</x>
+      <y>275</y>
       <width>71</width>
       <height>21</height>
      </rect>
@@ -132,7 +132,7 @@ border: none;
     <property name="geometry">
      <rect>
       <x>510</x>
-      <y>460</y>
+      <y>410</y>
       <width>81</width>
       <height>21</height>
      </rect>
@@ -155,7 +155,7 @@ border: none;
     <property name="geometry">
      <rect>
       <x>625</x>
-      <y>450</y>
+      <y>410</y>
       <width>40</width>
       <height>40</height>
      </rect>
@@ -167,36 +167,11 @@ border: none;
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_twenty">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/20-euro-banknote.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
    <widget class="QLabel" name="label_money_hole">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>500</y>
+      <x>190</x>
+      <y>480</y>
       <width>221</width>
       <height>30</height>
      </rect>
@@ -213,8 +188,8 @@ border-radius:5px;
    <widget class="QLabel" name="label_hole_cover">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>500</y>
+      <x>170</x>
+      <y>480</y>
       <width>261</width>
       <height>21</height>
      </rect>
@@ -233,8 +208,8 @@ border-radius:5px;</string>
    <widget class="QLabel" name="label_hole_shadow">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>520</y>
+      <x>190</x>
+      <y>500</y>
       <width>221</width>
       <height>10</height>
      </rect>
@@ -249,151 +224,18 @@ border-radius:5px;</string>
      <string/>
     </property>
    </widget>
-   <widget class="QLabel" name="label_money_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/20-euro-banknote.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_fifty">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/50-euro-banknote.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_hundred">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/100-euro-banknote.png</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_twohundred">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/200-euro-banknote.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_ten">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>500</y>
-      <width>190</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>151</width>
-      <height>0</height>
-     </size>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="pixmap">
-     <pixmap resource="resources.qrc">:/atm-frontend/10-euro-banknote.jpg</pixmap>
-    </property>
-    <property name="scaledContents">
-     <bool>false</bool>
-    </property>
-   </widget>
    <zorder>label_money_hole</zorder>
    <zorder>lineEditId</zorder>
-   <zorder>labelTest</zorder>
+   <zorder>labelTitle</zorder>
    <zorder>labelErrorMessage</zorder>
    <zorder>pushButtonLogin</zorder>
    <zorder>label</zorder>
    <zorder>label_2</zorder>
    <zorder>pushButtonExit</zorder>
-   <zorder>label_twohundred</zorder>
-   <zorder>label_money_2</zorder>
-   <zorder>label_hundred</zorder>
-   <zorder>label_fifty</zorder>
-   <zorder>label_twenty</zorder>
-   <zorder>label_ten</zorder>
    <zorder>label_hole_cover</zorder>
    <zorder>label_hole_shadow</zorder>
   </widget>
  </widget>
- <resources>
-  <include location="resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

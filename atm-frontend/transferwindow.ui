@@ -7,21 +7,21 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#TransferWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+   <string notr="true">#TransferWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}</string>
   </property>
   <widget class="QLabel" name="labelTransferTitle">
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>200</y>
+     <y>160</y>
      <width>401</width>
      <height>41</height>
     </rect>
@@ -44,7 +44,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>240</y>
+     <y>200</y>
      <width>261</width>
      <height>20</height>
     </rect>
@@ -65,7 +65,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>260</y>
+     <y>220</y>
      <width>261</width>
      <height>20</height>
     </rect>
@@ -86,7 +86,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>320</y>
+     <y>280</y>
      <width>261</width>
      <height>20</height>
     </rect>
@@ -107,7 +107,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>340</y>
+     <y>300</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -126,7 +126,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>390</y>
+     <y>350</y>
      <width>261</width>
      <height>20</height>
     </rect>
@@ -147,7 +147,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>330</x>
-     <y>410</y>
+     <y>370</y>
      <width>141</width>
      <height>31</height>
     </rect>
@@ -166,7 +166,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>450</y>
+     <y>410</y>
      <width>50</width>
      <height>40</height>
     </rect>
@@ -182,7 +182,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>520</x>
-     <y>460</y>
+     <y>420</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -202,7 +202,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>200</x>
-     <y>460</y>
+     <y>420</y>
      <width>91</width>
      <height>21</height>
     </rect>
@@ -222,7 +222,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>130</x>
-     <y>450</y>
+     <y>410</y>
      <width>50</width>
      <height>40</height>
     </rect>
@@ -238,7 +238,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>290</y>
+     <y>250</y>
      <width>261</width>
      <height>20</height>
     </rect>
@@ -258,8 +258,8 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_hole_cover">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>500</y>
+     <x>170</x>
+     <y>480</y>
      <width>261</width>
      <height>21</height>
     </rect>
@@ -278,8 +278,8 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_money_hole">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>500</y>
+     <x>190</x>
+     <y>480</y>
      <width>221</width>
      <height>30</height>
     </rect>
@@ -296,8 +296,8 @@ border-radius:5px;
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>520</y>
+     <x>190</x>
+     <y>500</y>
      <width>221</width>
      <height>10</height>
     </rect>

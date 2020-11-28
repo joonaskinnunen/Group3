@@ -53,7 +53,7 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
     ui->tableViewTransactions->setColumnWidth(2, 80);
     ui->tableViewTransactions->setColumnWidth(3, 80);
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
