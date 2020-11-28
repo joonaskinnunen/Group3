@@ -7,14 +7,14 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#BalanceWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+   <string notr="true">#BalanceWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}</string>
   </property>
   <widget class="QLabel" name="labelBalance">
@@ -44,7 +44,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>450</y>
+     <y>413</y>
      <width>60</width>
      <height>45</height>
     </rect>
@@ -60,7 +60,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>510</x>
-     <y>457</y>
+     <y>420</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -79,8 +79,8 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_hole_cover">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>510</y>
+     <x>170</x>
+     <y>480</y>
      <width>261</width>
      <height>21</height>
     </rect>
@@ -99,8 +99,8 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>530</y>
+     <x>190</x>
+     <y>500</y>
      <width>221</width>
      <height>10</height>
     </rect>
@@ -118,8 +118,8 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_money_hole">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>510</y>
+     <x>190</x>
+     <y>480</y>
      <width>221</width>
      <height>30</height>
     </rect>

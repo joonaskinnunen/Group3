@@ -26,6 +26,8 @@ private slots:
 
     void on_pushButtonTransfer_clicked();
 
+    void on_pushButtonDeposit_clicked();
+
 private:
     Ui::ActionChoiceWindow *ui;
     CardSingleton *cs = CardSingleton::getInstance();
