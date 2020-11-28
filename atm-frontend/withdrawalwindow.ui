@@ -16,8 +16,7 @@
   <property name="styleSheet">
    <string notr="true">#WithdrawalWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}
-QPushButton { border: none;}
-</string>
+QPushButton { border: none;}</string>
   </property>
   <widget class="QPushButton" name="pushButtonTwenty">
    <property name="geometry">
@@ -355,6 +354,175 @@ border-radius:5px;
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="pushButtonFive">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>620</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonThree">
+   <property name="geometry">
+    <rect>
+     <x>395</x>
+     <y>585</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonOne">
+   <property name="geometry">
+    <rect>
+     <x>315</x>
+     <y>585</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonTwo">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>585</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonZero">
+   <property name="geometry">
+    <rect>
+     <x>345</x>
+     <y>685</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSeven">
+   <property name="geometry">
+    <rect>
+     <x>315</x>
+     <y>650</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonClear">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>620</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonEnter">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>650</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonCancel">
+   <property name="geometry">
+    <rect>
+     <x>440</x>
+     <y>585</y>
+     <width>61</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonEight">
+   <property name="geometry">
+    <rect>
+     <x>355</x>
+     <y>650</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonFour">
+   <property name="geometry">
+    <rect>
+     <x>315</x>
+     <y>620</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonNine">
+   <property name="geometry">
+    <rect>
+     <x>395</x>
+     <y>650</y>
+     <width>51</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButtonSix">
+   <property name="geometry">
+    <rect>
+     <x>395</x>
+     <y>620</y>
+     <width>51</width>
+     <height>35</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <zorder>pushButtonTwenty</zorder>
   <zorder>pushButtonHundred</zorder>
   <zorder>pushButtonFifty</zorder>
@@ -373,6 +541,19 @@ border-radius:5px;
   <zorder>label_money_hole</zorder>
   <zorder>label_hole_cover</zorder>
   <zorder>label_hole_shadow</zorder>
+  <zorder>pushButtonFive</zorder>
+  <zorder>pushButtonThree</zorder>
+  <zorder>pushButtonOne</zorder>
+  <zorder>pushButtonTwo</zorder>
+  <zorder>pushButtonZero</zorder>
+  <zorder>pushButtonSeven</zorder>
+  <zorder>pushButtonClear</zorder>
+  <zorder>pushButtonEnter</zorder>
+  <zorder>pushButtonCancel</zorder>
+  <zorder>pushButtonEight</zorder>
+  <zorder>pushButtonFour</zorder>
+  <zorder>pushButtonNine</zorder>
+  <zorder>pushButtonSix</zorder>
  </widget>
  <resources/>
  <connections/>

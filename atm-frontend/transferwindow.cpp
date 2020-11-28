@@ -51,3 +51,71 @@ void TransferWindow::on_pushButtonOk_clicked()
         ui->labelErrorMessage->setText("Tilinumerolla " + QString::number(receiverAccountId) + " ei löytynyt tiliä!");
     }
 }
+
+void TransferWindow::on_pushButtonOne_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("1") : ui->lineEditReceiverId->insert("1");
+}
+
+void TransferWindow::on_pushButtonTwo_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("2") : ui->lineEditReceiverId->insert("2");
+}
+
+void TransferWindow::on_pushButtonThree_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("3") : ui->lineEditReceiverId->insert("3");
+}
+
+void TransferWindow::on_pushButtonFour_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("4") : ui->lineEditReceiverId->insert("4");
+}
+
+void TransferWindow::on_pushButtonFive_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("5") : ui->lineEditReceiverId->insert("5");
+}
+
+void TransferWindow::on_pushButtonSix_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("6") : ui->lineEditReceiverId->insert("6");
+}
+
+void TransferWindow::on_pushButtonSeven_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("7") : ui->lineEditReceiverId->insert("7");
+}
+
+void TransferWindow::on_pushButtonEight_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("8") : ui->lineEditReceiverId->insert("8");
+}
+
+void TransferWindow::on_pushButtonNine_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("9") : ui->lineEditReceiverId->insert("9");
+}
+
+void TransferWindow::on_pushButtonZero_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->insert("0") : ui->lineEditReceiverId->insert("0");
+}
+void TransferWindow::on_pushButtonCancel_clicked()
+{
+    hide();
+    ExitWindow *ewf = new ExitWindow("");
+    ewf->show();
+}
+
+void TransferWindow::on_pushButtonClear_clicked()
+{
+    accountIdInputed ? ui->lineEditAmount->setText("") : ui->lineEditReceiverId->setText("");
+}
+
+void TransferWindow::on_pushButtonEnter_clicked()
+{
+    if(accountIdInputed) ui->pushButtonOk->click();
+    accountIdInputed = true;
+    ui->lineEditAmount->setFocus();
+}
