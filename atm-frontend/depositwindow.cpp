@@ -6,6 +6,11 @@ DepositWindow::DepositWindow(QWidget *parent) :
     ui(new Ui::DepositWindow)
 {
     ui->setupUi(this);
+    QPixmap pmbg(":/atm-frontend/bg.png");
+    pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, pmbg);
+    this->setPalette(palette);
 }
 
 DepositWindow::~DepositWindow()
