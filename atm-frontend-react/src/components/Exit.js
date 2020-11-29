@@ -8,6 +8,7 @@ const Exit = (props) => {
         props.setCard(null)
         props.setCardId(null)
         props.setExitMessage(null)
+        props.setIsCreditSelected(null)
     }
 
     return (

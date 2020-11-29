@@ -16,6 +16,7 @@ const AccountChoice = (props) => {
                 <Button component={Link} to="/balance" variant="contained" size="large" color="primary">SALDO</Button>
                 <Button component={Link} to="/transactions" variant="contained" size="large" color="primary">TILITAPAHTUMAT</Button>
                 <Button component={Link} to="/deposit" variant="contained" size="large" color="primary">TALLETUS</Button>
+                <Button component={Link} to="/banktransfer" variant="contained" size="large" color="primary">TILISIIRTO</Button>
             </Grid>
         </>
     )

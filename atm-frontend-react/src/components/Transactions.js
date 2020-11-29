@@ -1,6 +1,14 @@
 import { DataGrid } from '@material-ui/data-grid'
+import Button from '@material-ui/core/Button'
+import { Link } from "react-router-dom"
 
 const Transactions = (props) => {
+
+    const handleExit = () => {
+        props.setCard(null)
+        props.setCardId(null)
+        props.setMessageDivHeight("32px")
+    }
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 50 },
@@ -30,14 +38,17 @@ const Transactions = (props) => {
             console.log(transaction.time) */
     })
 
+    props.setMessageDivHeight(0)
+
     return (
         <>
             <h3>TILITAPAHTUMAT</h3>
-            <div style={{ display: 'flex', height: '250px', width: '100%' }}>
+            <div style={{ display: 'flex', height: '210px', width: '100%' }}>
                 <div style={{ flexGrow: 1 }}>
                     <DataGrid sortModel={sortModel} rows={transactions} columns={columns} pageSize={4} />
                 </div>
             </div>
+            <Button component={Link} to="/" variant="contained" size="large" color="primary" onClick={() => handleExit()}>LOPETA</Button>
         </>
     )
 }
