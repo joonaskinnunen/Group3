@@ -11,6 +11,7 @@ const Home = (props) => {
             if (card.cardId == props.keypadInput) foundedCard = card.cardId
         })
         if (foundedCard == null) {
+            props.setMessageColor("secondary")
             props.updateMessage("Virheellinen kortin numero")
         } else {
             props.setCardId(foundedCard)

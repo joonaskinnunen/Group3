@@ -41,8 +41,42 @@ h1, h2, h3 {
   outline: none !important;
 }
 
+.btn-cancel {
+  width: 62px;
+  height: 60px;
+  margin: 5px;
+  background-color: #dc1c22;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+  border: none;
+  outline: none !important;
+}
+
+.btn-clear {
+  width: 62px;
+  height: 60px;
+  margin: 5px;
+  background-color: #c2b800;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+  border: none;
+  outline: none !important;
+}
+
+.btn-enter {
+  width: 62px;
+  height: 60px;
+  margin: 5px;
+  background-color: #028e44;
+  border-radius: 10px;
+  box-shadow: 3px 3px 3px 0px rgba(0,0,0,0.75);
+  border: none;
+  outline: none !important;
+}
+
 .MuiButton-containedPrimary, .MuiButton-contained{
   margin-top: 20px !important;
+  margin-bottom: 20px !important;
 }
 
 .MuiButton-contained {

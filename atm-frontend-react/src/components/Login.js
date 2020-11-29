@@ -1,7 +1,9 @@
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
 import Grid from '@material-ui/core/Grid'
+import { Redirect } from "react-router-dom"
 import loginService from '../services/login'
+import cardsService from '../services/cards'
 
 const Login = (props) => {
 
@@ -14,7 +16,12 @@ const Login = (props) => {
             })
             props.setCard(card)
             console.log(props.card)
+            console.log(card.token)
+            cardsService.setToken(card.token)
+            props.setMessageColor("primary")
+            props.updateMessage(`Tervetuloa ${card.owner}!`)
         } catch (exception) {
+            props.setMessageColor("secondary")
             props.updateMessage('Väärä pin-koodi!')
         }
         props.setKeypadInput("")
@@ -22,6 +29,7 @@ const Login = (props) => {
 
     return (
         <>
+            {props.card != null && <Redirect to="/accountchoice" />}
             <p>Syötä pin-koodi:</p>
             <TextField disabled id="outlined-basic" label="PIN" variant="outlined" value={props.keypadInput} />
             <Grid
