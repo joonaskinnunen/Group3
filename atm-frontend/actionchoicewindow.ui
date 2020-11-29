@@ -7,21 +7,21 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#ActionChoiceWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+   <string notr="true">#ActionChoiceWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}</string>
   </property>
   <widget class="QPushButton" name="pushButtonBalance">
    <property name="geometry">
     <rect>
-     <x>128</x>
-     <y>398</y>
+     <x>130</x>
+     <y>364</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -38,7 +38,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>343</y>
+     <y>318</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -54,8 +54,8 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonWithdrawal">
    <property name="geometry">
     <rect>
-     <x>128</x>
-     <y>292</y>
+     <x>130</x>
+     <y>258</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -71,8 +71,8 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonDeposit">
    <property name="geometry">
     <rect>
-     <x>128</x>
-     <y>344</y>
+     <x>130</x>
+     <y>310</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -89,7 +89,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>292</y>
+     <y>267</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -126,7 +126,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>303</y>
+     <y>278</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -146,7 +146,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>355</y>
+     <y>320</y>
      <width>101</width>
      <height>21</height>
     </rect>
@@ -166,7 +166,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>405</y>
+     <y>370</y>
      <width>71</width>
      <height>21</height>
     </rect>
@@ -186,7 +186,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>490</x>
-     <y>303</y>
+     <y>278</y>
      <width>101</width>
      <height>21</height>
     </rect>
@@ -206,7 +206,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>460</x>
-     <y>355</y>
+     <y>322</y>
      <width>141</width>
      <height>21</height>
     </rect>
@@ -226,7 +226,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>514</x>
-     <y>455</y>
+     <y>415</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -246,7 +246,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>450</y>
+     <y>410</y>
      <width>51</width>
      <height>45</height>
     </rect>
@@ -262,8 +262,8 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_hole_cover">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>500</y>
+     <x>170</x>
+     <y>480</y>
      <width>261</width>
      <height>21</height>
     </rect>
@@ -282,8 +282,8 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>520</y>
+     <x>190</x>
+     <y>500</y>
      <width>221</width>
      <height>10</height>
     </rect>
@@ -301,8 +301,8 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_money_hole">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>500</y>
+     <x>190</x>
+     <y>480</y>
      <width>221</width>
      <height>30</height>
     </rect>

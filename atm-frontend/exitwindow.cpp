@@ -44,7 +44,7 @@ ExitWindow::ExitWindow(QString message, QWidget *parent) :
     group->start();
     if(msgColor == "green") group->start();
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);

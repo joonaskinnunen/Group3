@@ -1,5 +1,6 @@
 #include "actionchoicewindow.h"
 #include "balancewindow.h"
+#include "depositwindow.h"
 #include "transactionswindow.h"
 #include "transferwindow.h"
 #include "ui_actionchoicewindow.h"
@@ -12,7 +13,7 @@ ActionChoiceWindow::ActionChoiceWindow(QWidget *parent) :
     ui(new Ui::ActionChoiceWindow)
 {
     ui->setupUi(this);
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
@@ -60,4 +61,11 @@ void ActionChoiceWindow::on_pushButtonTransfer_clicked()
     hide();
     TransferWindow *tw = new TransferWindow();
     tw->show();
+}
+
+void ActionChoiceWindow::on_pushButtonDeposit_clicked()
+{
+    hide();
+    DepositWindow *dw = new DepositWindow();
+    dw->show();
 }

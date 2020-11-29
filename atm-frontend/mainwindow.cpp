@@ -5,6 +5,7 @@
 #include "login.h"
 #include "qmath.h"
 #include "note.h"
+#include "exitwindow.h"
 
 #include <QDebug>
 #include <QPixmap>
@@ -49,7 +50,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     ui->lineEditId->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditId));
 
-    QPixmap pmbg(":/atm-frontend/bg.png");
+    QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
@@ -115,3 +116,69 @@ void MainWindow::on_pushButtonExit_clicked()
 //    qDebug()<< "\n notes: " << notes;
 //    return notes;
 //}
+
+void MainWindow::on_pushButtonOne_clicked()
+{
+    ui->lineEditId->insert("1");
+}
+
+void MainWindow::on_pushButtonTwo_clicked()
+{
+    ui->lineEditId->insert("2");
+}
+
+void MainWindow::on_pushButtonThree_clicked()
+{
+    ui->lineEditId->insert("3");
+}
+
+void MainWindow::on_pushButtonFour_clicked()
+{
+    ui->lineEditId->insert("4");
+}
+
+void MainWindow::on_pushButtonFive_clicked()
+{
+    ui->lineEditId->insert("5");
+}
+
+void MainWindow::on_pushButtonSix_clicked()
+{
+    ui->lineEditId->insert("6");
+}
+
+void MainWindow::on_pushButtonSeven_clicked()
+{
+    ui->lineEditId->insert("7");
+}
+
+void MainWindow::on_pushButtonEight_clicked()
+{
+    ui->lineEditId->insert("8");
+}
+
+void MainWindow::on_pushButtonNine_clicked()
+{
+    ui->lineEditId->insert("9");
+}
+
+void MainWindow::on_pushButtonZero_clicked()
+{
+    ui->lineEditId->insert("0");
+}
+void MainWindow::on_pushButtonCancel_clicked()
+{
+    hide();
+    ExitWindow *ewf = new ExitWindow("");
+    ewf->show();
+}
+
+void MainWindow::on_pushButtonClear_clicked()
+{
+    ui->lineEditId->setText("");
+}
+
+void MainWindow::on_pushButtonEnter_clicked()
+{
+    ui->pushButtonLogin->click();
+}

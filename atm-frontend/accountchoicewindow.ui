@@ -7,21 +7,21 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">#AccountChoiceWindow {border-image: url(:atm-frontend/bg.png) 0 0 0 0 stretch stretch;}
+   <string notr="true">#AccountChoiceWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}</string>
   </property>
   <widget class="QPushButton" name="pushButtonDebit">
    <property name="geometry">
     <rect>
      <x>135</x>
-     <y>295</y>
+     <y>265</y>
      <width>40</width>
      <height>41</height>
     </rect>
@@ -45,7 +45,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>135</x>
-     <y>350</y>
+     <y>320</y>
      <width>40</width>
      <height>35</height>
     </rect>
@@ -68,7 +68,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>310</y>
+     <y>280</y>
      <width>61</width>
      <height>21</height>
     </rect>
@@ -88,7 +88,7 @@ QWidget { color: white;}</string>
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>350</y>
+     <y>320</y>
      <width>81</width>
      <height>31</height>
     </rect>
@@ -127,8 +127,8 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_money_hole">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>500</y>
+     <x>190</x>
+     <y>480</y>
      <width>221</width>
      <height>30</height>
     </rect>
@@ -145,8 +145,8 @@ border-radius:5px;
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>240</x>
-     <y>520</y>
+     <x>190</x>
+     <y>500</y>
      <width>221</width>
      <height>10</height>
     </rect>
@@ -164,8 +164,8 @@ border-radius:5px;
   <widget class="QLabel" name="label_hole_cover">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>500</y>
+     <x>170</x>
+     <y>480</y>
      <width>261</width>
      <height>21</height>
     </rect>
