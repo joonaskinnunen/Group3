@@ -9,6 +9,13 @@ const Transactions = (props) => {
         { field: 'type', headerName: 'Tyyppi', width: 110 }
     ]
 
+    const sortModel = [
+        {
+            field: 'id',
+            sort: 'desc'
+        },
+    ];
+
     const transactions = props.isCreditSelected ? props.card.creditTransactions : props.card.debitTransactions
 
     transactions.map((transaction, index) => {
@@ -28,7 +35,7 @@ const Transactions = (props) => {
             <h3>TILITAPAHTUMAT</h3>
             <div style={{ display: 'flex', height: '250px', width: '100%' }}>
                 <div style={{ flexGrow: 1 }}>
-                    <DataGrid rows={transactions} columns={columns} pageSize={4} />
+                    <DataGrid sortModel={sortModel} rows={transactions} columns={columns} pageSize={4} />
                 </div>
             </div>
         </>

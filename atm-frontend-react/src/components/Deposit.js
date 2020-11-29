@@ -2,26 +2,28 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import cardsService from '../services/cards'
 import TextField from '@material-ui/core/TextField'
+import { Redirect } from "react-router-dom"
 
 const Deposit = (props) => {
 
     const handleDeposit = (amount) => {
         props.setMessageColor("primary")
         if (props.isCreditSelected) {
-                cardsService.creditDeposit(amount)
-                props.updateMessage(`Talletus onnistui! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance + parseInt(amount)}€`)
-                props.setCard({ ...props.card, creditBalance: props.card.creditBalance + amount })
+            cardsService.creditDeposit(amount)
+            props.setExitMessage(`Talletus onnistui! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance + parseInt(amount)}€`)
+            props.setCard({ ...props.card, creditBalance: props.card.creditBalance + amount })
         } else {
-                cardsService.debitDeposit(amount)
-                props.updateMessage(`Talletus onnistui! Tilin saldo: ${props.card.debitBalance + parseInt(amount)}€`)
-                props.setCard({ ...props.card, debitBalance: props.card.debitBalance + amount })
+            cardsService.debitDeposit(amount)
+            props.setExitMessage(`Talletus onnistui! Tilin saldo: ${props.card.debitBalance + parseInt(amount)}€`)
+            props.setCard({ ...props.card, debitBalance: props.card.debitBalance + amount })
         }
         props.setKeypadInput("")
     }
 
     return (
         <>
-        <h3>TALLETUS</h3>
+            {props.exitMessage != null && <Redirect to="/exit" />}
+            <h3>TALLETUS</h3>
             <Grid
                 direction="row"
                 justify="space-between"

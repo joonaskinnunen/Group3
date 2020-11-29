@@ -4,6 +4,11 @@ import { Redirect } from "react-router-dom"
 
 const AccountChoice = (props) => {
 
+    const handleAccountChoice = (creditSelected) => {
+        creditSelected ? props.setIsCreditSelected(true) : props.setIsCreditSelected(false)
+        props.setMessage(null)
+    }
+
     return (
         <>
             <h3>VALITSE TILI</h3>
@@ -13,8 +18,8 @@ const AccountChoice = (props) => {
                 justify="space-between"
                 alignItems="center"
             >
-                <Button variant="contained" size="large" color="primary" onClick={() => props.setIsCreditSelected(false)}>DEBIT</Button>
-                <Button variant="contained" size="large" color="primary" onClick={() => props.setIsCreditSelected(true)}>CREDIT</Button>
+                <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(false)}>DEBIT</Button>
+                <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(true)}>CREDIT</Button>
             </Grid>
         </>
     )
