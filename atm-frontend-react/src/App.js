@@ -12,7 +12,6 @@ import Withdrawal from './components/Withdrawal'
 import Deposit from './components/Deposit'
 import Balance from './components/Balance'
 import Transactions from './components/Transactions'
-import BankTransfer from './components/BankTransfer'
 import Numpad from './components/Numpad'
 import cardsService from "./services/cards"
 import {
@@ -66,6 +65,7 @@ function App() {
           alignItems="center"
           spacing={10}>
           <h1>ATM</h1>
+          <div className="screen">
           {message && <Chip color={messageColor} label={message} icon={<ErrorIcon />}/>}
           <Router>
             <Switch>
@@ -84,9 +84,6 @@ function App() {
               <Route path="/deposit">
                 <Deposit keypadInput={keypadInput} setKeypadInput={setKeypadInput} updateMessage={updateMessage} setMessageColor={setMessageColor} card={card} setCard={setCard} isCreditSelected={isCreditSelected} />
               </Route>
-              <Route path="/banktransfer">
-                <BankTransfer keypadInput={keypadInput} setKeypadInput={setKeypadInput} updateMessage={updateMessage} setMessageColor={setMessageColor} card={card} setCard={setCard} isCreditSelected={isCreditSelected} />
-              </Route>
               <Route path="/balance">
                 <Balance card={card} isCreditSelected={isCreditSelected} />
               </Route>
@@ -98,6 +95,7 @@ function App() {
               </Route>
             </Switch>
           </Router>
+          </div>
           <Numpad numpadOnClick={numpadOnClick}></Numpad>
         </Grid>
       </Container>

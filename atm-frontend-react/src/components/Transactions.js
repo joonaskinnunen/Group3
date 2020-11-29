@@ -14,21 +14,22 @@ const Transactions = (props) => {
     transactions.map((transaction, index) => {
         transaction.type = transaction.amount < 0 ? "Nosto" : "Talletus"
         transaction.id = index
-    /*    let date = new Date(transaction.time)
-        let dateStr = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
-        console.log(dateStr)
-        console.log(date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear())
-        console.log(date.toLocaleString())
-        transaction.time = `${date.toLocaleString()}`
-        console.log(transaction.time) */
+        /*    let date = new Date(transaction.time)
+            let dateStr = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
+            console.log(dateStr)
+            console.log(date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear())
+            console.log(date.toLocaleString())
+            transaction.time = `${date.toLocaleString()}`
+            console.log(transaction.time) */
     })
 
     return (
         <>
-            <div style={{ display: 'flex', height: '300px', width: '100%' }}>
-  <div style={{ flexGrow: 1 }}>
-                <DataGrid rows={transactions} columns={columns} pageSize={5} />
-            </div>
+            <h3>TILITAPAHTUMAT</h3>
+            <div style={{ display: 'flex', height: '250px', width: '100%' }}>
+                <div style={{ flexGrow: 1 }}>
+                    <DataGrid rows={transactions} columns={columns} pageSize={4} />
+                </div>
             </div>
         </>
     )

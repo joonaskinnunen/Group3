@@ -6,6 +6,7 @@ const AccountChoice = (props) => {
 
     return (
         <>
+            <h3>VALITSE TILI</h3>
             {props.isCreditSelected != null && <Redirect to="/actionchoice" />}
             <Grid
                 direction="row"

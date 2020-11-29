@@ -29,10 +29,12 @@ const Withdrawal = (props) => {
                 props.updateMessage(`Tilin saldo ei riitä noston tekemiseen! Tilin saldo: ${props.card.debitBalance}€`)
             }
         }
+        props.setKeypadInput("")
     }
 
     return (
         <>
+        <h2>Valitse summa</h2>
             <Grid
                 direction="row"
                 justify="space-between"
