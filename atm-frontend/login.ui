@@ -34,6 +34,9 @@ QPushButton {border: none;}</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditPin">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>300</x>
@@ -46,6 +49,9 @@ QPushButton {border: none;}</string>
     <font>
      <pointsize>13</pointsize>
     </font>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: black;</string>
    </property>
    <property name="text">
     <string/>

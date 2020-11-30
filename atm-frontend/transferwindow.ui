@@ -105,6 +105,9 @@ QPushButton { border: none;}</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditReceiverId">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>330</x>
@@ -145,6 +148,9 @@ QPushButton { border: none;}</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditAmount">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>330</x>
