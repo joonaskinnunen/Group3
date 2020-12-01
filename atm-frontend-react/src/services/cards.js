@@ -26,7 +26,7 @@ const creditWithdrawal = async amount => {
     const config = {
         headers: { Authorization: token },
     }
-      const response = await axios.put(`${baseUrl}/creditwithdrawal`, amount, config)
+      const response = await axios.put(`${baseUrl}/creditwithdrawal`, {"amount": amount}, config)
       console.log(response.data)
       return response.data
 }
@@ -45,9 +45,18 @@ const creditDeposit = async amount => {
     const config = {
         headers: { Authorization: token },
     }
-      const response = await axios.put(`${baseUrl}/creditdeposit`, amount, config)
+      const response = await axios.put(`${baseUrl}/creditdeposit`, {"amount": amount}, config)
       console.log(response.data)
       return response.data
 }
 
-export default { getAll, debitWithdrawal, creditWithdrawal, debitDeposit, creditDeposit, setToken }
+const bankTransfer = async (amount, receiverId) => {
+    const config = {
+        headers: { Authorization: token },
+    }
+      const response = await axios.put(`${baseUrl}/banktransfer`, {"amount": amount, "receiverId": receiverId}, config)
+      console.log(response.data)
+      return response.data
+}
+
+export default { getAll, debitWithdrawal, creditWithdrawal, debitDeposit, creditDeposit, setToken, bankTransfer }

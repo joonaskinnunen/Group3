@@ -2,11 +2,12 @@ import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom"
 
-const Balance = (props) => {
+const Exit = (props) => {
 
     const handleExit = () => {
         props.setCard(null)
         props.setCardId(null)
+        props.setExitMessage(null)
         props.setIsCreditSelected(null)
     }
 
@@ -17,11 +18,12 @@ const Balance = (props) => {
                 justify="space-between"
                 alignItems="center"
             >
-                {props.isCreditSelected ? <h2>Luottoa käytettävissä: {props.card.creditLimit + props.card.creditBalance}€</h2> : <h2>Tilin saldo: {props.card.debitBalance}€</h2>}
+                <h3>Kiitos automaatin käytöstä!</h3>
+                <p>{props.exitMessage}</p>
                 <Button component={Link} to="/" variant="contained" size="large" color="primary" onClick={() => handleExit()}>LOPETA</Button>
             </Grid>
         </>
     )
 }
 
-export default Balance
+export default Exit

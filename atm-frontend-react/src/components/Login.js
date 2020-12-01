@@ -30,7 +30,7 @@ const Login = (props) => {
     return (
         <>
             {props.card != null && <Redirect to="/accountchoice" />}
-            <p>Syötä pin-koodi:</p>
+            <h3>Syötä pin-koodi:</h3>
             <TextField disabled id="outlined-basic" label="PIN" variant="outlined" value={props.keypadInput} />
             <Grid
                 direction="row"

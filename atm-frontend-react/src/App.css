@@ -14,25 +14,30 @@
 
 #main-grid {
   border-radius: 10px;
-  border: 5px solid #3f51b5;
-  background-color: #d3d3d3;
-  padding: 40px;
+  border: 5px solid rgb(146, 117, 45);
+  background-color: #333945;
 }
 
-h1, h2, h3 {
+h1 {
   font-family: "Roboto";
-  color: darkred;
+  color: goldenrod;
+}
+
+h2, h3 {
+  font-family: "Roboto";
+  color: white;
 }
 
 .numpad-container {
-  width: 300px;
+  width: 200px;
   height: 100%;
   margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .numpad {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   margin: 5px;
   background-color: grey;
   border-radius: 10px;
@@ -85,4 +90,14 @@ h1, h2, h3 {
 
 .MuiInputBase-input {
   color: black !important;
+}
+
+.screen {
+  margin-right: 20px;
+  margin-left: 20px;
+  background-color: #92d9f9;
+  min-height: 350px;
+  width: 80%;
+  border: solid black 4px;
+  padding-top: 20px;
 }
