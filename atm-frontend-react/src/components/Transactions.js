@@ -1,6 +1,7 @@
 import { DataGrid } from '@material-ui/data-grid'
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom"
+import cardsService from "../services/cards"
 
 const Transactions = (props) => {
 
@@ -8,6 +9,7 @@ const Transactions = (props) => {
         props.setCard(null)
         props.setCardId(null)
         props.setMessageDivHeight("32px")
+        cardsService.removeToken()
     }
 
     const columns = [
@@ -29,13 +31,13 @@ const Transactions = (props) => {
     transactions.map((transaction, index) => {
         transaction.type = transaction.amount < 0 ? "Nosto" : "Talletus"
         transaction.id = index
-        /*    let date = new Date(transaction.time)
+            let date = new Date(transaction.time)
             let dateStr = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
             console.log(dateStr)
             console.log(date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear())
             console.log(date.toLocaleString())
             transaction.time = `${date.toLocaleString()}`
-            console.log(transaction.time) */
+            console.log(transaction.time) 
     })
 
     props.setMessageDivHeight(0)

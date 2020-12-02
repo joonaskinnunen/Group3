@@ -8,7 +8,10 @@ const Home = (props) => {
     const onSubmitClick = () => {
         let foundedCard = null
         props.cards.map(card => {
-            if (card.cardId == props.keypadInput) foundedCard = card.cardId
+            if (card.cardId == props.keypadInput) {
+                foundedCard = card.cardId
+                return true
+            }
         })
         if (foundedCard == null) {
             props.setMessageColor("secondary")
@@ -22,12 +25,13 @@ const Home = (props) => {
     return (
         <>
             {props.cardId != null && <Redirect to="/login" />}
-            <p>Syötä kortin numero:</p>
+            <h3>Syötä kortin numero:</h3>
             <TextField disabled id="outlined-basic" label="Kortti ID" variant="outlined" value={props.keypadInput} />
             <Grid
                 direction="row"
-                justify="space-between"
+                justify="center"
                 alignItems="center"
+                container
             >
                 <Button variant="contained" size="large" color="primary" onClick={() => onSubmitClick()}>JATKA</Button>
                 <Button variant="contained" size="small" onClick={() => props.setKeypadInput("")}>TYHJENNÄ</Button>

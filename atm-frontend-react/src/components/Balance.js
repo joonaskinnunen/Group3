@@ -1,6 +1,7 @@
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom"
+import cardsService from "../services/cards"
 
 const Balance = (props) => {
 
@@ -8,6 +9,7 @@ const Balance = (props) => {
         props.setCard(null)
         props.setCardId(null)
         props.setIsCreditSelected(null)
+        cardsService.removeToken()
     }
 
     return (

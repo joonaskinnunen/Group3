@@ -1,6 +1,7 @@
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom"
+import cardsService from "../services/cards"
 
 const Exit = (props) => {
 
@@ -9,6 +10,7 @@ const Exit = (props) => {
         props.setCardId(null)
         props.setExitMessage(null)
         props.setIsCreditSelected(null)
+        cardsService.removeToken()
     }
 
     return (
