@@ -128,8 +128,8 @@ background-color:white;</string>
   <widget class="QPushButton" name="pushButtonFourty">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>262</y>
+     <x>113</x>
+     <y>276</y>
      <width>39</width>
      <height>33</height>
     </rect>
@@ -164,10 +164,10 @@ background-color:white;</string>
   <widget class="QPushButton" name="pushButtonTwenty">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>222</y>
-     <width>39</width>
-     <height>33</height>
+     <x>115</x>
+     <y>236</y>
+     <width>41</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
@@ -263,9 +263,9 @@ background-color:white;</string>
   <widget class="QPushButton" name="pushButtonWdCustomAmount">
    <property name="geometry">
     <rect>
-     <x>96</x>
-     <y>340</y>
-     <width>39</width>
+     <x>108</x>
+     <y>360</y>
+     <width>51</width>
      <height>33</height>
     </rect>
    </property>

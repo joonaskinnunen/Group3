@@ -48,3 +48,44 @@ void DepositWindow::on_pushButtonExit_clicked()
 {
     this->close();
 }
+
+void DepositWindow::on_pushButtonTwenty_clicked()
+{
+    QString message = cs->makeDeposit(20);
+    hide();
+    ExitWindow *ewf = new ExitWindow(message);
+    ewf->show();
+}
+
+void DepositWindow::on_pushButtonFourty_clicked()
+{
+    QString message = cs->makeDeposit(40);
+    hide();
+    ExitWindow *ewf = new ExitWindow(message);
+    ewf->show();
+}
+
+void DepositWindow::on_pushButtonFifty_clicked()
+{
+    QString message = cs->makeDeposit(50);
+    hide();
+    ExitWindow *ewf = new ExitWindow(message);
+    ewf->show();
+}
+
+void DepositWindow::on_pushButtonHundred_clicked()
+{
+    QString message = cs->makeDeposit(100);
+    hide();
+    ExitWindow *ewf = new ExitWindow(message);
+    ewf->show();
+}
+
+void DepositWindow::on_pushButtonWdCustomAmount_clicked()
+{
+    int amount = ui->lineEditDepositAmount->text().toInt();
+    QString message = cs->makeDeposit(amount);
+    hide();
+    ExitWindow *ewf = new ExitWindow(message);
+    ewf->show();
+}
