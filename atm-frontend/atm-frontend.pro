@@ -45,6 +45,7 @@ FORMS += \
     balancewindow.ui \
     depositwindow.ui \
     exitwindow.ui \
+    keypad.ui \
     login.ui \
     mainwindow.ui \
     transactionswindow.ui \
@@ -56,11 +57,20 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+#macx: LIBS += -L$$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/ -lhttpLibrary.1.0.0
 
-RESOURCES += \
-    resources.qrc \
+#INCLUDEPATH += $$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug
+#DEPENDPATH += $$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug
 
-win32: LIBS += -L$$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_MinGW_32_bit-Debug/debug/ -lhttpLibrary
+win32: LIBS += -L$$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/ -lhttpLibrary.1.0.0
 
 INCLUDEPATH += $$PWD/../Libraries/httpLibrary
 DEPENDPATH += $$PWD/../Libraries/httpLibrary
+
+macx: LIBS += -L$$PWD/../Libraries/build-httpLibrary-Desktop_Qt_5_15_0_clang_64bit-Debug/ -lhttpLibrary.1.0.0
+
+INCLUDEPATH += $$PWD/../Libraries/httpLibrary
+DEPENDPATH += $$PWD/../Libraries/httpLibrary
+
+RESOURCES += \
+    resources.qrc \
