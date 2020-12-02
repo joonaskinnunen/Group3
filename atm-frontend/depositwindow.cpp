@@ -35,8 +35,7 @@ void DepositWindow::onKeyPressed(const QString &text)
         ui->lineEditDepositAmount->setText("");
     } else if (text == "ok") {
 
-        // Vaihda tähän oikea toiminto
-        this->close();
+        this->on_pushButtonDepositCustomAmount_clicked();
 
     } else {
         ui->lineEditDepositAmount->insert(text);
@@ -81,7 +80,8 @@ void DepositWindow::on_pushButtonHundred_clicked()
     ewf->show();
 }
 
-void DepositWindow::on_pushButtonWdCustomAmount_clicked()
+
+void DepositWindow::on_pushButtonDepositCustomAmount_clicked()
 {
     int amount = ui->lineEditDepositAmount->text().toInt();
     QString message = cs->makeDeposit(amount);

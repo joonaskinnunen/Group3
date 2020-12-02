@@ -31,7 +31,7 @@ private slots:
 
     void on_pushButtonHundred_clicked();
 
-    void on_pushButtonWdCustomAmount_clicked();
+    void on_pushButtonDepositCustomAmount_clicked();
 
 private:
     Ui::DepositWindow *ui;
