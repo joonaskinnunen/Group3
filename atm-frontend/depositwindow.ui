@@ -260,7 +260,7 @@ background-color:white;</string>
     <string/>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonWdCustomAmount">
+  <widget class="QPushButton" name="pushButtonDepositCustomAmount">
    <property name="geometry">
     <rect>
      <x>108</x>
