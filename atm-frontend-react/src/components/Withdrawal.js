@@ -2,6 +2,7 @@ import Button from '@material-ui/core/Button'
 import Grid from '@material-ui/core/Grid'
 import cardsService from '../services/cards'
 import TextField from '@material-ui/core/TextField'
+import { Redirect } from "react-router-dom"
 
 const Withdrawal = (props) => {
 
@@ -10,7 +11,7 @@ const Withdrawal = (props) => {
             if (props.card.creditLimit + props.card.creditBalance > amount) {
                 cardsService.creditWithdrawal(amount)
                 props.setMessageColor("primary")
-                props.updateMessage(`Nosto onnistui! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance - amount}€`)
+                props.setExitMessage(`Nosto onnistui! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance - amount}€`)
                 props.setCard({ ...props.card, creditBalance: props.card.creditBalance - amount })
                 console.log(props.card.creditBalance)
             } else {
@@ -21,7 +22,7 @@ const Withdrawal = (props) => {
             if (props.card.debitBalance > amount) {
                 cardsService.debitWithdrawal(amount)
                 props.setMessageColor("primary")
-                props.updateMessage(`Nosto onnistui! Tilin saldo: ${props.card.debitBalance - amount}€`)
+                props.setExitMessage(`Nosto onnistui! Tilin saldo: ${props.card.debitBalance - amount}€`)
                 props.setCard({ ...props.card, debitBalance: props.card.debitBalance - amount })
                 console.log(props.card.debitBalance)
             } else {
@@ -29,10 +30,13 @@ const Withdrawal = (props) => {
                 props.updateMessage(`Tilin saldo ei riitä noston tekemiseen! Tilin saldo: ${props.card.debitBalance}€`)
             }
         }
+        props.setKeypadInput("")
     }
 
     return (
         <>
+            {props.exitMessage != null && <Redirect to="/exit" />}
+            <h2>Valitse summa</h2>
             <Grid
                 direction="row"
                 justify="space-between"

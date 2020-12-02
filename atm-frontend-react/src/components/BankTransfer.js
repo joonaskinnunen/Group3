@@ -1,48 +1,52 @@
 import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
 import cardsService from '../services/cards'
 import TextField from '@material-ui/core/TextField'
+import { Redirect } from "react-router-dom"
+import { useState } from 'react'
 
 const BankTransfer = (props) => {
 
-    const handleWithdrawal = (amount) => {
-        if (props.isCreditSelected) {
-            if (props.card.creditLimit + props.card.creditBalance > amount) {
-                cardsService.creditWithdrawal(amount)
-                props.setMessageColor("primary")
-                props.updateMessage(`Nosto onnistui! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance - amount}€`)
-                props.setCard({ ...props.card, creditBalance: props.card.creditBalance - amount })
-                console.log(props.card.creditBalance)
-            } else {
-                props.setMessageColor("secondary")
-                props.updateMessage(`Tilin saldo ei riitä noston tekemiseen! Tilillä käytettävissä: ${props.card.creditLimit + props.card.creditBalance}€`)
+    const [cardFound, setCardFound] = useState(null)
+
+    const checkAccountId = () => {
+        let found = false
+        props.cards.map(card => {
+            if (card.cardId == props.keypadInput) {
+                console.log(card.cardId)
+                console.log(props.keypadInput)
+                setCardFound(card.cardId)
+                found = true
             }
-        } else {
-            if (props.card.debitBalance > amount) {
-                cardsService.debitWithdrawal(amount)
-                props.setMessageColor("primary")
-                props.updateMessage(`Nosto onnistui! Tilin saldo: ${props.card.debitBalance - amount}€`)
-                props.setCard({ ...props.card, debitBalance: props.card.debitBalance - amount })
-                console.log(props.card.debitBalance)
-            } else {
-                props.setMessageColor("secondary")
-                props.updateMessage(`Tilin saldo ei riitä noston tekemiseen! Tilin saldo: ${props.card.debitBalance}€`)
-            }
+        })
+        if (!found) {
+            props.updateMessage("Virheellinen tilinumero!")
         }
+        props.setKeypadInput("")
+    }
+
+    const handleTransfer = (amount) => {
+        if (props.card.debitBalance > amount) {
+            cardsService.bankTransfer(amount, cardFound)
+            props.setMessageColor("primary")
+            props.setExitMessage(`Tilisiirto onnistui! Tilin saldo: ${props.card.debitBalance - amount}€`)
+            props.setCard({ ...props.card, debitBalance: props.card.debitBalance - amount })
+            console.log(props.card.debitBalance)
+        } else {
+            props.setMessageColor("secondary")
+            props.updateMessage(`Tilin saldo ei riitä noston tekemiseen! Tilin saldo: ${props.card.debitBalance}€`)
+        }
+        props.setKeypadInput("")
     }
 
     return (
-        <>
-            <TextField disabled id="outlined-basic" label="Tilinumero" variant="outlined" value={props.keypadInput} />
-            <TextField disabled id="outlined-basic" label="Summa" variant="outlined" value={props.keypadInput} />
-            <Grid
-                direction="row"
-                justify="space-between"
-                alignItems="center"
-            >
-                <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => handleWithdrawal(props.keypadInput)}>TEE SIIRTO</Button>
-                <Button variant="contained" size="small" onClick={() => props.setKeypadInput("")}>TYHJENNÄ</Button>
-            </Grid>
+        <> 
+            {props.exitMessage != null && <Redirect to="/exit" />}
+            {cardFound ? <h3>Syötä summa</h3> : <h3>Syötä tilinumero</h3>}
+            {props.exitMessage != null && <Redirect to="/exit" />}
+            <TextField disabled id="outlined-basic" variant="outlined" value={props.keypadInput} />
+            <br />
+            {cardFound ? <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => handleTransfer(props.keypadInput)}>HYVÄKSY</Button> : <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => checkAccountId(props.keypadInput)}>JATKA</Button>}
+            <Button variant="contained" size="small" onClick={() => props.setKeypadInput("")}>TYHJENNÄ</Button>
         </>
     )
 }

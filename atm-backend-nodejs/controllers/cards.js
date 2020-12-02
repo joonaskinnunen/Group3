@@ -55,10 +55,6 @@ cardsRouter.put('/debitwithdrawal', async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const card = await Card.findOne({ cardId: decodedToken.cardId })
-  console.log(card)
-  console.log(decodedToken)
-
   const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "debitBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
 
@@ -79,8 +75,6 @@ cardsRouter.put('/creditwithdrawal', async (request, response) => {
   if (!token || !decodedToken.cardId) {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
-
-  const card = await Card.findOne({ cardId: decodedToken.cardId })
 
   const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "creditBalance": -body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } };
@@ -103,8 +97,6 @@ cardsRouter.put('/debitdeposit', async (request, response) => {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
 
-  const card = await Card.findOne({ cardId: decodedToken.cardId })
-
   const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "debitBalance": body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } };
 
@@ -125,9 +117,6 @@ cardsRouter.put('/creditdeposit', async (request, response) => {
   if (!token || !decodedToken.cardId) {
     return response.status(401).json({ error: 'token missing or invalid' })
   }
-
-  const card = await Card.findOne({ cardId: decodedToken.cardId })
-
   const filter = { cardId: decodedToken.cardId };
   const update = { $inc: { "creditBalance": body.amount }, $push: { creditTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } }
 
@@ -138,6 +127,36 @@ cardsRouter.put('/creditdeposit', async (request, response) => {
       response.json(updatedCard.toJSON())
     })
     .catch(error => console.log(error))
+})
+
+cardsRouter.put('/banktransfer', async (request, response) => {
+  const body = request.body
+
+  const token = getTokenFrom(request)
+  const decodedToken = jwt.verify(token, process.env.SECRET)
+  if (!token || !decodedToken.cardId) {
+    return response.status(401).json({ error: 'token missing or invalid' })
+  }
+
+  let filter = { cardId: decodedToken.cardId };
+  let update = { $inc: { "debitBalance": -body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "-" + body.amount } } }
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+  .catch(error => console.log(error))
+
+  filter = { cardId: body.receiverId };
+  update = { $inc: { "debitBalance": body.amount }, $push: { debitTransactions: { time: new Date().toUTCString(), amount: "+" + body.amount } } }
+
+  await Card.findOneAndUpdate(filter, update, {
+    new: true
+  })
+  .then(updatedCard => {
+    response.json(updatedCard.toJSON())
+  })
+  .catch(error => console.log(error))
+
 })
 
 module.exports = cardsRouter

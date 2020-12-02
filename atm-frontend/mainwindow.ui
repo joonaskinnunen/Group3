@@ -46,7 +46,7 @@ QPushButton {border: none;}</string>
     </property>
     <property name="styleSheet">
      <string notr="true">background-color: white;
-color: black;</string>
+    color: black;</string>
     </property>
     <property name="text">
      <string/>

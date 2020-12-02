@@ -98,6 +98,9 @@ QPushButton { border: none;}</string>
    </property>
   </widget>
   <widget class="QLineEdit" name="lineEditDepositAmount">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
    <property name="geometry">
     <rect>
      <x>184</x>
@@ -113,8 +116,7 @@ QPushButton { border: none;}</string>
    </property>
    <property name="styleSheet">
     <string notr="true">color: black;
-background-color:white;
-</string>
+background-color:white;</string>
    </property>
    <property name="text">
     <string/>
