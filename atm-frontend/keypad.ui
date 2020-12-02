@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>158</width>
-    <height>224</height>
+    <width>193</width>
+    <height>166</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,9 +16,9 @@
   <widget class="QPushButton" name="btn_4">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>32</y>
-     <width>37</width>
+     <x>2</x>
+     <y>28</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -29,9 +29,9 @@
   <widget class="QPushButton" name="btn_7">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>64</y>
-     <width>37</width>
+     <x>2</x>
+     <y>56</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -44,7 +44,7 @@
     <rect>
      <x>72</x>
      <y>0</y>
-     <width>37</width>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -56,8 +56,8 @@
    <property name="geometry">
     <rect>
      <x>36</x>
-     <y>64</y>
-     <width>37</width>
+     <y>56</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -69,8 +69,8 @@
    <property name="geometry">
     <rect>
      <x>72</x>
-     <y>64</y>
-     <width>37</width>
+     <y>56</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -83,7 +83,7 @@
     <rect>
      <x>36</x>
      <y>0</y>
-     <width>37</width>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -94,9 +94,9 @@
   <widget class="QPushButton" name="btn_1">
    <property name="geometry">
     <rect>
-     <x>0</x>
+     <x>2</x>
      <y>0</y>
-     <width>37</width>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -111,8 +111,8 @@
    <property name="geometry">
     <rect>
      <x>36</x>
-     <y>32</y>
-     <width>37</width>
+     <y>28</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -124,8 +124,8 @@
    <property name="geometry">
     <rect>
      <x>72</x>
-     <y>32</y>
-     <width>37</width>
+     <y>28</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -137,8 +137,8 @@
    <property name="geometry">
     <rect>
      <x>36</x>
-     <y>96</y>
-     <width>37</width>
+     <y>86</y>
+     <width>35</width>
      <height>33</height>
     </rect>
    </property>
@@ -149,9 +149,9 @@
   <widget class="QPushButton" name="btn_ok">
    <property name="geometry">
     <rect>
-     <x>122</x>
-     <y>64</y>
-     <width>37</width>
+     <x>120</x>
+     <y>56</y>
+     <width>38</width>
      <height>33</height>
     </rect>
    </property>
@@ -162,9 +162,9 @@
   <widget class="QPushButton" name="btn_clear">
    <property name="geometry">
     <rect>
-     <x>122</x>
-     <y>32</y>
-     <width>37</width>
+     <x>120</x>
+     <y>28</y>
+     <width>38</width>
      <height>33</height>
     </rect>
    </property>
@@ -175,9 +175,9 @@
   <widget class="QPushButton" name="btn_cancel">
    <property name="geometry">
     <rect>
-     <x>122</x>
+     <x>120</x>
      <y>0</y>
-     <width>37</width>
+     <width>38</width>
      <height>33</height>
     </rect>
    </property>

@@ -47,7 +47,7 @@ private slots:
     void on_btn_ok_clicked();
 
 signals:
-    void newTextEntered(const QString &text);
+    void keyPressed(const QString &text);
 
 private:
     Ui::Keypad *ui;

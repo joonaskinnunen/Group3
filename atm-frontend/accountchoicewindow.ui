@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>800</height>
+    <width>700</width>
+    <height>700</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>700</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -20,10 +26,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonDebit">
    <property name="geometry">
     <rect>
-     <x>135</x>
-     <y>265</y>
+     <x>113</x>
+     <y>235</y>
      <width>40</width>
-     <height>41</height>
+     <height>37</height>
     </rect>
    </property>
    <property name="font">
@@ -44,10 +50,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonCredit">
    <property name="geometry">
     <rect>
-     <x>135</x>
-     <y>320</y>
+     <x>113</x>
+     <y>280</y>
      <width>40</width>
-     <height>35</height>
+     <height>33</height>
     </rect>
    </property>
    <property name="font">
@@ -67,15 +73,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>280</y>
+     <x>188</x>
+     <y>246</y>
      <width>61</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -87,15 +93,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>320</y>
+     <x>188</x>
+     <y>280</y>
      <width>81</width>
      <height>31</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -107,9 +113,9 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>340</x>
-     <y>200</y>
-     <width>121</width>
+     <x>170</x>
+     <y>134</y>
+     <width>357</width>
      <height>21</height>
     </rect>
    </property>
@@ -123,32 +129,17 @@ QWidget { color: white;}</string>
    <property name="text">
     <string>VALITSE TILI</string>
    </property>
-  </widget>
-  <widget class="QLabel" name="label_money_hole">
-   <property name="geometry">
-    <rect>
-     <x>190</x>
-     <y>480</y>
-     <width>221</width>
-     <height>30</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:black;
-border-radius:5px;
-</string>
-   </property>
-   <property name="text">
-    <string/>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>500</y>
-     <width>221</width>
-     <height>10</height>
+     <x>246</x>
+     <y>576</y>
+     <width>204</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -161,12 +152,30 @@ border-radius:5px;
     <string/>
    </property>
   </widget>
+  <widget class="QLabel" name="label_money_hole">
+   <property name="geometry">
+    <rect>
+     <x>246</x>
+     <y>562</y>
+     <width>203</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:black;
+border-radius:5px;
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
   <widget class="QLabel" name="label_hole_cover">
    <property name="geometry">
     <rect>
-     <x>170</x>
-     <y>480</y>
-     <width>261</width>
+     <x>232</x>
+     <y>562</y>
+     <width>229</width>
      <height>21</height>
     </rect>
    </property>
@@ -180,8 +189,13 @@ border-radius:5px;</string>
    <property name="text">
     <string/>
    </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/atm-frontend/hole_cover.png</pixmap>
+   </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

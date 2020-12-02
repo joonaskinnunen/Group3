@@ -24,7 +24,7 @@ void Note::setAnimation()
     anim = new QPropertyAnimation(this->lbl, "geometry");
     anim->setDuration(1500);
     anim->setStartValue(lbl->geometry());
-    anim->setEndValue(QRect(210,520,190,90)); //full height 102
+    anim->setEndValue(QRect(252,580,190,90)); //full height 102
 }
 
 QLabel *Note::getLbl() const

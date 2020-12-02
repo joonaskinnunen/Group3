@@ -17,6 +17,9 @@ public:
     explicit WithdrawalWindow(QWidget *parent = nullptr);
     ~WithdrawalWindow();
 
+public slots:
+    void onKeyPressed(const QString &text);
+
 private slots:
     void on_pushButtonTwenty_clicked();
 
@@ -29,32 +32,6 @@ private slots:
     void on_pushButtonWdCustomAmount_clicked();
 
     void on_pushButtonExit_clicked();
-
-    void on_pushButtonOne_clicked();
-
-    void on_pushButtonTwo_clicked();
-
-    void on_pushButtonThree_clicked();
-
-    void on_pushButtonCancel_clicked();
-
-    void on_pushButtonFour_clicked();
-
-    void on_pushButtonFive_clicked();
-
-    void on_pushButtonSix_clicked();
-
-    void on_pushButtonClear_clicked();
-
-    void on_pushButtonSeven_clicked();
-
-    void on_pushButtonEight_clicked();
-
-    void on_pushButtonNine_clicked();
-
-    void on_pushButtonEnter_clicked();
-
-    void on_pushButtonZero_clicked();
 
 private:
     Ui::WithdrawalWindow *ui;

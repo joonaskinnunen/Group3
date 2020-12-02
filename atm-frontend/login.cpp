@@ -3,6 +3,7 @@
 #include "httplibrary.h"
 #include "accountchoicewindow.h"
 #include "exitwindow.h"
+#include "keypad.h"
 #include<QDebug>
 
 Login::Login(QWidget *parent) :
@@ -12,6 +13,10 @@ Login::Login(QWidget *parent) :
     ui->setupUi(this);
     ui->labelCardId->setText("Tili: " + QString::number(cs->getCardId()));
     ui->labelWelcomeMsg->setText("Tervetuloa " + cs->getOwner() + "!");
+
+    Keypad *keypad = new Keypad(this);
+    connect(keypad,SIGNAL(keyPressed(const QString &)), this, SLOT(onKeyPressed(const QString &)));
+    ui->verticalLayout->addWidget(keypad);
 
     QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
@@ -26,11 +31,26 @@ Login::~Login()
     ui=nullptr;
 }
 
+void Login::onKeyPressed(const QString &text)
+{
+    if(text == "cancel") {
+        this->on_pushButtonExit_clicked();
+    } else if (text == "clear") {
+        ui->lineEditPin->setText("");
+        pin = "";
+    } else if (text == "ok") {
+        this->on_pushButtonCheckPin_clicked();
+    } else {
+        pin += text;
+        ui->lineEditPin->insert("*");
+    }
+}
+
 void Login::on_pushButtonCheckPin_clicked()
 {
     HttpLibrary *hl = new HttpLibrary;    
-    qDebug()<<"data for lib function from login: \n Card id:"+ QString::number(cs->getCardId()) << "\nPin code:" + this->ui->lineEditPin->text();
-    if(hl->checkPin(QString::number(cs->getCardId()), this->ui->lineEditPin->text())) {
+    qDebug()<<"data for lib function from login: \n Card id:"+ QString::number(cs->getCardId()) << "\nPin code:" + pin;
+    if(hl->checkPin(QString::number(cs->getCardId()), pin)) {
         hide();
         AccountChoiceWindow *acw = new AccountChoiceWindow();
         acw->show();
@@ -43,70 +63,4 @@ void Login::on_pushButtonCheckPin_clicked()
 void Login::on_pushButtonExit_clicked()
 {
     this->close();
-}
-
-void Login::on_pushButtonOne_clicked()
-{
-    ui->lineEditPin->insert("1");
-}
-
-void Login::on_pushButtonTwo_clicked()
-{
-    ui->lineEditPin->insert("2");
-}
-
-void Login::on_pushButtonThree_clicked()
-{
-    ui->lineEditPin->insert("3");
-}
-
-void Login::on_pushButtonFour_clicked()
-{
-    ui->lineEditPin->insert("4");
-}
-
-void Login::on_pushButtonFive_clicked()
-{
-    ui->lineEditPin->insert("5");
-}
-
-void Login::on_pushButtonSix_clicked()
-{
-    ui->lineEditPin->insert("6");
-}
-
-void Login::on_pushButtonSeven_clicked()
-{
-    ui->lineEditPin->insert("7");
-}
-
-void Login::on_pushButtonEight_clicked()
-{
-    ui->lineEditPin->insert("8");
-}
-
-void Login::on_pushButtonNine_clicked()
-{
-    ui->lineEditPin->insert("9");
-}
-
-void Login::on_pushButtonZero_clicked()
-{
-    ui->lineEditPin->insert("0");
-}
-void Login::on_pushButtonCancel_clicked()
-{
-    hide();
-    ExitWindow *ewf = new ExitWindow("");
-    ewf->show();
-}
-
-void Login::on_pushButtonClear_clicked()
-{
-    ui->lineEditPin->setText("");
-}
-
-void Login::on_pushButtonEnter_clicked()
-{
-    ui->pushButtonCheckPin->click();
 }
