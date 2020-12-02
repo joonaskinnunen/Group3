@@ -15,6 +15,7 @@ SOURCES += \
     cardsingleton.cpp \
     depositwindow.cpp \
     exitwindow.cpp \
+    keypad.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     cardsingleton.h \
     depositwindow.h \
     exitwindow.h \
+    keypad.h \
     login.h \
     mainwindow.h \
     note.h \
@@ -43,6 +45,7 @@ FORMS += \
     balancewindow.ui \
     depositwindow.ui \
     exitwindow.ui \
+    keypad.ui \
     login.ui \
     mainwindow.ui \
     transactionswindow.ui \

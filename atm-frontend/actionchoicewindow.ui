@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>800</height>
+    <width>700</width>
+    <height>700</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>700</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -20,10 +26,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonBalance">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>364</y>
-     <width>51</width>
-     <height>45</height>
+     <x>114</x>
+     <y>358</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -37,10 +43,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonTransactions">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>318</y>
-     <width>51</width>
-     <height>45</height>
+     <x>548</x>
+     <y>276</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -54,10 +60,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonWithdrawal">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>258</y>
-     <width>51</width>
-     <height>45</height>
+     <x>114</x>
+     <y>234</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -71,10 +77,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonDeposit">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>310</y>
-     <width>51</width>
-     <height>45</height>
+     <x>114</x>
+     <y>276</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -88,10 +94,10 @@ QWidget { color: white;}</string>
   <widget class="QPushButton" name="pushButtonTransfer">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>267</y>
-     <width>51</width>
-     <height>45</height>
+     <x>548</x>
+     <y>236</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -105,15 +111,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>310</x>
-     <y>210</y>
-     <width>201</width>
+     <x>168</x>
+     <y>132</y>
+     <width>361</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>75</weight>
      <bold>true</bold>
     </font>
@@ -121,19 +127,22 @@ QWidget { color: white;}</string>
    <property name="text">
     <string>VALITSE TOIMINTO</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>278</y>
+     <x>184</x>
+     <y>242</y>
      <width>71</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -145,15 +154,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>320</y>
+     <x>184</x>
+     <y>282</y>
      <width>101</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -165,15 +174,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>210</x>
-     <y>370</y>
+     <x>184</x>
+     <y>364</y>
      <width>71</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -185,15 +194,15 @@ QWidget { color: white;}</string>
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>490</x>
-     <y>278</y>
+     <x>414</x>
+     <y>242</y>
      <width>101</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -201,19 +210,22 @@ QWidget { color: white;}</string>
    <property name="text">
     <string>TILISIIRTO</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>460</x>
-     <y>322</y>
+     <x>374</x>
+     <y>282</y>
      <width>141</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -221,19 +233,22 @@ QWidget { color: white;}</string>
    <property name="text">
     <string>TAPAHTUMAT</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QLabel" name="label_7">
    <property name="geometry">
     <rect>
-     <x>514</x>
-     <y>415</y>
+     <x>432</x>
+     <y>364</y>
      <width>81</width>
      <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <pointsize>20</pointsize>
+     <pointsize>15</pointsize>
      <weight>50</weight>
      <bold>false</bold>
     </font>
@@ -241,14 +256,17 @@ QWidget { color: white;}</string>
    <property name="text">
     <string>LOPETA</string>
    </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
   </widget>
   <widget class="QPushButton" name="pushButtonExit">
    <property name="geometry">
     <rect>
-     <x>620</x>
-     <y>410</y>
-     <width>51</width>
-     <height>45</height>
+     <x>548</x>
+     <y>360</y>
+     <width>39</width>
+     <height>33</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -259,33 +277,13 @@ QWidget { color: white;}</string>
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_hole_cover">
-   <property name="geometry">
-    <rect>
-     <x>170</x>
-     <y>480</y>
-     <width>261</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color:#363940;
-border-radius:5px;</string>
-   </property>
-   <property name="frameShape">
-    <enum>QFrame::NoFrame</enum>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_hole_shadow">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>500</y>
-     <width>221</width>
-     <height>10</height>
+     <x>246</x>
+     <y>576</y>
+     <width>204</width>
+     <height>16</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -301,9 +299,9 @@ border-radius:5px;</string>
   <widget class="QLabel" name="label_money_hole">
    <property name="geometry">
     <rect>
-     <x>190</x>
-     <y>480</y>
-     <width>221</width>
+     <x>246</x>
+     <y>562</y>
+     <width>203</width>
      <height>30</height>
     </rect>
    </property>
@@ -316,23 +314,32 @@ border-radius:5px;
     <string/>
    </property>
   </widget>
-  <zorder>pushButtonBalance</zorder>
-  <zorder>pushButtonTransactions</zorder>
-  <zorder>pushButtonWithdrawal</zorder>
-  <zorder>pushButtonDeposit</zorder>
-  <zorder>pushButtonTransfer</zorder>
-  <zorder>label_3</zorder>
-  <zorder>label</zorder>
-  <zorder>label_2</zorder>
-  <zorder>label_4</zorder>
-  <zorder>label_5</zorder>
-  <zorder>label_6</zorder>
-  <zorder>label_7</zorder>
-  <zorder>pushButtonExit</zorder>
-  <zorder>label_money_hole</zorder>
-  <zorder>label_hole_cover</zorder>
-  <zorder>label_hole_shadow</zorder>
+  <widget class="QLabel" name="label_hole_cover">
+   <property name="geometry">
+    <rect>
+     <x>232</x>
+     <y>562</y>
+     <width>229</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:#363940;
+border-radius:5px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::NoFrame</enum>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="resources.qrc">:/atm-frontend/hole_cover.png</pixmap>
+   </property>
+  </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

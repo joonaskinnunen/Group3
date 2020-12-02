@@ -1,4 +1,5 @@
 #include "exitwindow.h"
+#include "keypad.h"
 #include "transferwindow.h"
 #include "ui_transferwindow.h"
 #include <QRegExpValidator>
@@ -8,6 +9,10 @@ TransferWindow::TransferWindow(QWidget *parent) :
     ui(new Ui::TransferWindow)
 {
     ui->setupUi(this);
+
+    Keypad *keypad = new Keypad(this);
+    connect(keypad,SIGNAL(keyPressed(const QString &)), this, SLOT(onKeyPressed(const QString &)));
+    ui->verticalLayout->addWidget(keypad);
 
     ui->lineEditAmount->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditAmount));
     ui->lineEditReceiverId->setValidator(new QRegExpValidator(QRegExp("[0-9]*"), ui->lineEditReceiverId));
@@ -28,6 +33,22 @@ TransferWindow::~TransferWindow()
 {
     delete ui;
     ui=nullptr;
+}
+
+void TransferWindow::onKeyPressed(const QString &text)
+{
+    qDebug() << "\n vastaanotto: " << text;
+    if(text == "cancel") {
+        hide();
+        ExitWindow *ewf = new ExitWindow("");
+        ewf->show();
+    } else if (text == "clear") {
+        accountIdInputed ? ui->lineEditAmount->setText("") : ui->lineEditReceiverId->setText("");
+    } else if (text == "ok") {
+        this->on_pushButtonEnter_clicked();
+    } else {
+        accountIdInputed ? ui->lineEditAmount->insert(text) : ui->lineEditReceiverId->insert(text);
+    }
 }
 
 void TransferWindow::on_pushButtonExit_clicked()
@@ -52,67 +73,6 @@ void TransferWindow::on_pushButtonOk_clicked()
     } else {
         ui->labelErrorMessage->setText("Tilinumerolla " + QString::number(receiverAccountId) + " ei löytynyt tiliä!");
     }
-}
-
-void TransferWindow::on_pushButtonOne_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("1") : ui->lineEditReceiverId->insert("1");
-}
-
-void TransferWindow::on_pushButtonTwo_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("2") : ui->lineEditReceiverId->insert("2");
-}
-
-void TransferWindow::on_pushButtonThree_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("3") : ui->lineEditReceiverId->insert("3");
-}
-
-void TransferWindow::on_pushButtonFour_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("4") : ui->lineEditReceiverId->insert("4");
-}
-
-void TransferWindow::on_pushButtonFive_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("5") : ui->lineEditReceiverId->insert("5");
-}
-
-void TransferWindow::on_pushButtonSix_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("6") : ui->lineEditReceiverId->insert("6");
-}
-
-void TransferWindow::on_pushButtonSeven_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("7") : ui->lineEditReceiverId->insert("7");
-}
-
-void TransferWindow::on_pushButtonEight_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("8") : ui->lineEditReceiverId->insert("8");
-}
-
-void TransferWindow::on_pushButtonNine_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("9") : ui->lineEditReceiverId->insert("9");
-}
-
-void TransferWindow::on_pushButtonZero_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->insert("0") : ui->lineEditReceiverId->insert("0");
-}
-void TransferWindow::on_pushButtonCancel_clicked()
-{
-    hide();
-    ExitWindow *ewf = new ExitWindow("");
-    ewf->show();
-}
-
-void TransferWindow::on_pushButtonClear_clicked()
-{
-    accountIdInputed ? ui->lineEditAmount->setText("") : ui->lineEditReceiverId->setText("");
 }
 
 void TransferWindow::on_pushButtonEnter_clicked()

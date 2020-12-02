@@ -58,6 +58,7 @@ void ActionChoiceWindow::on_pushButtonExit_clicked()
 
 void ActionChoiceWindow::on_pushButtonTransfer_clicked()
 {
+    qDebug() << "on_pushButtonTransfer_clicked";
     hide();
     TransferWindow *tw = new TransferWindow();
     tw->show();
