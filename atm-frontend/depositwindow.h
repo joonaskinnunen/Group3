@@ -1,6 +1,8 @@
 #ifndef DEPOSITWINDOW_H
 #define DEPOSITWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -21,8 +23,19 @@ public slots:
 private slots:
     void on_pushButtonExit_clicked();
 
+    void on_pushButtonTwenty_clicked();
+
+    void on_pushButtonFourty_clicked();
+
+    void on_pushButtonFifty_clicked();
+
+    void on_pushButtonHundred_clicked();
+
+    void on_pushButtonWdCustomAmount_clicked();
+
 private:
     Ui::DepositWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // DEPOSITWINDOW_H

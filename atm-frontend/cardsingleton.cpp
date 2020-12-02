@@ -107,6 +107,22 @@ QString CardSingleton::makeWithdrawal(int amount)
     }
 }
 
+QString CardSingleton::makeDeposit(int amount)
+{
+  if(this->isCreditSelected) {
+      this->setCaBalance(this->caBalance + amount);
+       hl->creditUpdate(this->caId, this->getCaBalance(), this->getCaLimit());
+      return "Talletus onnistui!\nTilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€";
+  }
+  else {
+      this->setDaBalance(this->daBalance + amount);
+       hl->debitUpdate(this->daId, this->getDaBalance());
+      return "Talletus onnistui!\nTilillä käytettävissä: " + QString::number(this->daBalance, 'f', 2) + "€";
+
+  }
+}
+
+
 QString CardSingleton::makeTransfer(int receiverId, double amount)
 {
     if(this->isCreditSelected) {
