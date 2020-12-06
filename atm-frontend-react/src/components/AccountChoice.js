@@ -15,8 +15,7 @@ const AccountChoice = (props) => {
             {props.isCreditSelected != null && <Redirect to="/actionchoice" />}
             <Grid
                 direction="row"
-                justify="space-between"
-                alignItems="center"
+                justify="center"
             >
                 <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(false)}>DEBIT</Button>
                 <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(true)}>CREDIT</Button>
