@@ -9,8 +9,9 @@ const AccountChoice = (props) => {
             <h3>VALITSE TOIMINTO</h3>
             <Grid
                 direction="row"
-                justify="space-between"
+                justify="center"
                 alignItems="center"
+                container
             >
                 <Button component={Link} to="/withdrawal" variant="contained" size="large" color="primary">NOSTO</Button>
                 <Button component={Link} to="/balance" variant="contained" size="large" color="primary">SALDO</Button>
