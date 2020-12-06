@@ -33,6 +33,7 @@ const Transactions = (props) => {
         transaction.type = transaction.amount < 0 ? "Nosto" : "Talletus"
         transaction.id = index
         transaction.time = transaction.time.toLocaleString()
+        return true
         })    
 
     props.setMessageDivHeight(0)

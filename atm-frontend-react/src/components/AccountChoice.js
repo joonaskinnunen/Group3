@@ -16,6 +16,7 @@ const AccountChoice = (props) => {
             <Grid
                 direction="row"
                 justify="center"
+                container
             >
                 <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(false)}>DEBIT</Button>
                 <Button variant="contained" size="large" color="primary" onClick={() => handleAccountChoice(true)}>CREDIT</Button>
