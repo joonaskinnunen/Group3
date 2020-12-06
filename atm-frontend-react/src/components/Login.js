@@ -14,6 +14,12 @@ const Login = (props) => {
             const card = await loginService.login({
                 cardId: cardId, pin: keypadInput
             })
+            card.creditTransactions.forEach((item) => {
+                item.time = new Date(item.time)
+            })
+            card.debitTransactions.forEach((item) => {
+                item.time = new Date(item.time)
+            })
             props.setCard(card)
             console.log(props.card)
             console.log(card.token)
