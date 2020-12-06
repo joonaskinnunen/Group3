@@ -12,7 +12,7 @@ const Login = (props) => {
             const cardId = props.cardId
             const keypadInput = props.keypadInput
             const card = await loginService.login({
-                cardId, pin: keypadInput
+                cardId: cardId, pin: keypadInput
             })
             card.creditTransactions.forEach((item) => {
                 item.time = new Date(item.time)
@@ -40,8 +40,9 @@ const Login = (props) => {
             <TextField disabled id="outlined-basic" label="PIN" variant="outlined" value={props.keypadInput} />
             <Grid
                 direction="row"
-                justify="space-between"
+                justify="center"
                 alignItems="center"
+                container
             >
                 <Button variant="contained" size="large" color="primary" onClick={() => handleLogin()}>KIRJAUDU</Button>
                 <Button variant="contained" size="small" onClick={() => props.setKeypadInput("")}>TYHJENNÄ</Button>

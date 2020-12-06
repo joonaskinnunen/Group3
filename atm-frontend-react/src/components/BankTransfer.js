@@ -12,13 +12,14 @@ const BankTransfer = (props) => {
         let found = false
         props.cards.map(card => {
             if (card.cardId == props.keypadInput) {
-                console.log(card.cardId)
+                console.log(card)
                 console.log(props.keypadInput)
-                setCardFound(card.cardId)
+                setCardFound(card)
                 found = true
             }
         })
         if (!found) {
+            props.setMessageColor("secondary")
             props.updateMessage("Virheellinen tilinumero!")
         }
         props.setKeypadInput("")
@@ -26,7 +27,7 @@ const BankTransfer = (props) => {
 
     const handleTransfer = (amount) => {
         if (props.card.debitBalance > amount) {
-            cardsService.bankTransfer(amount, cardFound)
+            cardsService.bankTransfer(amount, cardFound.cardId)
             props.setMessageColor("primary")
             props.setExitMessage(`Tilisiirto onnistui! Tilin saldo: ${props.card.debitBalance - amount}€`)
             props.setCard({ ...props.card, debitBalance: props.card.debitBalance - amount })
@@ -39,10 +40,10 @@ const BankTransfer = (props) => {
     }
 
     return (
-        <> 
+        <>
             {props.exitMessage != null && <Redirect to="/exit" />}
+            {cardFound && <p>Vastaanottaja: {cardFound.owner}. Tilinumero: {cardFound.cardId}</p>}
             {cardFound ? <h3>Syötä summa</h3> : <h3>Syötä tilinumero</h3>}
-            {props.exitMessage != null && <Redirect to="/exit" />}
             <TextField disabled id="outlined-basic" variant="outlined" value={props.keypadInput} />
             <br />
             {cardFound ? <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => handleTransfer(props.keypadInput)}>HYVÄKSY</Button> : <Button disabled={!props.keypadInput} variant="contained" color="primary" onClick={() => checkAccountId(props.keypadInput)}>JATKA</Button>}

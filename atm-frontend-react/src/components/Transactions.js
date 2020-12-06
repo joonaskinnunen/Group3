@@ -1,7 +1,8 @@
 import { DataGrid } from '@material-ui/data-grid'
 import Button from '@material-ui/core/Button'
 import { Link } from "react-router-dom"
-import {useEffect} from 'react'
+import cardsService from "../services/cards"
+
 
 const Transactions = (props) => {
 
@@ -9,6 +10,7 @@ const Transactions = (props) => {
         props.setCard(null)
         props.setCardId(null)
         props.setMessageDivHeight("32px")
+        cardsService.removeToken()
     }
 
     const columns = [
@@ -33,7 +35,8 @@ const Transactions = (props) => {
         transaction.time = transaction.time.toLocaleString()
         })    
 
-    // props.setMessageDivHeight(0)
+    props.setMessageDivHeight(0)
+
 
     return (
         <>

@@ -1,6 +1,8 @@
 #ifndef DEPOSITWINDOW_H
 #define DEPOSITWINDOW_H
 
+#include "cardsingleton.h"
+
 #include <QWidget>
 
 namespace Ui {
@@ -15,37 +17,25 @@ public:
     explicit DepositWindow(QWidget *parent = nullptr);
     ~DepositWindow();
 
+public slots:
+    void onKeyPressed(const QString &text);
+
 private slots:
-    void on_pushButtonOne_clicked();
-
-    void on_pushButtonTwo_clicked();
-
-    void on_pushButtonThree_clicked();
-
-    void on_pushButtonCancel_clicked();
-
-    void on_pushButtonFour_clicked();
-
-    void on_pushButtonFive_clicked();
-
-    void on_pushButtonSix_clicked();
-
-    void on_pushButtonClear_clicked();
-
-    void on_pushButtonSeven_clicked();
-
-    void on_pushButtonEight_clicked();
-
-    void on_pushButtonNine_clicked();
-
-    void on_pushButtonEnter_clicked();
-
-    void on_pushButtonZero_clicked();
-
     void on_pushButtonExit_clicked();
+
+    void on_pushButtonTwenty_clicked();
+
+    void on_pushButtonFourty_clicked();
+
+    void on_pushButtonFifty_clicked();
+
+    void on_pushButtonHundred_clicked();
+
+    void on_pushButtonDepositCustomAmount_clicked();
 
 private:
     Ui::DepositWindow *ui;
+    CardSingleton *cs = CardSingleton::getInstance();
 };
 
 #endif // DEPOSITWINDOW_H

@@ -9,5 +9,6 @@
         <file>100-euro-banknote.png</file>
         <file>50-euro-banknote.png</file>
         <file>bgwithkeypad.png</file>
+        <file>hole_cover.png</file>
     </qresource>
 </RCC>
