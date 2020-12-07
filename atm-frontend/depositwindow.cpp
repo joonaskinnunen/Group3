@@ -28,7 +28,6 @@ DepositWindow::~DepositWindow()
 
 void DepositWindow::onKeyPressed(const QString &text)
 {
-    qDebug() << "\n vastaanotto: " << text;
     if(text == "cancel") {
         this->on_pushButtonExit_clicked();
     } else if (text == "clear") {
@@ -83,9 +82,15 @@ void DepositWindow::on_pushButtonHundred_clicked()
 
 void DepositWindow::on_pushButtonDepositCustomAmount_clicked()
 {
+    QString message;
     int amount = ui->lineEditDepositAmount->text().toInt();
-    QString message = cs->makeDeposit(amount);
-    hide();
-    ExitWindow *ewf = new ExitWindow(message);
-    ewf->show();
+    if(amount %10 != 0) {
+        ui->labelErrorMessage->setText( "Automaatti ottaa vastaan vain 10€, 20€, 50€, 100€ tai 200€ seteleitä." );
+    } else {
+        message = cs->makeDeposit(amount);
+        hide();
+        ExitWindow *ewf = new ExitWindow(message);
+        ewf->show();
+    }
+
 }
