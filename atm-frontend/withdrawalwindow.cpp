@@ -80,10 +80,14 @@ void WithdrawalWindow::on_pushButtonHundred_clicked()
 void WithdrawalWindow::on_pushButtonWdCustomAmount_clicked()
 {
     int amount = ui->lineEditWithDrawalAmount->text().toInt();
-    QString message = cs->makeWithdrawal(amount);
-    hide();
-    ExitWindow *ewf = new ExitWindow(message);
-    ewf->show();
+    if(amount %10 != 0) {
+        ui->labelErrorMessage->setText( "Automaatti pystyy luovuttamaan vain 10€, 20€, 50€, 100€ tai 200€ seteleitä." );
+    } else {
+        QString message = cs->makeWithdrawal(amount);
+        hide();
+        ExitWindow *ewf = new ExitWindow(message);
+        ewf->show();
+    }
 }
 
 void WithdrawalWindow::on_pushButtonExit_clicked()

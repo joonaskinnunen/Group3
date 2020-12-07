@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButtonCredit_clicked();
 
+    void on_pushButtonExit_clicked();
+
 private:
     Ui::AccountChoiceWindow *ui;
     CardSingleton *cs = CardSingleton::getInstance();

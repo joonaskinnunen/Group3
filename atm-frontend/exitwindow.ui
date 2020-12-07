@@ -74,7 +74,7 @@ QWidget { color: white;}</string>
      <x>202</x>
      <y>186</y>
      <width>299</width>
-     <height>39</height>
+     <height>97</height>
     </rect>
    </property>
    <property name="font">
@@ -87,6 +87,9 @@ QWidget { color: white;}</string>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
+   </property>
+   <property name="wordWrap">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="label_7">

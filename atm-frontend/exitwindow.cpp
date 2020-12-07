@@ -3,6 +3,7 @@
 #include "ui_exitwindow.h"
 #include "qmath.h"
 #include "note.h"
+#include <QSound>
 
 ExitWindow::ExitWindow(QString message, QWidget *parent) :
     QWidget(parent),
@@ -41,8 +42,11 @@ ExitWindow::ExitWindow(QString message, QWidget *parent) :
         }
     }
 
-    group->start();
-    if(msgColor == "green") group->start();
+    if(msgColor == "green") {
+        QSound *kaching = new QSound(":/atm-frontend/cashregister.wav");
+        kaching->play();
+        group->start();
+    }
 
     QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);
