@@ -1,5 +1,6 @@
 #include "accountchoicewindow.h"
 #include "actionchoicewindow.h"
+#include "exitwindow.h"
 #include "ui_accountchoicewindow.h"
 
 AccountChoiceWindow::AccountChoiceWindow(QWidget *parent) :
@@ -34,4 +35,11 @@ void AccountChoiceWindow::on_pushButtonCredit_clicked()
     hide();
     ActionChoiceWindow *acwf = new ActionChoiceWindow();
     acwf->show();
+}
+
+void AccountChoiceWindow::on_pushButtonExit_clicked()
+{
+    hide();
+    ExitWindow *ew = new ExitWindow("");
+    ew->show();
 }
