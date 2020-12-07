@@ -10,5 +10,6 @@
         <file>50-euro-banknote.png</file>
         <file>bgwithkeypad.png</file>
         <file>hole_cover.png</file>
+        <file>cashregister.wav</file>
     </qresource>
 </RCC>
