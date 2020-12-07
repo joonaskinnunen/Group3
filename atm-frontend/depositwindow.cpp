@@ -82,12 +82,11 @@ void DepositWindow::on_pushButtonHundred_clicked()
 
 void DepositWindow::on_pushButtonDepositCustomAmount_clicked()
 {
-    QString message;
     int amount = ui->lineEditDepositAmount->text().toInt();
     if(amount %10 != 0) {
         ui->labelErrorMessage->setText( "Automaatti ottaa vastaan vain 10€, 20€, 50€, 100€ tai 200€ seteleitä." );
     } else {
-        message = cs->makeDeposit(amount);
+        QString message = cs->makeDeposit(amount);
         hide();
         ExitWindow *ewf = new ExitWindow(message);
         ewf->show();
