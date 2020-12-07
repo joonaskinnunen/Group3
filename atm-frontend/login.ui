@@ -26,11 +26,14 @@ QPushButton {border: none;}</string>
   <widget class="QLabel" name="labelErrorMessage">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>242</y>
+     <x>266</x>
+     <y>240</y>
      <width>181</width>
      <height>20</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: red;</string>
    </property>
    <property name="text">
     <string/>
@@ -45,10 +48,10 @@ QPushButton {border: none;}</string>
    </property>
    <property name="geometry">
     <rect>
-     <x>264</x>
-     <y>202</y>
-     <width>191</width>
-     <height>31</height>
+     <x>274</x>
+     <y>206</y>
+     <width>161</width>
+     <height>25</height>
     </rect>
    </property>
    <property name="font">
@@ -57,7 +60,8 @@ QPushButton {border: none;}</string>
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">color: black;</string>
+    <string notr="true">background-color: white;
+color: black;</string>
    </property>
    <property name="text">
     <string/>
@@ -70,7 +74,7 @@ QPushButton {border: none;}</string>
    <property name="geometry">
     <rect>
      <x>204</x>
-     <y>174</y>
+     <y>176</y>
      <width>299</width>
      <height>27</height>
     </rect>
@@ -111,7 +115,7 @@ QPushButton {border: none;}</string>
    <property name="geometry">
     <rect>
      <x>204</x>
-     <y>154</y>
+     <y>156</y>
      <width>299</width>
      <height>27</height>
     </rect>
@@ -137,7 +141,7 @@ QPushButton {border: none;}</string>
    <property name="geometry">
     <rect>
      <x>208</x>
-     <y>134</y>
+     <y>138</y>
      <width>293</width>
      <height>23</height>
     </rect>
