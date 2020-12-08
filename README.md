@@ -29,5 +29,5 @@ When logging in to the ATM with the "card", the user must choose which account t
 
 **Operating environment**
  - Frontend of the software is implemented using the Qt programming environment.
- - Card and account information must be stored in the MySQL database on the mysli.oamk.fi server.
+ - Card and account information is stored in the MySQL database on the mysli.oamk.fi server.
  - RestApi is made on the www.students.oamk.fi server using CodeIgniter.
