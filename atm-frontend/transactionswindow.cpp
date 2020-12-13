@@ -48,10 +48,10 @@ TransactionsWindow::TransactionsWindow(QWidget *parent) :
     }
 
     ui->tableViewTransactions->setModel(table_model);
-    ui->tableViewTransactions->setColumnWidth(0, 80);
-    ui->tableViewTransactions->setColumnWidth(1, 140);
-    ui->tableViewTransactions->setColumnWidth(2, 80);
-    ui->tableViewTransactions->setColumnWidth(3, 80);
+    ui->tableViewTransactions->setColumnWidth(0, 60);
+    ui->tableViewTransactions->setColumnWidth(1, 120);
+    ui->tableViewTransactions->setColumnWidth(2, 70);
+    ui->tableViewTransactions->setColumnWidth(3, 60);
 
     QPixmap pmbg(":/atm-frontend/bgwithkeypad.png");
     pmbg = pmbg.scaled(this->size(), Qt::IgnoreAspectRatio);

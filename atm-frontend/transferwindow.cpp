@@ -53,31 +53,34 @@ void TransferWindow::onKeyPressed(const QString &text)
 
 void TransferWindow::on_pushButtonExit_clicked()
 {
-    this->close();
+    ExitWindow *ewf = new ExitWindow("");
+    ewf->show();
 }
 
 void TransferWindow::on_pushButtonOk_clicked()
 {
-    int receiverAccountId = ui->lineEditReceiverId->text().toInt();
     int amount = ui->lineEditAmount->text().toInt();
-    qDebug() << "Receiver account ID: " << QString::number(receiverAccountId);
-    qDebug() << ui->lineEditReceiverId->text();
-
     if (ui->lineEditAmount->text().isEmpty()) {
             ui->labelErrorMessage->setText("Syötä summa!");
-    } else if(hl->checkAccount(receiverAccountId)) {
+    } else {
         QString message = cs->makeTransfer(receiverAccountId, amount);
         hide();
         ExitWindow *ewf = new ExitWindow(message);
         ewf->show();
-    } else {
-        ui->labelErrorMessage->setText("Tilinumerolla " + QString::number(receiverAccountId) + " ei löytynyt tiliä!");
     }
 }
 
 void TransferWindow::on_pushButtonEnter_clicked()
 {
-    if(accountIdInputed) ui->pushButtonOk->click();
-    accountIdInputed = true;
-    ui->lineEditAmount->setFocus();
+    receiverAccountId = ui->lineEditReceiverId->text().toInt();
+    if(!hl->checkAccount(receiverAccountId)) {
+        ui->labelErrorMessage->setText("Tilinumerolla " + QString::number(receiverAccountId) + " ei löytynyt tiliä!");
+    } else if ( receiverAccountId == cs->getDaId() ) {
+        ui->labelErrorMessage->setText("Tilisiirto samalle tilille ei ole mahdollista.");
+    }else {
+        ui->labelErrorMessage->setText("");
+        if(accountIdInputed) ui->pushButtonOk->click();
+        accountIdInputed = true;
+        ui->lineEditAmount->setFocus();
+    }
 }

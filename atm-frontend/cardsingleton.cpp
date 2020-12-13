@@ -92,7 +92,7 @@ QString CardSingleton::makeWithdrawal(int amount)
         if(this->getCaBalance() + this->getCaLimit() > amount) {
             this->setCaBalance(this->caBalance - amount);
             hl->creditUpdate(this->caId, this->getCaBalance(), this->getCaLimit());
-            return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€";
+            return "Nosto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€" + "\nTilin luottoraja: " + this->getCaLimit() + "€";
         } else {
             return "Nosto epäonnistui! Tilin luottoraja ei riitä noston tekemiseen.\nLuottoa käytettävissä: " + QString::number(this->getCaBalance() + this->getCaLimit(), 'f', 2) + "€";
         }
@@ -129,7 +129,7 @@ QString CardSingleton::makeTransfer(int receiverId, double amount)
         if(this->getCaBalance() + this->getCaLimit() > amount) {
             this->setCaBalance(this->caBalance - amount);
             hl->makeBankTransfer(this->caId, receiverId, amount);
-            return "Tilisiirto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€";
+            return "Tilisiirto onnistui! Tilillä käytettävissä: " + QString::number(this->getCaLimit() + this->caBalance, 'f', 2) + "€" + "\nTilin luottoraja: " + this->getCaLimit() + "€";
         } else {
             return "Tilisiirto epäonnistui! Tilin luottoraja ei riitä siirron tekemiseen.\nLuottoa käytettävissä: " + QString::number(this->getCaBalance() + this->getCaLimit(), 'f', 2) + "€";
         }

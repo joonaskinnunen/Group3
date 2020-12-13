@@ -33,6 +33,7 @@ private:
     CardSingleton *cs = CardSingleton::getInstance();
     HttpLibrary *hl = new HttpLibrary;
     bool accountIdInputed = false;
+    int receiverAccountId;
 };
 
 #endif // TRANSFERWINDOW_H

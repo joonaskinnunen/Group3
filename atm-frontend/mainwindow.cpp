@@ -4,6 +4,7 @@
 #include "httplibrary.h"
 #include "login.h"
 #include "keypad.h"
+#include "exitwindow.h"
 
 #include <QDebug>
 #include <QPixmap>
@@ -77,5 +78,7 @@ void MainWindow::on_pushButtonLogin_clicked()
 
 void MainWindow::on_pushButtonExit_clicked()
 {
-    this->close();
+    hide();
+    ExitWindow *ewf = new ExitWindow("");
+    ewf->show();
 }

@@ -22,7 +22,8 @@
   <property name="styleSheet">
    <string notr="true">#TransferWindow {border-image: url(:atm-frontend/bgwithkeypad.png) 0 0 0 0 stretch stretch;}
 QWidget { color: white;}
-QPushButton { border: none;}</string>
+QPushButton { border: none;}
+QLineEdit { color: black; background-color: white }</string>
   </property>
   <widget class="QLabel" name="labelTransferTitle">
    <property name="geometry">
@@ -253,9 +254,9 @@ QPushButton { border: none;}</string>
   <widget class="QLabel" name="labelErrorMessage">
    <property name="geometry">
     <rect>
-     <x>220</x>
+     <x>188</x>
      <y>192</y>
-     <width>261</width>
+     <width>331</width>
      <height>20</height>
     </rect>
    </property>
