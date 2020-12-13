@@ -4,6 +4,7 @@
 #include "qmath.h"
 #include "note.h"
 #include <QSound>
+#include <QThread>
 
 ExitWindow::ExitWindow(QString message, QWidget *parent) :
     QWidget(parent),
@@ -44,7 +45,7 @@ ExitWindow::ExitWindow(QString message, QWidget *parent) :
 
     if(msgColor == "green") {
         QSound *kaching = new QSound(":/atm-frontend/cashregister.wav");
-        kaching->play();
+        if ( cs->getAmount() > 0 ) kaching->play();
         group->start();
     }
 

@@ -14,6 +14,10 @@ AccountChoiceWindow::AccountChoiceWindow(QWidget *parent) :
     QPalette palette;
     palette.setBrush(QPalette::Background, pmbg);
     this->setPalette(palette);
+    if (cs->getCaId() == 0) {
+        this->ui->pushButtonCredit->hide();
+        this->ui->label_2->hide();
+    }
 }
 
 AccountChoiceWindow::~AccountChoiceWindow()
